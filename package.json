@@ -1,0 +1,26 @@
+{
+  "name": "team-awesome-mark",
+  "version": "1.0.0",
+  "description": "Team Awesome is a Software as a Service (SaaS) solution that can be used by organizations and their employees for planning projects, tacking time and much more!",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humanoidsbv/team-awesome-mark.git"
+  },
+  "author": "Mark",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/humanoidsbv/team-awesome-mark/issues"
+  },
+  "homepage": "https://github.com/humanoidsbv/team-awesome-mark#readme",
+  "dependencies": {
+    "next": "^12.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
