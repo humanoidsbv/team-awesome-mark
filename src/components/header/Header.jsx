@@ -9,7 +9,7 @@ export const Header = () => {
 
     return (
     <Styled.Container isActive={isActive}>
-        <Styled.Logo>Team Awesome</Styled.Logo>
+        <Styled.Logo>team awesome</Styled.Logo>
             <Styled.Menu isActive={isActive}>
                 <Styled.MenuItems>Timesheets</Styled.MenuItems>
                 <Styled.MenuItems>Team members</Styled.MenuItems>
@@ -17,7 +17,7 @@ export const Header = () => {
                 <Styled.MenuItems>Clients</Styled.MenuItems>
                 <Styled.MenuItems>Documents</Styled.MenuItems>
             </Styled.Menu>
-        <Styled.Toggle onClick={handleClick}>X</Styled.Toggle>
+        <Styled.Toggle onClick={handleClick}>x</Styled.Toggle>
     </Styled.Container>
     );
 }

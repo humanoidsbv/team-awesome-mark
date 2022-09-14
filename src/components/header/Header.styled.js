@@ -6,8 +6,9 @@ export const Container = styled.nav`
     height: 70px;
     width: 100vw;
     align-items: center;
+    font-family: 'Proxima Nova';
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 844px) {
         font-size: 30px;
         align-items: baseline;
     }
@@ -16,8 +17,12 @@ export const Container = styled.nav`
 export const Logo = styled.a`
     color: white;
     padding-left: 20px;
+    cursor: pointer;
+    font-family: 'Bello-Script';
+    font-size: 35px;
+    font-weight: light;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 844px) {
         align-items: center;
     }
 `;
@@ -35,9 +40,8 @@ export const Menu = styled.ul`
     height: calc(100vh - 70px);
     width: 100vw;
     left: ${(props) => props => (props.isActive ? "0" : "-100%")};
-    transition: 0.3s;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 844px) {
         left: 0;
         display: flex;
         flex-direction: row;
@@ -46,7 +50,6 @@ export const Menu = styled.ul`
         width: auto;
         position: static;
         align-items: center;
-        transition: 0;
         padding: 0;
     }
 `;
@@ -58,18 +61,23 @@ export const MenuItems = styled.li`
     &:hover {
         text-decoration: underline;
     }
+
+    @media screen and (min-width: 844px) {
+        padding: 1.6em;
+        font-size: 1.6em;
+    }
 `;
 
 export const Toggle = styled.button`
     color: white;
-    font-size: 10px;
+    font-size: 20px;
     background: none;
     border: none;
     cursor: pointer;
     margin-left: auto;
     padding-right: 20px;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 844px) {
         display: none;
     }
 `;
