@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
-import styles from './Header.module.css';
+import * as Styled from './Header.styled';
 
 export const Header = () => {
-    const [isMenuActive, setIsMenuActive] = useState(false);
-    const toggleMenu = () => {
-        setIsMenuActive(!isMenuActive);
+    const [isActive, setIsActive] = useState(false);
+    const handleClick = () => {
+        setIsActive(!isActive);
     }
+
     return (
-    <>
-    <header className={styles.menu}>
-        <div className={styles.logo}>Team Awesome</div>
-        <nav className={styles.navbar}>
-        <div className={styles.menu__list}>
-          <button className={styles.menu__elements}>Timesheets</button>
-          <button className={styles.menu__elements}>Timesheets</button>
-          <button className={styles.menu__elements}>Timesheets</button>
-          <button className={styles.menu__elements}>Timesheets</button>
-          <button className={styles.menu__elements}>Timesheets</button>
-        </div>
-        </nav>
-        <button className={styles.hamburger} onClick={toggleMenu}>Toggle menu</button>
-    </header>
-    </>
+    <Styled.Container isActive={true}>
+        <Styled.Logo>Team Awesome</Styled.Logo>
+        <Styled.Toggle onClick={handleClick}>x</Styled.Toggle>
+        {isActive && (
+            <Styled.Menu>
+                <Styled.MenuItems>Timesheets</Styled.MenuItems>
+                <Styled.MenuItems>Team members</Styled.MenuItems>
+                <Styled.MenuItems>Projects</Styled.MenuItems>
+                <Styled.MenuItems>Clients</Styled.MenuItems>
+                <Styled.MenuItems>Documents</Styled.MenuItems>
+            </Styled.Menu>
+        )}
+    </Styled.Container>
     );
 }
