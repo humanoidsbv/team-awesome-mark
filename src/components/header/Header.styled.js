@@ -2,29 +2,45 @@ import styled, {css} from 'styled-components';
 
 export const Container = styled.nav`
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     background: #4F88EF;
-    height: ${props => props.isActive ? "100vh" : "70px"};
+    height: 70px;
     width: 100vw;
+    align-items: center;
 
     @media screen and (min-width: 1024px) {
-        font-size: 60px;
+        font-size: 30px;
+        align-items: baseline;
     }
 `;
 
 export const Logo = styled.a`
     color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin-left: 15px;
-    margin-top: 25px;
+
+    @media screen and (min-width: 1024px) {
+        align-items: center;
+    }
 `;
 
 export const Menu = styled.ul`
     text-align: center;
     list-style-type: none;
+    position: fixed;
+    top: 70px;
+    background: #4F88EF;
+    height: calc(100vh - 70px);
+    width: 100vw;
+    left: ${(props) => props => (props.isActive ? "0" : "-100%")};
+    transition: 0.3s;
+
+    @media screen and (min-width: 1024px) {
+        left: 0;
+        display: flex;
+        height: 70px;
+        font-size: 10px;
+        width: auto;
+        position: static;
+        align-items: center;
+    }
 `;
 
 export const MenuItems = styled.li`
@@ -41,9 +57,6 @@ export const Toggle = styled.button`
     font-size: 10px;
     background: none;
     border: none;
-    position: fixed;
-    right:0;
-    top: 0;
-    margin-right: 15px;
-    margin-top: 25px;
+    cursor: pointer;
+    margin-left: auto;
 `;
