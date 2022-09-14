@@ -1,9 +1,11 @@
 import styled, {css} from 'styled-components';
 
 export const Container = styled.nav`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: #4F88EF;
-    height: ${props => props.isActive ? "fill-available" : "70px"};
-    position: fixed;
+    height: ${props => props.isActive ? "100vh" : "70px"};
     width: 100vw;
 
     @media screen and (min-width: 1024px) {
@@ -13,22 +15,21 @@ export const Container = styled.nav`
 
 export const Logo = styled.a`
     color: white;
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-left: 15px;
+    margin-top: 25px;
 `;
 
-export const Menu = styled.ol`
-    display: grid;
-    gap: 10px;
+export const Menu = styled.ul`
     text-align: center;
-    align-self: center;
-    height: 100vh;
-    align-content: space-evenly;
+    list-style-type: none;
 `;
 
 export const MenuItems = styled.li`
     cursor: pointer;
-    text-decoration: none;
-    font-size: 3em;
+    font-size: 2em;
     color: white;
     &:hover {
         text-decoration: underline;
@@ -37,9 +38,12 @@ export const MenuItems = styled.li`
 
 export const Toggle = styled.button`
     color: white;
-    font-size: 20px;
+    font-size: 10px;
     background: none;
     border: none;
-    display: inline-block;
-    float: right;
+    position: fixed;
+    right:0;
+    top: 0;
+    margin-right: 15px;
+    margin-top: 25px;
 `;
