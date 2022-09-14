@@ -8,9 +8,9 @@ export const Header = () => {
     }
 
     return (
-    <Styled.Container isActive={true}>
+    <Styled.Container isActive={isActive}>
         <Styled.Logo>Team Awesome</Styled.Logo>
-        <Styled.Toggle onClick={handleClick}>x</Styled.Toggle>
+        <Styled.Toggle onClick={handleClick}>X</Styled.Toggle>
         {isActive && (
             <Styled.Menu>
                 <Styled.MenuItems>Timesheets</Styled.MenuItems>
