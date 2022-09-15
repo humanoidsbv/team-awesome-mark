@@ -20,11 +20,22 @@
   "homepage": "https://github.com/humanoidsbv/team-awesome-mark#readme",
   "dependencies": {
     "next": "^12.3.0",
+    "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
-    "babel-plugin-inline-react-svg": "^2.0.1"
+    "@humanoids/eslint-config": "^0.0.14",
+    "@humanoids/prettier-config": "^0.0.4",
+    "@types/jest": "^29.0.2",
+    "@types/node": "^18.7.18",
+    "@types/react": "^18.0.20",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
+    "babel-plugin-inline-react-svg": "^2.0.1",
+    "eslint": "^8.23.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "typescript": "^4.8.3"
   }
 }

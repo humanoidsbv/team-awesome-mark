@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
- 
+import { createGlobalStyle } from "styled-components";
+
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
@@ -15,8 +15,12 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Proxima Nova';
     src: url(fonts/proxima-nova-regular.woff) format('woff');
-}
+  }
 
+  button {
+    background: none;
+    border: none;
+  }
 `;
- 
+
 export default GlobalStyle;

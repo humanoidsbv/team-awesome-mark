@@ -1,18 +1,18 @@
-import { Header } from '../src/components/header/';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from "styled-components";
+import { Header } from "../src/components/header";
 
-import GlobalStyle from '../src/globalStyles';
-import { theme } from '../src/styles/theme';
+import GlobalStyle from "../src/styles/global";
+import { theme } from "../src/styles/theme";
 
 const Homepage = () => {
-    return (
-        <>
-        <GlobalStyle/>
-        <ThemeProvider theme={theme}>
-            <Header/>
-        </ThemeProvider>
-        </>
-    );
-}
+  return (
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header />
+      </ThemeProvider>
+    </>
+  );
+};
 
 export default Homepage;
