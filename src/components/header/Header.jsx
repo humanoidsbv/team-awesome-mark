@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import * as Styled from './Header.styled';
+import CloseIcon from '../../../public/images/close.svg';
+import MenuIcon from '../../../public/images/menu.svg';
 
 export const Header = () => {
     const [isActive, setIsActive] = useState(false);
@@ -17,7 +19,8 @@ export const Header = () => {
                 <Styled.MenuItems>Clients</Styled.MenuItems>
                 <Styled.MenuItems>Documents</Styled.MenuItems>
             </Styled.Menu>
-        <Styled.Toggle onClick={handleClick}>x</Styled.Toggle>
+        <Styled.Toggle onClick={handleClick} isActive={isActive}><MenuIcon/></Styled.Toggle>
+        <Styled.Toggle onClick={handleClick} isActive={!isActive}><CloseIcon/></Styled.Toggle>
     </Styled.Container>
     );
 }
