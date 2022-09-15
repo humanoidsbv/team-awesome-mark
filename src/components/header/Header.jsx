@@ -19,10 +19,10 @@ export const Header = () => {
         <Styled.MenuItems>Clients</Styled.MenuItems>
         <Styled.MenuItems>Documents</Styled.MenuItems>
       </Styled.Menu>
-      <Styled.Toggle onClick={handleClick} isActive={isActive}>
+      <Styled.Toggle onClick={handleClick} isActive={!isActive}>
         <MenuIcon />
       </Styled.Toggle>
-      <Styled.Toggle onClick={handleClick} isActive={!isActive}>
+      <Styled.Toggle onClick={handleClick} isActive={isActive}>
         <CloseIcon />
       </Styled.Toggle>
     </Styled.Container>

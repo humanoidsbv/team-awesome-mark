@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
+    font-family: ${({ theme }) => theme.fontPrimary};
     margin: 0;
     padding: 0;
   }
@@ -15,6 +16,10 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Proxima Nova';
     src: url(fonts/proxima-nova-regular.woff) format('woff');
+  }
+
+  body {
+    background-color: ${({ theme }) => theme.backgroundGrey2};
   }
 
   button {

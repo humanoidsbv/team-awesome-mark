@@ -7,11 +7,6 @@ export const Container = styled.nav`
   font-family: ${({ theme }) => theme.fontPrimary};
   height: 70px;
   width: 100vw;
-
-  @media (${({ theme }) => theme.tablet}) {
-    align-items: baseline;
-    font-size: 30px;
-  }
 `;
 
 export const Logo = styled.a`
@@ -23,10 +18,6 @@ export const Logo = styled.a`
   margin-left: 0.5em;
   margin-right: 1.5em;
   white-space: nowrap;
-
-  @media (${({ theme }) => theme.tablet}) {
-    align-items: center;
-  }
 `;
 
 export const Menu = styled.ul`
@@ -58,6 +49,7 @@ export const MenuItems = styled.li`
   cursor: pointer;
   font-size: 24px;
   padding: 28px 20px 28px 20px;
+  white-space: nowrap;
   &:hover {
     text-decoration: underline;
   }
@@ -72,7 +64,7 @@ export const Toggle = styled.button`
   color: white;
   cursor: pointer;
   display: ${(props) => (props.isActive ? "none" : "block")};
-  font-size: 20px;
+  height: 12px;
   margin-left: auto;
   padding-right: 20px;
 
