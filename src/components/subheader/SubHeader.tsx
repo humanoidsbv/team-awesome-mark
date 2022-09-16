@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as Styled from "./SubHeader.styled";
-import { PrimaryButton } from "../primary-button";
+import { Button } from "../button";
 
 export const SubHeader = () => {
   const [isActive, setIsActive] = useState(false);
@@ -12,8 +12,9 @@ export const SubHeader = () => {
     <>
       <Styled.Container>
         <Styled.Title>Timesheets</Styled.Title>
+        <Styled.Divider>|</Styled.Divider>
         <Styled.Counter>12 Entries</Styled.Counter>
-        <PrimaryButton />
+        <Button label="New Time Entry" />
       </Styled.Container>
     </>
   );

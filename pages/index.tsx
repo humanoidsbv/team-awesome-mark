@@ -2,8 +2,8 @@ import { ThemeProvider } from "styled-components";
 import { Header } from "../src/components/header";
 import { SubHeader } from "../src/components/subheader";
 
-import GlobalStyle from "../src/styles/global";
-import { theme } from "../src/styles/theme";
+import GlobalStyle from "../src/styles/global.ts";
+import { theme } from "../src/styles/theme.ts";
 
 const Homepage = () => {
   return (

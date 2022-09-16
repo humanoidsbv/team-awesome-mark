@@ -11,13 +11,27 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 20px 0px 20px 0px;
   width: 100%;
+
+  @media (${({ theme }) => theme.tablet}) {
+    flex-wrap: nowrap;
+  }
 `;
 
 export const Counter = styled.p`
-  color: grey;
+  color: ${({ theme }) => theme.colorGrey5};
   font-family: ${({ theme }) => theme.fontPrimary};
   font-size: 14px;
   margin: 0px 20px 0px 20px;
+`;
+
+export const Divider = styled.p`
+  color: ${({ theme }) => theme.colorGrey5};
+  font-size: 25px;
+  display: none;
+
+  @media (${({ theme }) => theme.tablet}) {
+    display: block;
+  }
 `;
 
 export const Title = styled.h2`
