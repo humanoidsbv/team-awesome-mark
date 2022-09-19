@@ -56,7 +56,6 @@ export const MenuItems = styled.li`
 
   @media (${({ theme }) => theme.tablet}) {
     font-size: 14px;
-    margin: 1.5em;
   }
 `;
 
