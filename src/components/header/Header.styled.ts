@@ -4,7 +4,7 @@ type HeaderProps = {
   isActive: boolean;
 };
 
-export const Container = styled.nav`
+export const Container = styled.nav<HeaderProps>`
   align-items: center;
   background: ${({ theme }) => theme.backgroundSecondary};
   display: flex;
@@ -62,10 +62,9 @@ export const MenuItems = styled.li`
   }
 `;
 
-export const Toggle = styled.button<HeaderProps>`
+export const Toggle = styled.button`
   color: white;
   cursor: pointer;
-  display: ${(props) => (props.isActive ? "none" : "block")};
   margin-left: auto;
   padding-right: 30px;
 

@@ -13,7 +13,7 @@ export const SubHeader = ({ label = "Timesheets", entries = 0, onClick }: SubHea
       <Styled.Title>{label}</Styled.Title>
       <Styled.Divider>|</Styled.Divider>
       <Styled.Counter>{entries} Entries</Styled.Counter>
-      <Button plusIcon label="New Time Entry" onClick={onClick} />
+      <Button plusIcon variant="primary" label="New Time Entry" onClick={onClick} />
     </Styled.Container>
   );
 };
