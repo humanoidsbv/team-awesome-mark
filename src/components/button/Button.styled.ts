@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 type ButtonProps = {
-  primary: boolean;
+  variant: string;
 };
 
 export const Button = styled.button<ButtonProps>`
@@ -12,7 +12,7 @@ export const Button = styled.button<ButtonProps>`
   gap: 15px;
   height: 40px;
   justify-content: center;
-  margin: 0px 20px 0px 20px;
+  margin-top: 20px;
   width: 100%;
 
   ${({ variant }) =>
@@ -41,7 +41,8 @@ export const Button = styled.button<ButtonProps>`
     `}
 
   @media (${({ theme }) => theme.tablet}) {
-    max-width: 190px;
     margin-left: auto;
+    margin-top: 0;
+    max-width: 190px;
   }
 `;

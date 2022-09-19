@@ -3,7 +3,7 @@ import PlusIcon from "../../../public/images/plus.svg";
 
 interface ButtonProps {
   label: string;
-  onClick: () => false;
+  onClick: boolean;
   variant?: "primary" | "secondary";
   plusIcon: boolean;
 }
