@@ -35,7 +35,6 @@ export const Divider = styled.p`
 `;
 
 export const Title = styled.h2`
-  color: black;
   font-family: ${({ theme }) => theme.fontPrimary};
   font-size: 18px;
 `;
