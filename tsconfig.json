@@ -101,7 +101,7 @@
     "**/*.tsx",
     "pages/_document.tsx",
     "pages/index.jsx",
-    "src/components/header/Header.jsx"
+    "src/components/header/Header.tsx"
   ],
   "exclude": ["node_modules"]
 }
