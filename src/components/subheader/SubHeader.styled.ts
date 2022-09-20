@@ -8,6 +8,7 @@ export const Container = styled.div`
   flex-wrap: wrap;
   font-family: ${({ theme }) => theme.fontPrimary};
   justify-content: space-between;
+  margin-bottom: 40px;
   padding: 20px;
   width: 100%;
 

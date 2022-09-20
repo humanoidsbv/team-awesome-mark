@@ -1,21 +1,28 @@
+import { useState } from "react";
 import * as Styled from "./TimeEntry.styled";
 import BinIcon from "../../../public/images/bin.svg";
+import mockTimeEntries from "../../fixtures/mockTimeEntries";
 
-interface TimeEntryProps {
-  onClick: () => void;
-  client: string;
-  time: string;
-}
+export const TimeEntry = () => {
+  const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
 
-export const TimeEntry = ({ onClick, client, time, totalTime }: TimeEntryProps) => (
-  <Styled.Container>
-    <Styled.Client>Port of Rotterdam{client}</Styled.Client>
-    <Styled.TimeContainer>
-      <Styled.Time>09:00 - 17:00{time}</Styled.Time>
-      <Styled.TotalTime>08:00{totalTime}</Styled.TotalTime>
-    </Styled.TimeContainer>
-    <Styled.Button onClick={onClick}>
-      <BinIcon />
-    </Styled.Button>
-  </Styled.Container>
-);
+  return (
+    <>
+      {timeEntries.map((timeEntry) => (
+        <Styled.Container key={timeEntry.id}>
+          <Styled.Client>{timeEntry.client}</Styled.Client>
+          <Styled.TimeContainer>
+            <Styled.Time>
+              {timeEntry.startTimestamp}
+              {timeEntry.stopTimestamp}
+            </Styled.Time>
+            <Styled.TotalTime>08:00</Styled.TotalTime>
+          </Styled.TimeContainer>
+          <Styled.Button>
+            <BinIcon />
+          </Styled.Button>
+        </Styled.Container>
+      ))}
+    </>
+  );
+};

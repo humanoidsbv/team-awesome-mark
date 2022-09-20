@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-// type TimeEntryProps = {
-//   onClick: () => void;
-// };
-
 export const Button = styled.button`
   margin-left: 25px;
 `;
@@ -18,7 +14,7 @@ export const Container = styled.div`
   align-items: center;
   max-width: 1080px;
   background-color: ${({ theme }) => theme.backgroundPrimary};
-  margin: 10px;
+  margin: 0 10px;
   border-left: 4px solid #4f88ef;
   outline: ${({ theme }) => theme.borderPrimary};
   border-radius: 4px;
