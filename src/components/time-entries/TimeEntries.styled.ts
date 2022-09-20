@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  @media (${({ theme }) => theme.tablet}) {
+    display: grid;
+    justify-content: center;
+  }
+`;
 
 export const Section = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 20px;
+  margin: 0 10px 20px 10px;
 `;
 
 export const Time = styled.p`

@@ -9,16 +9,22 @@ export const Client = styled.p`
 `;
 
 export const Container = styled.div`
+  align-items: center;
+  background-color: ${({ theme }) => theme.backgroundPrimary};
+  border-left: 4px solid #4f88ef;
+  border-radius: 4px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  max-width: 1080px;
-  background-color: ${({ theme }) => theme.backgroundPrimary};
   margin: 0 10px;
-  border-left: 4px solid #4f88ef;
   outline: ${({ theme }) => theme.borderPrimary};
-  border-radius: 4px;
   padding: 20px;
+
+  @media (${({ theme }) => theme.tablet}) {
+    min-width: 655px;
+
+  @media (${({ theme }) => theme.desktop}) {
+    min-width: 1080px;
+  }
 `;
 
 export const Time = styled.p`
