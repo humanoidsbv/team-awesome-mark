@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.nav`
+type HeaderProps = {
+  isActive: boolean;
+};
+
+export const Container = styled.nav<HeaderProps>`
   align-items: center;
   background: ${({ theme }) => theme.backgroundSecondary};
   display: flex;
   font-family: ${({ theme }) => theme.fontPrimary};
   height: 70px;
   width: 100vw;
-
-  @media (${({ theme }) => theme.tablet}) {
-    align-items: baseline;
-    font-size: 30px;
-  }
 `;
 
 export const Logo = styled.a`
@@ -20,16 +19,11 @@ export const Logo = styled.a`
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 26px;
   font-weight: light;
-  margin-left: 0.5em;
-  margin-right: 1.5em;
+  padding: 0 30px;
   white-space: nowrap;
-
-  @media (${({ theme }) => theme.tablet}) {
-    align-items: center;
-  }
 `;
 
-export const Menu = styled.ul`
+export const Menu = styled.ul<HeaderProps>`
   background: ${({ theme }) => theme.backgroundSecondary};
   display: ${(props) => (props.isActive ? "none" : "block")};
   flex-direction: column;
@@ -58,23 +52,21 @@ export const MenuItems = styled.li`
   cursor: pointer;
   font-size: 24px;
   padding: 28px 20px 28px 20px;
+  white-space: nowrap;
   &:hover {
     text-decoration: underline;
   }
 
   @media (${({ theme }) => theme.tablet}) {
     font-size: 14px;
-    margin: 1.5em;
   }
 `;
 
 export const Toggle = styled.button`
   color: white;
   cursor: pointer;
-  display: ${(props) => (props.isActive ? "none" : "block")};
-  font-size: 20px;
   margin-left: auto;
-  padding-right: 20px;
+  padding-right: 30px;
 
   @media (${({ theme }) => theme.tablet}) {
     display: none;
