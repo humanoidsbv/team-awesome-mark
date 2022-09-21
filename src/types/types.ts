@@ -1,5 +1,6 @@
 export interface EntryProps {
+  id: number;
   client: string;
   startTime: string;
-  stopTime: string;
+  endTime: string;
 }

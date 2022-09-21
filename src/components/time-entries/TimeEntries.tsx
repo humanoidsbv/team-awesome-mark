@@ -4,7 +4,7 @@ import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
 
 export const TimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState([]);
+  const [timeEntries, setTimeEntries] = useState<Types.EntryProps[]>([]);
 
   async function getTimeEntries(): Promise<Types.EntryProps[]> {
     const response = await fetch("http://localhost:3004/time-entries", {
@@ -32,7 +32,7 @@ export const TimeEntries = () => {
         id: 11,
         client: "Rijksmuseum",
         startTime: "2022-09-24T04:00:00.000Z",
-        stopTime: "2022-09-26T10:00:00.000Z",
+        endTime: "2022-09-26T10:00:00.000Z",
       },
     ]);
   };
@@ -65,7 +65,7 @@ export const TimeEntries = () => {
                 <TimeEntry
                   client={timeEntry.client}
                   startTime={timeEntry.startTime}
-                  stopTime={timeEntry.stopTime}
+                  endTime={timeEntry.endTime}
                 />
               </div>
             );
