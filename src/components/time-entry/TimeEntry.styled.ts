@@ -21,6 +21,7 @@ export const Container = styled.div`
 
   @media (${({ theme }) => theme.tablet}) {
     min-width: 655px;
+  }
 
   @media (${({ theme }) => theme.desktop}) {
     min-width: 1080px;

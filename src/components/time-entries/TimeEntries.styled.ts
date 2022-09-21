@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Section = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 0 10px 20px 10px;
+  margin: 40px 10px 20px 10px;
 `;
 
 export const Time = styled.p`

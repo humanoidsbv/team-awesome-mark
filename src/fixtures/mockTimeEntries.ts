@@ -55,7 +55,7 @@ const mockTimeEntries = [
   },
   {
     id: 10,
-    client: "Humanoids",
+    client: "HEMA",
     startTimestamp: "2022-04-24T07:00:00.000Z",
     stopTimestamp: "2022-04-25T10:00:00.000Z",
   },

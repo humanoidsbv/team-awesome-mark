@@ -16,31 +16,47 @@ export const TimeEntries = () => {
       },
     ]);
   };
-  const date = new Date();
-  const today = date.toLocaleString("en-GB", { weekday: "long", month: "numeric", day: "numeric" });
-  console.log(today);
 
   return (
     <>
       <Styled.Container>
-        <Styled.Section>
-          <Styled.Weekday>{today}</Styled.Weekday>
-          <Styled.Time>08:00</Styled.Time>
-        </Styled.Section>
-        {timeEntries.map((timeEntry, index) => {
-          //Unfinished code
-          const startDate = new Date(timeEntry.startTimestamp);
+        {timeEntries
+          .sort(
+            (a, b) => new Date(b.startTimestamp).valueOf() - new Date(a.stopTimestamp).valueOf(),
+          )
+          .map((timeEntry, i) => {
+            const currentDate = new Date(timeEntry.startTimestamp).toLocaleDateString("en-GB", {
+              weekday: "long",
+              month: "numeric",
+              day: "numeric",
+            });
+            const previousDate = new Date(timeEntries[i - 1]?.startTimestamp).toLocaleDateString(
+              "en-GB",
+              {
+                weekday: "long",
+                month: "numeric",
+                day: "numeric",
+              },
+            );
 
-          return (
-            <TimeEntry
-              client={timeEntry.client}
-              key={timeEntry.id}
-              startTime={timeEntry.startTimestamp}
-              stopTime={timeEntry.stopTimestamp}
-              startDate={startDate}
-            />
-          );
-        })}
+            return (
+              <>
+                {previousDate !== currentDate && (
+                  <Styled.Section>
+                    <Styled.Weekday>{currentDate}</Styled.Weekday>
+                    <Styled.Time>08:00</Styled.Time>
+                  </Styled.Section>
+                )}
+                <TimeEntry
+                  client={timeEntry.client}
+                  key={timeEntry.id}
+                  startTime={timeEntry.startTimestamp}
+                  stopTime={timeEntry.stopTimestamp}
+                />
+              </>
+            );
+          })}
+
         <button onClick={handleClick}>Add time entry</button>
       </Styled.Container>
     </>
