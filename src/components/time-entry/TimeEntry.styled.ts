@@ -34,11 +34,11 @@ export const Time = styled.p`
 `;
 
 export const TimeContainer = styled.div`
-  text-align: right;
   margin-left: auto;
+  text-align: right;
 `;
 
 export const TotalTime = styled.p`
-  font-size: 14px;
   color: ${({ theme }) => theme.colorGrey5};
+  font-size: 14px;
 `;

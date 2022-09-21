@@ -3,14 +3,13 @@ import PlusIcon from "../../../public/images/plus.svg";
 
 interface ButtonProps {
   label: string;
-  onClick: boolean;
-  variant?: "primary" | "secondary";
   plusIcon: boolean;
+  variant?: "primary" | "secondary";
 }
 
-export const Button = ({ onClick, plusIcon, label, variant = "primary" }: ButtonProps) => (
-  <Styled.Button onClick={onClick} variant={variant}>
-    {plusIcon ? <PlusIcon /> : null}
+export const Button = ({ plusIcon, label, variant = "primary" }: ButtonProps) => (
+  <Styled.Button variant={variant}>
+    {plusIcon && <PlusIcon />}
     {label}
   </Styled.Button>
 );

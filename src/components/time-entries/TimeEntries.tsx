@@ -9,7 +9,7 @@ export const TimeEntries = () => {
     setTimeEntries([
       ...timeEntries,
       {
-        id: Math.random(),
+        id: 11,
         client: "Rijksmuseum",
         startTimestamp: "2022-09-24T04:00:00.000Z",
         stopTimestamp: "2022-09-26T10:00:00.000Z",
@@ -22,25 +22,22 @@ export const TimeEntries = () => {
       <Styled.Container>
         {timeEntries
           .sort(
-            (a, b) => new Date(b.startTimestamp).valueOf() - new Date(a.stopTimestamp).valueOf(),
+            (a, b) => new Date(b.startTimestamp).valueOf() - new Date(a.startTimestamp).valueOf(),
           )
-          .map((timeEntry, i) => {
+          .map((timeEntry, i, arr) => {
             const currentDate = new Date(timeEntry.startTimestamp).toLocaleDateString("en-GB", {
               weekday: "long",
               month: "numeric",
               day: "numeric",
             });
-            const previousDate = new Date(timeEntries[i - 1]?.startTimestamp).toLocaleDateString(
-              "en-GB",
-              {
-                weekday: "long",
-                month: "numeric",
-                day: "numeric",
-              },
-            );
+            const previousDate = new Date(arr[i - 1]?.startTimestamp).toLocaleDateString("en-GB", {
+              weekday: "long",
+              month: "numeric",
+              day: "numeric",
+            });
 
             return (
-              <>
+              <div key={timeEntry.id}>
                 {previousDate !== currentDate && (
                   <Styled.Section>
                     <Styled.Weekday>{currentDate}</Styled.Weekday>
@@ -49,11 +46,10 @@ export const TimeEntries = () => {
                 )}
                 <TimeEntry
                   client={timeEntry.client}
-                  key={timeEntry.id}
                   startTime={timeEntry.startTimestamp}
                   stopTime={timeEntry.stopTimestamp}
                 />
-              </>
+              </div>
             );
           })}
 

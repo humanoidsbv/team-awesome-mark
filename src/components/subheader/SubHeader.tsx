@@ -2,18 +2,17 @@ import * as Styled from "./SubHeader.styled";
 import { Button } from "../button";
 
 interface SubHeaderProps {
-  label: string;
   entries: number;
-  onClick: boolean;
+  label: string;
 }
 
-export const SubHeader = ({ label = "Timesheets", entries = 0, onClick }: SubHeaderProps) => {
+export const SubHeader = ({ label, entries }: SubHeaderProps) => {
   return (
     <Styled.Container>
       <Styled.Title>{label}</Styled.Title>
       <Styled.Divider>|</Styled.Divider>
       <Styled.Counter>{entries} Entries</Styled.Counter>
-      <Button plusIcon variant="primary" label="New Time Entry" onClick={onClick} />
+      <Button plusIcon variant="primary" label="New Time Entry" />
     </Styled.Container>
   );
 };

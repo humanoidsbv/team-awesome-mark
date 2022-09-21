@@ -3,8 +3,8 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
-    font-family: ${({ theme }) => theme.fontPrimary};
     color: ${({ theme }) => theme.colorGrey6};
+    font-family: ${({ theme }) => theme.fontPrimary};
     margin: 0;
     padding: 0;
   }

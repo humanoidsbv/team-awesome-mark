@@ -17,7 +17,7 @@ export const theme = {
   fontSecondary: "Bello Script",
 
   // Breakpoints
-  tablet: "min-width: 720px",
   desktop: "min-width: 1024px",
   desktopL: "min-width: 1440px",
+  tablet: "min-width: 720px",
 };

@@ -3,8 +3,8 @@ import { Header } from "../src/components/header";
 import { SubHeader } from "../src/components/subheader";
 import { TimeEntries } from "../src/components/time-entries";
 
-import GlobalStyle from "../src/styles/global.ts";
-import { theme } from "../src/styles/theme.ts";
+import GlobalStyle from "../src/styles/global";
+import { theme } from "../src/styles/theme";
 
 const Homepage = () => {
   return (
@@ -12,7 +12,7 @@ const Homepage = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
-        <SubHeader />
+        <SubHeader entries={0} label="Timesheets" />
         <TimeEntries />
       </ThemeProvider>
     </>
