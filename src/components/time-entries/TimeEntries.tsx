@@ -2,20 +2,12 @@ import { TimeEntry } from "../time-entry/TimeEntry";
 import { useState, useEffect } from "react";
 import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
+import { getTimeEntries } from "../../services/time-entries/getTimeEntries";
 
 export const TimeEntries = () => {
   const [timeEntries, setTimeEntries] = useState<Types.EntryProps[]>([]);
 
-  async function getTimeEntries(): Promise<Types.EntryProps[]> {
-    const response = await fetch("http://localhost:3004/time-entries", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    return response.json();
-  }
+  getTimeEntries();
 
   async function fetchTimeEntries() {
     setTimeEntries(await getTimeEntries());
@@ -41,7 +33,7 @@ export const TimeEntries = () => {
     <>
       <Styled.Container>
         {timeEntries
-          .sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
+          ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
           .map((timeEntry, i, arr) => {
             const currentDate = new Date(timeEntry.startTime).toLocaleDateString("en-GB", {
               weekday: "long",
