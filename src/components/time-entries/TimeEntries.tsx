@@ -21,7 +21,7 @@ export const TimeEntries = () => {
     setTimeEntries([
       ...timeEntries,
       {
-        id: 11,
+        id: Math.random(),
         client: "Rijksmuseum",
         startTime: "2022-09-24T04:00:00.000Z",
         endTime: "2022-09-26T10:00:00.000Z",
