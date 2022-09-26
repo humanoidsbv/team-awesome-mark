@@ -1,23 +1,25 @@
 import { TimeEntry } from "../time-entry/TimeEntry";
+import { TimeEntryModal } from "../time-entry-modal/TimeEntryModal";
 import { useState } from "react";
 import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
 
 export const TimeEntries = ({ timeEntriesAtBuild }: Types.HomepageProps) => {
   const [timeEntries, setTimeEntries] = useState<Types.TimeEntryProps[]>(timeEntriesAtBuild);
+  const [isModalActive, setIsModalActive] = useState(false);
 
-  const handleClick = () => {
-    setTimeEntries([
-      ...timeEntries,
-      {
-        id: Math.random(),
-        client: "Rijksmuseum",
-        startTime: "2022-09-24T04:00:00.000Z",
-        endTime: "2022-09-26T10:00:00.000Z",
-        activity: "Development",
-      },
-    ]);
-  };
+  // const onClick = () => {
+  //   setTimeEntries([
+  //     ...timeEntries,
+  //     {
+  //       id: Math.random(),
+  //       client: "Rijksmuseum",
+  //       startTime: "2022-09-24T04:00:00.000Z",
+  //       endTime: "2022-09-26T10:00:00.000Z",
+  //       activity: "Development",
+  //     },
+  //   ]);
+  // };
 
   return (
     <>
@@ -52,7 +54,10 @@ export const TimeEntries = ({ timeEntriesAtBuild }: Types.HomepageProps) => {
               </div>
             );
           })}
-        <button onClick={handleClick}>Add time entry</button>
+        <button onClick={() => setIsModalActive(true)}>Add time entry</button>
+        <TimeEntryModal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
+          <p>Hallo en welkom. Dit is dus de modal. Ik ga m nu nog ff stylen brb</p>
+        </TimeEntryModal>
       </Styled.Container>
     </>
   );
