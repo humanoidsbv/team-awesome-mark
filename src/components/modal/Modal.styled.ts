@@ -38,3 +38,8 @@ export const ModalBackdrop = styled.div`
   top: 0;
   width: 100vw;
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

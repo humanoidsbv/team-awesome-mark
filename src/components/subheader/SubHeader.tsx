@@ -1,7 +1,7 @@
 import * as Styled from "./SubHeader.styled";
 import { Button } from "../button";
 import { useState } from "react";
-import { TimeEntryModal } from "../time-entry-modal/TimeEntryModal";
+import { Modal } from "../modal/Modal";
 import * as Types from "../../types/types";
 
 export const SubHeader = ({ label, entries }: Types.SubHeaderProps) => {
@@ -12,12 +12,16 @@ export const SubHeader = ({ label, entries }: Types.SubHeaderProps) => {
       <Styled.Divider>|</Styled.Divider>
       <Styled.Counter>{entries} Entries</Styled.Counter>
       <Button
-        plusIcon
-        variant="primary"
         label="New Time Entry"
         onClick={() => setIsModalActive(true)}
+        plusIcon
+        variant="primary"
       ></Button>
-      <TimeEntryModal isActive={isModalActive} onClose={() => setIsModalActive(false)} />
+      <Modal
+        isActive={isModalActive}
+        onClose={() => setIsModalActive(false)}
+        title={"New Time Entry"}
+      />
     </Styled.Container>
   );
 };

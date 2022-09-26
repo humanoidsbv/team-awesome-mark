@@ -12,8 +12,9 @@ export interface HomepageProps {
 export interface ModalProps {
   children?: string;
   isActive: boolean;
-  onClose?: any;
+  title?: string;
   onClick?: any;
+  onClose?: any;
 }
 
 export interface SubHeaderProps {

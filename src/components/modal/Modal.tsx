@@ -1,12 +1,9 @@
 import { createPortal } from "react-dom";
-import { useState } from "react";
-import * as Styled from "./TimeEntryModal.styled";
+import * as Styled from "./Modal.styled";
 import * as Types from "../../types/types";
 import CloseIcon from "../../../public/images/close-black.svg";
 
-// const [isActive, setIsActive] = useState(false);
-// const onClose = () => setIsActive(!isActive);
-export const TimeEntryModal = ({ children, isActive, onClose }: Types.ModalProps) =>
+export const Modal = ({ children, title, isActive, onClose }: Types.ModalProps) =>
   isActive
     ? createPortal(
         <Styled.ModalBackdrop onClick={onClose}>
@@ -14,7 +11,9 @@ export const TimeEntryModal = ({ children, isActive, onClose }: Types.ModalProps
             <Styled.CloseIcon>
               <CloseIcon onClick={onClose} />
             </Styled.CloseIcon>
+            {title}
             {children}
+            <Styled.Wrapper></Styled.Wrapper>
           </Styled.Modal>
         </Styled.ModalBackdrop>,
         document.body,
