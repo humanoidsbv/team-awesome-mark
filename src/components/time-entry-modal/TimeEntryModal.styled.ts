@@ -1,21 +1,27 @@
 import styled from "styled-components";
 
 export const CloseIcon = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
+  float: right;
+  cursor: pointer;
 `;
 
 export const Modal = styled.div`
   background: white;
   border-radius: 4px;
+  color: ${({ theme }) => theme.colorGrey5};
+  font-size: 18px;
+  font-weight: 600;
   height: 100vh;
+  padding: 20px;
   width: 100vh;
-  padding: 30px;
 
   @media (${({ theme }) => theme.tablet}) {
+    font-size: 24px;
+    font-weight: 400;
     margin: 20%;
     max-height: 436px;
     max-width: 560px;
+    padding: 30px;
   }
 `;
 

@@ -56,7 +56,7 @@ export const TimeEntries = ({ initialTimeEntries }: Types.HomepageProps) => {
           })}
         <button onClick={() => setIsModalActive(true)}>Add time entry</button>
         <TimeEntryModal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
-          Hallo en welkom bij mijn prachtige modal. Ik ga m nu nog ff stylen brb
+          New Time Entry
         </TimeEntryModal>
       </Styled.Container>
     </>

@@ -12,7 +12,7 @@ export const TimeEntryModal = ({ children, isActive, onClose }: Types.ModalProps
         <Styled.ModalBackdrop onClick={onClose}>
           <Styled.Modal onClick={(e) => e.stopPropagation()}>
             <Styled.CloseIcon>
-              <CloseIcon />
+              <CloseIcon onClick={onClose} />
             </Styled.CloseIcon>
             {children}
           </Styled.Modal>
