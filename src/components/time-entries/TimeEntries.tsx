@@ -1,28 +1,10 @@
 import { TimeEntry } from "../time-entry/TimeEntry";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
-import { getTimeEntries } from "../../services/time-entries/getTimeEntries";
-import { ErrorBox } from "../error/ErrorBox";
 
-export const TimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntryProps[]>([]);
-  const [dataError, setDataError] = useState(false);
-
-  getTimeEntries();
-
-  async function fetchTimeEntries() {
-    const awaitTimeEntries = await getTimeEntries();
-    if (awaitTimeEntries instanceof Error) {
-      setDataError(true);
-      return;
-    }
-    setTimeEntries(awaitTimeEntries);
-  }
-
-  useEffect(() => {
-    fetchTimeEntries();
-  }, []);
+export const TimeEntries = ({ timeEntriesAtBuild }: Types.HomepageProps) => {
+  const [timeEntries, setTimeEntries] = useState<Types.TimeEntryProps[]>(timeEntriesAtBuild);
 
   const handleClick = () => {
     setTimeEntries([
@@ -32,6 +14,7 @@ export const TimeEntries = () => {
         client: "Rijksmuseum",
         startTime: "2022-09-24T04:00:00.000Z",
         endTime: "2022-09-26T10:00:00.000Z",
+        activity: "Development",
       },
     ]);
   };
@@ -39,7 +22,6 @@ export const TimeEntries = () => {
   return (
     <>
       <Styled.Container>
-        {dataError && <ErrorBox />}
         {timeEntries
           ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
           .map((timeEntry, i, arr) => {
