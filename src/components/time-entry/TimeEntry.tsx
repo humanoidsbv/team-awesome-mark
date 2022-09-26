@@ -4,15 +4,15 @@ import BinIcon from "../../../public/images/bin.svg";
 interface EntryProps {
   client: string;
   startTime: string;
-  stopTime: string;
+  endTime: string;
 }
 
-export const TimeEntry = ({ client, startTime, stopTime }: EntryProps) => {
+export const TimeEntry = ({ client, startTime, endTime }: EntryProps) => {
   const formattedStartTime = new Date(startTime).toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit",
   });
-  const formattedStopTime = new Date(stopTime).toLocaleTimeString("en-GB", {
+  const formattedStopTime = new Date(endTime).toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit",
   });

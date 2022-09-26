@@ -1,0 +1,25 @@
+{
+  "time-entries": [
+    {
+      "client": "Heineken",
+      "endTime": "2020-03-10T16:30:00.000Z",
+      "id": 1,
+      "startTime": "2020-03-10T09:30:00.000Z",
+      "activity": "Testing"
+    },
+    {
+      "client": "Port of Rotterdam",
+      "endTime": "2020-03-10T09:30:00.000Z",
+      "id": 2,
+      "startTime": "2020-03-10T07:30:00.000Z",
+      "activity": "Design"
+    },
+    {
+      "client": "Hike One",
+      "endTime": "2020-03-12T17:30:00.000Z",
+      "id": 3,
+      "startTime": "2020-03-12T09:30:00.000Z",
+      "activity": "Development"
+    }
+  ]
+}
