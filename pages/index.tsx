@@ -8,23 +8,23 @@ import * as Types from "../src/types/types";
 import GlobalStyle from "../src/styles/global";
 
 export const getServerSideProps = async () => {
-  const timeEntriesAtBuild = await getTimeEntries();
+  const initialTimeEntries = await getTimeEntries();
 
   return {
     props: {
-      timeEntriesAtBuild,
+      initialTimeEntries,
     },
   };
 };
 
-const Homepage = ({ timeEntriesAtBuild }: Types.HomepageProps) => {
+const Homepage = ({ initialTimeEntries }: Types.HomepageProps) => {
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
         <SubHeader entries={0} label="Timesheets" />
-        <TimeEntries timeEntriesAtBuild={timeEntriesAtBuild} />
+        <TimeEntries initialTimeEntries={initialTimeEntries} />
       </ThemeProvider>
     </>
   );

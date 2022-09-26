@@ -3,8 +3,8 @@ import { useState } from "react";
 import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
 
-export const TimeEntries = ({ timeEntriesAtBuild }: Types.HomepageProps) => {
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntryProps[]>(timeEntriesAtBuild);
+export const TimeEntries = ({ initialTimeEntries }: Types.HomepageProps) => {
+  const [timeEntries, setTimeEntries] = useState<Types.TimeEntryProps[]>(initialTimeEntries);
 
   const handleClick = () => {
     setTimeEntries([

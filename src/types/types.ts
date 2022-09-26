@@ -1,5 +1,5 @@
 export interface HomepageProps {
-  timeEntriesAtBuild: TimeEntryProps[];
+  initialTimeEntries: TimeEntryProps[];
 }
 
 export interface TimeEntryProps {
