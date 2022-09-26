@@ -17,9 +17,7 @@ export const SubHeader = ({ label, entries }: Types.SubHeaderProps) => {
         label="New Time Entry"
         onClick={() => setIsModalActive(true)}
       ></Button>
-      <TimeEntryModal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
-        <p>Hallo en welkom. Dit is dus de modal. Ik ga m nu nog ff stylen brb</p>
-      </TimeEntryModal>
+      <TimeEntryModal isActive={isModalActive} onClose={() => setIsModalActive(false)} />
     </Styled.Container>
   );
 };

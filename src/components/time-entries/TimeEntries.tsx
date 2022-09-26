@@ -6,6 +6,7 @@ import * as Types from "../../types/types";
 
 export const TimeEntries = ({ initialTimeEntries }: Types.HomepageProps) => {
   const [timeEntries, setTimeEntries] = useState<Types.TimeEntryProps[]>(initialTimeEntries);
+  const [isModalActive, setIsModalActive] = useState(false);
 
   // const onClick = () => {
   //   setTimeEntries([
@@ -55,7 +56,7 @@ export const TimeEntries = ({ initialTimeEntries }: Types.HomepageProps) => {
           })}
         <button onClick={() => setIsModalActive(true)}>Add time entry</button>
         <TimeEntryModal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
-          <p>Hallo en welkom. Dit is dus de modal. Ik ga m nu nog ff stylen brb</p>
+          Hallo en welkom bij mijn prachtige modal. Ik ga m nu nog ff stylen brb
         </TimeEntryModal>
       </Styled.Container>
     </>

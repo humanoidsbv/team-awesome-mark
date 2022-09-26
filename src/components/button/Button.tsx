@@ -1,14 +1,9 @@
 import * as Styled from "./Button.styled";
 import PlusIcon from "../../../public/images/plus.svg";
+import * as Types from "../../types/types";
 
-interface ButtonProps {
-  label: string;
-  plusIcon: boolean;
-  variant?: "primary" | "secondary";
-}
-
-export const Button = ({ plusIcon, label, variant = "primary" }: ButtonProps) => (
-  <Styled.Button variant={variant}>
+export const Button = ({ plusIcon, label, variant = "primary", onClick }: Types.ButtonProps) => (
+  <Styled.Button variant={variant} onClick={onClick}>
     {plusIcon && <PlusIcon />}
     {label}
   </Styled.Button>
