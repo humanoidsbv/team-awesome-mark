@@ -39,6 +39,6 @@ export const TimeContainer = styled.div`
 `;
 
 export const TotalTime = styled.p`
-  color: ${({ theme }) => theme.colorFontLight};
+  color: ${({ theme }) => theme.fontColorLight};
   font-size: 14px;
 `;

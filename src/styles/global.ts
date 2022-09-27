@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
-    color: ${({ theme }) => theme.colorFont};
+    color: ${({ theme }) => theme.fontColor};
     font-family: ${({ theme }) => theme.fontPrimary};
     margin: 0;
     padding: 0;

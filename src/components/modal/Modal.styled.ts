@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CloseIcon = styled.div`
+export const IconWrapper = styled.div`
   align-self: flex-end;
   cursor: pointer;
   position: absolute;
@@ -10,7 +10,7 @@ export const Modal = styled.div`
   align-content: space-between;
   background: white;
   border-radius: 4px;
-  color: ${({ theme }) => theme.colorFontLight};
+  color: ${({ theme }) => theme.fontColorLight};
   display: flex;
   flex-direction: column;
   font-size: 18px;

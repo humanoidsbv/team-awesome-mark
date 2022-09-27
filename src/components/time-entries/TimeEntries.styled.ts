@@ -14,11 +14,11 @@ export const Section = styled.div`
 `;
 
 export const Time = styled.p`
-  color: ${({ theme }) => theme.colorFontLight};
+  color: ${({ theme }) => theme.fontColorLight};
   font-size: 18px;
 `;
 
 export const Weekday = styled.p`
-  color: ${({ theme }) => theme.colorFontLight};
+  color: ${({ theme }) => theme.fontColorLight};
   font-size: 18px;
 `;

@@ -2,7 +2,7 @@ export interface ButtonProps {
   label: string;
   hasAddIcon: boolean;
   variant?: "primary" | "secondary";
-  onClick: () => void;
+  handleClick: () => void;
 }
 
 export interface ModalProps {

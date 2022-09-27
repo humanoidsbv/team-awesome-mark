@@ -18,13 +18,13 @@ export const Container = styled.div`
 `;
 
 export const Counter = styled.p`
-  color: ${({ theme }) => theme.colorFontLight};
+  color: ${({ theme }) => theme.fontColorLight};
   font-family: ${({ theme }) => theme.fontPrimary};
   font-size: 14px;
 `;
 
 export const Divider = styled.p`
-  color: ${({ theme }) => theme.colorFontLight};
+  color: ${({ theme }) => theme.fontColorLight};
   display: none;
   font-size: 25px;
   padding: 0 20px;
