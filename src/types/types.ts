@@ -1,16 +1,11 @@
-export interface ButtonProps {
-  label: string;
-  hasAddIcon: boolean;
-  variant?: "primary" | "secondary";
-  handleClick: () => void;
-}
+import React from "react";
 
 export interface ModalProps {
-  children?: string;
+  children?: React.ReactElement;
   isActive: boolean;
-  title?: string;
-  onClick?: any;
+  onClick?: () => void;
   onClose?: any;
+  title?: string;
 }
 
 export interface SubHeaderProps {
@@ -21,6 +16,7 @@ export interface SubHeaderProps {
 export interface TimeEntryProps {
   activity: string;
   client: string;
+  date?: string;
   endTime: string;
   id: number;
   startTime: string;

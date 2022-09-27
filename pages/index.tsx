@@ -4,6 +4,7 @@ import { SubHeader } from "../src/components/subheader";
 import { theme } from "../src/styles/theme";
 import { ThemeProvider } from "styled-components";
 import { TimeEntries } from "../src/components/time-entries";
+import { useState } from "react";
 import * as Types from "../src/types/types";
 import GlobalStyle from "../src/styles/global";
 
@@ -22,13 +23,14 @@ interface HomepageProps {
 }
 
 const Homepage = ({ initialTimeEntries }: HomepageProps) => {
+  const [isModalActive, setIsModalActive] = useState(false);
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
-        <SubHeader entries={0} label="Timesheets" />
-        <TimeEntries initialTimeEntries={initialTimeEntries} />
+        <SubHeader entries={0} label="Timesheets" setIsModalActive={isModalActive} />
+        <TimeEntries initialTimeEntries={initialTimeEntries} setIsModalActive={isModalActive} />
       </ThemeProvider>
     </>
   );

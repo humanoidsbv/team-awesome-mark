@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 type ButtonProps = {
   variant: string;
+  width?: string;
 };
 
 export const Button = styled.button<ButtonProps>`
@@ -41,6 +42,20 @@ export const Button = styled.button<ButtonProps>`
         background-color: ${({ theme }) => theme.buttonSecondaryActive};
       }
       border: 1px solid #e6eaee;
+
+      @media (${({ theme }) => theme.tablet}) {
+        width: 100%;
+      }
+    `}
+
+    ${({ width }) =>
+    width === "form" &&
+    css`
+      width: 100%;
+
+      @media (${({ theme }) => theme.tablet}) {
+        width: 100%;
+      }
     `}
 
   @media (${({ theme }) => theme.tablet}) {

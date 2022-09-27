@@ -2,8 +2,18 @@ import { TimeEntry } from "../time-entry/TimeEntry";
 import { useState } from "react";
 import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
+import { Modal } from "../modal/Modal";
+import { TimeEntryForm } from "../time-entry-form";
 
-export const TimeEntries = ({ initialTimeEntries }: Types.HomepageProps) => {
+interface HomepageProps {
+  initialTimeEntries: Types.TimeEntryProps[];
+}
+
+export const TimeEntries = ({
+  initialTimeEntries,
+  isModalActive,
+  setIsModalActive,
+}: HomepageProps) => {
   const [timeEntries, setTimeEntries] = useState<Types.TimeEntryProps[]>(initialTimeEntries);
 
   return (
@@ -39,6 +49,13 @@ export const TimeEntries = ({ initialTimeEntries }: Types.HomepageProps) => {
               </div>
             );
           })}
+        <Modal
+          isActive={isModalActive}
+          onClose={() => setIsModalActive(false)}
+          title={"New Time Entry"}
+        >
+          <TimeEntryForm setTimeEntries={setTimeEntries} />
+        </Modal>
       </Styled.Container>
     </>
   );

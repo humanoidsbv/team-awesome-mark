@@ -1,11 +1,15 @@
 import * as Styled from "./SubHeader.styled";
 import { Button } from "../button";
 import { useState } from "react";
-import { Modal } from "../modal/Modal";
 import * as Types from "../../types/types";
+import { Modal } from "../modal/Modal";
 
-export const SubHeader = ({ label, entries }: Types.SubHeaderProps) => {
-  const [isModalActive, setIsModalActive] = useState(false);
+export const SubHeader = ({
+  label,
+  entries,
+  isModalActive,
+  setIsModalActive,
+}: Types.SubHeaderProps) => {
   return (
     <Styled.Container>
       <Styled.Title>{label}</Styled.Title>
@@ -13,15 +17,15 @@ export const SubHeader = ({ label, entries }: Types.SubHeaderProps) => {
       <Styled.Counter>{entries} Entries</Styled.Counter>
       <Button
         label="New Time Entry"
-        handleClick={() => setIsModalActive(true)}
+        onClick={() => setIsModalActive((isModalActive: any) => !isModalActive)}
         hasAddIcon
         variant="primary"
-      ></Button>
+      />
       <Modal
         isActive={isModalActive}
         onClose={() => setIsModalActive(false)}
         title={"New Time Entry"}
-      />
+      ></Modal>
     </Styled.Container>
   );
 };
