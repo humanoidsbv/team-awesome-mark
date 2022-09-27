@@ -1,14 +1,18 @@
 import styled from "styled-components";
 
 export const CloseIcon = styled.div`
-  float: right;
+  align-self: flex-end;
   cursor: pointer;
+  position: absolute;
 `;
 
 export const Modal = styled.div`
+  align-content: space-between;
   background: white;
   border-radius: 4px;
-  color: ${({ theme }) => theme.colorGrey5};
+  color: ${({ theme }) => theme.colorFontLight};
+  display: flex;
+  flex-direction: column;
   font-size: 18px;
   font-weight: 600;
   height: 100vh;
@@ -18,7 +22,6 @@ export const Modal = styled.div`
   @media (${({ theme }) => theme.tablet}) {
     font-size: 24px;
     font-weight: 400;
-    margin: 20%;
     max-height: 436px;
     max-width: 560px;
     padding: 30px;
@@ -37,9 +40,4 @@ export const ModalBackdrop = styled.div`
   right: 0;
   top: 0;
   width: 100vw;
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
 `;

@@ -1,12 +1,8 @@
 export interface ButtonProps {
   label: string;
-  plusIcon: boolean;
+  hasAddIcon: boolean;
   variant?: "primary" | "secondary";
   onClick: () => void;
-}
-
-export interface HomepageProps {
-  initialTimeEntries: TimeEntryProps[];
 }
 
 export interface ModalProps {

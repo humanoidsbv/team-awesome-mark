@@ -14,7 +14,7 @@ export const SubHeader = ({ label, entries }: Types.SubHeaderProps) => {
       <Button
         label="New Time Entry"
         onClick={() => setIsModalActive(true)}
-        plusIcon
+        hasAddIcon
         variant="primary"
       ></Button>
       <Modal
