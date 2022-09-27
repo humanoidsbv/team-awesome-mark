@@ -17,7 +17,7 @@ export const SubHeader = ({
       <Styled.Counter>{entries} Entries</Styled.Counter>
       <Button
         label="New Time Entry"
-        onClick={() => setIsModalActive((isModalActive: any) => !isModalActive)}
+        onClick={() => setIsModalActive((isModalActive) => !isModalActive)}
         hasAddIcon
         variant="primary"
       />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactEventHandler } from "react";
 
 export interface ModalProps {
   children?: React.ReactElement;

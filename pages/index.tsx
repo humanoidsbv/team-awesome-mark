@@ -29,8 +29,8 @@ const Homepage = ({ initialTimeEntries }: HomepageProps) => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
-        <SubHeader entries={0} label="Timesheets" setIsModalActive={isModalActive} />
-        <TimeEntries initialTimeEntries={initialTimeEntries} setIsModalActive={isModalActive} />
+        <SubHeader entries={0} label="Timesheets" setIsModalActive={setIsModalActive} />
+        <TimeEntries initialTimeEntries={initialTimeEntries} setIsModalActive={setIsModalActive} />
       </ThemeProvider>
     </>
   );
