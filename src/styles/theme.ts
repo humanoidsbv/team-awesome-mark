@@ -10,9 +10,9 @@ export const theme = {
   buttonSecondary: "#F5F7F9",
   buttonSecondaryActive: "#E9E9E9",
   buttonSecondaryHover: "#F1F2F2",
-  colorGrey5: "#7F8FA4",
-  colorGrey6: "#4B5464",
   colorPrimary: "#354052",
+  fontColor: "#4B5464",
+  fontColorLight: "#7F8FA4",
   fontPrimary: "Proxima Nova",
   fontSecondary: "Bello Script",
 

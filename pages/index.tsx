@@ -17,7 +17,11 @@ export const getServerSideProps = async () => {
   };
 };
 
-const Homepage = ({ initialTimeEntries }: Types.HomepageProps) => {
+interface HomepageProps {
+  initialTimeEntries: Types.TimeEntryProps[];
+}
+
+const Homepage = ({ initialTimeEntries }: HomepageProps) => {
   return (
     <>
       <ThemeProvider theme={theme}>

@@ -6,19 +6,6 @@ import * as Types from "../../types/types";
 export const TimeEntries = ({ initialTimeEntries }: Types.HomepageProps) => {
   const [timeEntries, setTimeEntries] = useState<Types.TimeEntryProps[]>(initialTimeEntries);
 
-  const handleClick = () => {
-    setTimeEntries([
-      ...timeEntries,
-      {
-        id: Math.random(),
-        client: "Rijksmuseum",
-        startTime: "2022-09-24T04:00:00.000Z",
-        endTime: "2022-09-26T10:00:00.000Z",
-        activity: "Development",
-      },
-    ]);
-  };
-
   return (
     <>
       <Styled.Container>
@@ -46,13 +33,12 @@ export const TimeEntries = ({ initialTimeEntries }: Types.HomepageProps) => {
                 )}
                 <TimeEntry
                   client={timeEntry.client}
-                  startTime={timeEntry.startTime}
                   endTime={timeEntry.endTime}
+                  startTime={timeEntry.startTime}
                 />
               </div>
             );
           })}
-        <button onClick={handleClick}>Add time entry</button>
       </Styled.Container>
     </>
   );

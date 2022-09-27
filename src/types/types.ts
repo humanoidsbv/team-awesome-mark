@@ -1,5 +1,21 @@
-export interface HomepageProps {
-  initialTimeEntries: TimeEntryProps[];
+export interface ButtonProps {
+  label: string;
+  hasAddIcon: boolean;
+  variant?: "primary" | "secondary";
+  handleClick: () => void;
+}
+
+export interface ModalProps {
+  children?: string;
+  isActive: boolean;
+  title?: string;
+  onClick?: any;
+  onClose?: any;
+}
+
+export interface SubHeaderProps {
+  entries: number;
+  label: string;
 }
 
 export interface TimeEntryProps {

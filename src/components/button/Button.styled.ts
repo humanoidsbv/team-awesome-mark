@@ -32,7 +32,7 @@ export const Button = styled.button<ButtonProps>`
     variant === "secondary" &&
     css`
       background-color: ${({ theme }) => theme.buttonSecondary};
-      color: ${({ theme }) => theme.colorGrey6};
+      color: ${({ theme }) => theme.fontColor};
 
       &:hover {
         background-color: ${({ theme }) => theme.buttonSecondaryHover};
