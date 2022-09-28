@@ -1,10 +1,11 @@
 import * as Styled from "./TimeEntryForm.styled";
-import React, { useState } from "react";
+import React, { useState, Dispatch } from "react";
 import { Button } from "../../components/button/Button";
+import * as Types from "../../types/types";
 
 interface TimeEntryFormProps {
-  setTimeEntries: any;
-  timeEntries: any;
+  setTimeEntries: Dispatch<Types.TimeEntryProps[]>;
+  timeEntries: Types.TimeEntryProps[];
   isActive?: boolean;
   handleModal: () => void;
 }
@@ -15,15 +16,28 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
     client: "",
     endTime: "",
     startTime: "",
+    date: "",
   });
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({ ...newTimeEntry, [key]: event.target.value });
   };
 
+  const formatTime = (date: string, time: string) => {
+    const formattedTime = new Date(`${date.trim() + "T" + time.trim() + ":00.000Z"}`);
+    return formattedTime;
+  };
+
   const handleSubmit = () => {
-    console.log("test");
-    setTimeEntries([...timeEntries, { ...newTimeEntry, id: Math.random() }]);
+    setTimeEntries([
+      ...timeEntries,
+      {
+        ...newTimeEntry,
+        id: Math.random(),
+        startTime: formatTime(newTimeEntry.date, newTimeEntry.startTime),
+        endTime: formatTime(newTimeEntry.date, newTimeEntry.endTime),
+      },
+    ]);
     setNewTimeEntry({});
     handleModal();
   };

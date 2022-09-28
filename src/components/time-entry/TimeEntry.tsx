@@ -3,8 +3,8 @@ import BinIcon from "../../../public/images/bin.svg";
 
 interface EntryProps {
   client: string;
-  startTime: string;
-  endTime: string;
+  startTime: Date;
+  endTime: Date;
 }
 
 export const TimeEntry = ({ client, startTime, endTime }: EntryProps) => {

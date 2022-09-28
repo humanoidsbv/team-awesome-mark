@@ -18,9 +18,8 @@ export interface TimeEntryProps {
   activity: string;
   client: string;
   date?: string;
-  endTime: string;
+  endTime: Date;
   id: number;
   isModalActive?: boolean;
-  startTime: string;
-  setTimeEntries: any;
+  startTime: Date;
 }
