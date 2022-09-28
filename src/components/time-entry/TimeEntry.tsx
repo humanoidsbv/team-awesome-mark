@@ -12,7 +12,7 @@ export const TimeEntry = ({ client, startTime, endTime }: EntryProps) => {
     hour: "2-digit",
     minute: "2-digit",
   });
-  const formattedStopTime = new Date(endTime).toLocaleTimeString("en-GB", {
+  const formattedStopTime = new Date(endTime).toLocaleTimeString("nl-NL", {
     hour: "2-digit",
     minute: "2-digit",
   });

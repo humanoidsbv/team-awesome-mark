@@ -24,7 +24,8 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
   };
 
   const formatTime = (date: string, time: string) => {
-    const formattedTime = new Date(`${date.trim() + "T" + time.trim() + ":00.000Z"}`);
+    console.log(date, time);
+    const formattedTime = new Date(`${date}T${time}:00.000Z`);
     return formattedTime;
   };
 
