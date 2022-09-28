@@ -18,7 +18,12 @@ export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: 
     <>
       <Styled.Container>
         <Modal isActive={isModalActive} onClose={handleModal} title={"New Time Entry"}>
-          <TimeEntryForm setTimeEntries={setTimeEntries} />
+          <TimeEntryForm
+            isActive={isModalActive}
+            setTimeEntries={setTimeEntries}
+            timeEntries={timeEntries}
+            handleModal={handleModal}
+          />
         </Modal>
         {timeEntries
           ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())

@@ -2,7 +2,14 @@ import * as Styled from "./TimeEntryForm.styled";
 import React, { useState } from "react";
 import { Button } from "../../components/button/Button";
 
-export const TimeEntryForm = () => {
+interface TimeEntryFormProps {
+  setTimeEntries: any;
+  timeEntries: any;
+  isActive?: boolean;
+  handleModal: () => void;
+}
+
+export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: TimeEntryFormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState({
     activity: "",
     client: "",
@@ -15,9 +22,10 @@ export const TimeEntryForm = () => {
   };
 
   const handleSubmit = () => {
-    const addedTimeEntry = newTimeEntry;
-    console.log(addedTimeEntry);
+    console.log("test");
+    setTimeEntries([...timeEntries, { ...newTimeEntry, id: Math.random() }]);
     setNewTimeEntry({});
+    handleModal();
   };
 
   return (
@@ -69,7 +77,7 @@ export const TimeEntryForm = () => {
           </Styled.Wrapper>
         </Styled.Form>
         <Styled.ButtonWrapper>
-          <Button onClick={handleSubmit} variant={"secondary"} label={"Cancel"}></Button>
+          <Button onClick={handleModal} variant={"secondary"} label={"Cancel"}></Button>
           <Button onClick={handleSubmit} variant={"primary"} label={"Add time entry"}></Button>
         </Styled.ButtonWrapper>
       </Styled.Container>
