@@ -10,6 +10,7 @@ export interface ModalProps {
 
 export interface SubHeaderProps {
   entries: number;
+  handleModal: () => void;
   label: string;
 }
 
@@ -19,5 +20,7 @@ export interface TimeEntryProps {
   date?: string;
   endTime: string;
   id: number;
+  isModalActive?: boolean;
   startTime: string;
+  setTimeEntries: any;
 }

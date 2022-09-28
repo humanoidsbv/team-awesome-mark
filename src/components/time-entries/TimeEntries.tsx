@@ -7,18 +7,19 @@ import { TimeEntryForm } from "../time-entry-form";
 
 interface HomepageProps {
   initialTimeEntries: Types.TimeEntryProps[];
+  isModalActive: boolean;
+  handleModal: () => void;
 }
 
-export const TimeEntries = ({
-  initialTimeEntries,
-  isModalActive,
-  setIsModalActive,
-}: HomepageProps) => {
+export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: HomepageProps) => {
   const [timeEntries, setTimeEntries] = useState<Types.TimeEntryProps[]>(initialTimeEntries);
 
   return (
     <>
       <Styled.Container>
+        <Modal isActive={isModalActive} onClose={handleModal} title={"New Time Entry"}>
+          <TimeEntryForm setTimeEntries={setTimeEntries} />
+        </Modal>
         {timeEntries
           ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
           .map((timeEntry, i, arr) => {
@@ -49,13 +50,6 @@ export const TimeEntries = ({
               </div>
             );
           })}
-        <Modal
-          isActive={isModalActive}
-          onClose={() => setIsModalActive(false)}
-          title={"New Time Entry"}
-        >
-          <TimeEntryForm setTimeEntries={setTimeEntries} />
-        </Modal>
       </Styled.Container>
     </>
   );

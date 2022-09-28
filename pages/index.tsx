@@ -24,13 +24,22 @@ interface HomepageProps {
 
 const Homepage = ({ initialTimeEntries }: HomepageProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
+
+  const handleModal = () => {
+    setIsModalActive(!isModalActive);
+  };
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
-        <SubHeader entries={0} label="Timesheets" setIsModalActive={setIsModalActive} />
-        <TimeEntries initialTimeEntries={initialTimeEntries} setIsModalActive={setIsModalActive} />
+        <SubHeader entries={0} label="Timesheets" handleModal={handleModal} />
+        <TimeEntries
+          isModalActive={isModalActive}
+          initialTimeEntries={initialTimeEntries}
+          handleModal={handleModal}
+        />
       </ThemeProvider>
     </>
   );
