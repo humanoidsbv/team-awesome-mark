@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   margin-left: 25px;
+  cursor: pointer;
+
+  svg:hover path {
+    fill: #ffa2ad;
+  }
 `;
 
 export const Client = styled.p`

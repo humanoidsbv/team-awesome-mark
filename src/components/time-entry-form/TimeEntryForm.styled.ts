@@ -4,9 +4,6 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   font-size: 14px;
-`;
-
-export const Container = styled.div`
   margin-top: 20px;
 `;
 
@@ -31,9 +28,9 @@ export const InputSmall = styled.input`
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.backgroundGrey3};
   margin-bottom: 20px;
+  margin-right: 20px;
   padding: 13px 13px 13px 15px;
   width: fit-content;
-  margin-right: 20px;
 `;
 
 export const Wrapper = styled.div`
@@ -46,9 +43,9 @@ export const TimeWrapper = styled.div`
 `;
 
 export const LabelSmall = styled.label`
-  width: fit-content;
-  margin-right: 10px;
   color: ${({ theme }) => theme.fontColorLight};
+  margin-right: 10px;
+  width: fit-content;
 `;
 
 export const TotalWrapper = styled.div`

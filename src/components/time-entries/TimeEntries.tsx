@@ -1,9 +1,10 @@
-import { TimeEntry } from "../time-entry/TimeEntry";
 import { useState } from "react";
+
+import { Modal } from "../modal/Modal";
+import { TimeEntry } from "../time-entry/TimeEntry";
+import { TimeEntryForm } from "../time-entry-form";
 import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
-import { Modal } from "../modal/Modal";
-import { TimeEntryForm } from "../time-entry-form";
 
 interface HomepageProps {
   initialTimeEntries: Types.TimeEntryProps[];
