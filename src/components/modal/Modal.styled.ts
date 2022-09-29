@@ -7,7 +7,6 @@ export const IconWrapper = styled.div`
 `;
 
 export const Modal = styled.div`
-  align-content: space-between;
   background: white;
   border-radius: 4px;
   color: ${({ theme }) => theme.fontColorLight};
@@ -22,7 +21,7 @@ export const Modal = styled.div`
   @media (${({ theme }) => theme.tablet}) {
     font-size: 24px;
     font-weight: 400;
-    max-height: 436px;
+    height: fit-content;
     max-width: 560px;
     padding: 30px;
   }

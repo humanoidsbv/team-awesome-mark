@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+
 import * as Styled from "./Modal.styled";
 import * as Types from "../../types/types";
 import CloseIcon from "../../../public/images/close-icon.svg";

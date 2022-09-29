@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
 import { Header } from "../src/components/header";
 import { SubHeader } from "../src/components/subheader";
@@ -22,13 +24,27 @@ interface HomepageProps {
 }
 
 const Homepage = ({ initialTimeEntries }: HomepageProps) => {
+  const [isModalActive, setIsModalActive] = useState(false);
+
+  const handleModal = () => {
+    setIsModalActive(!isModalActive);
+  };
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
-        <SubHeader entries={0} label="Timesheets" />
-        <TimeEntries initialTimeEntries={initialTimeEntries} />
+        <SubHeader
+          entries={initialTimeEntries.length}
+          label="Timesheets"
+          handleModal={handleModal}
+        />
+        <TimeEntries
+          isModalActive={isModalActive}
+          initialTimeEntries={initialTimeEntries}
+          handleModal={handleModal}
+        />
       </ThemeProvider>
     </>
   );

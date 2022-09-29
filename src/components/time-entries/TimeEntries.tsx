@@ -1,14 +1,31 @@
-import { TimeEntry } from "../time-entry/TimeEntry";
 import { useState } from "react";
+
+import { Modal } from "../modal/Modal";
+import { TimeEntry } from "../time-entry/TimeEntry";
+import { TimeEntryForm } from "../time-entry-form";
 import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
 
-export const TimeEntries = ({ initialTimeEntries }: Types.HomepageProps) => {
+interface HomepageProps {
+  initialTimeEntries: Types.TimeEntryProps[];
+  isModalActive: boolean;
+  handleModal: () => void;
+}
+
+export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: HomepageProps) => {
   const [timeEntries, setTimeEntries] = useState<Types.TimeEntryProps[]>(initialTimeEntries);
 
   return (
     <>
       <Styled.Container>
+        <Modal isActive={isModalActive} onClose={handleModal} title={"New Time Entry"}>
+          <TimeEntryForm
+            isActive={isModalActive}
+            setTimeEntries={setTimeEntries}
+            timeEntries={timeEntries}
+            handleModal={handleModal}
+          />
+        </Modal>
         {timeEntries
           ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
           .map((timeEntry, i, arr) => {

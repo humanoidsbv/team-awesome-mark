@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import * as Styled from "./Header.styled";
 import CloseIcon from "../../../public/images/close.svg";
 import MenuIcon from "../../../public/images/menu.svg";

@@ -3,11 +3,11 @@ import BinIcon from "../../../public/images/bin.svg";
 
 interface EntryProps {
   client: string;
-  startTime: string;
-  endTime: string;
+  endTime: Date;
+  startTime: Date;
 }
 
-export const TimeEntry = ({ client, startTime, endTime }: EntryProps) => {
+export const TimeEntry = ({ client, endTime, startTime }: EntryProps) => {
   const formattedStartTime = new Date(startTime).toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit",

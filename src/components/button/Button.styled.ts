@@ -46,6 +46,5 @@ export const Button = styled.button<ButtonProps>`
   @media (${({ theme }) => theme.tablet}) {
     margin-left: auto;
     margin-top: 0;
-    max-width: 190px;
   }
 `;

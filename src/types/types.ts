@@ -1,27 +1,25 @@
-export interface ButtonProps {
-  label: string;
-  hasAddIcon: boolean;
-  variant?: "primary" | "secondary";
-  handleClick: () => void;
-}
+import React, { ReactEventHandler } from "react";
 
 export interface ModalProps {
-  children?: string;
+  children?: React.ReactElement;
   isActive: boolean;
-  title?: string;
-  onClick?: any;
+  onClick?: () => void;
   onClose?: any;
+  title?: string;
 }
 
 export interface SubHeaderProps {
   entries: number;
+  handleModal: () => void;
   label: string;
 }
 
 export interface TimeEntryProps {
   activity: string;
   client: string;
-  endTime: string;
+  date?: string;
+  endTime: Date;
   id: number;
-  startTime: string;
+  isModalActive?: boolean;
+  startTime: Date;
 }
