@@ -33,19 +33,15 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
     setNewTimeEntry({ ...newTimeEntry, [key]: event.target.value });
   };
 
-  const formatTime = (date: string, time: string) => {
-    const formattedTime = new Date(`${date}T${time}:00.000Z`);
-    return formattedTime;
-  };
-
   const handleSubmit = async () => {
-    const response = await postTimeEntry(newTimeEntry);
-    const newResponse = {
-      ...response,
-      startTime: formatTime(response.date, response.startTime),
-      endTime: formatTime(response.date, response.endTime),
+    const formattedEntry = {
+      activity: newTimeEntry.activity,
+      client: newTimeEntry.client,
+      endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
+      startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
     };
-    setTimeEntries([...timeEntries, newResponse]);
+    const postedEntry = await postTimeEntry(formattedEntry);
+    setTimeEntries([...timeEntries, postedEntry]);
     setNewTimeEntry(resetEntry);
     handleModal();
   };
