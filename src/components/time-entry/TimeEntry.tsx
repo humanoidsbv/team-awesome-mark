@@ -28,7 +28,7 @@ export const TimeEntry = ({ client, endTime, startTime, handleDelete }: TimeEntr
           </Styled.Time>
           <Styled.TotalTime />
         </Styled.TimeContainer>
-        <Styled.Button onClick={() => handleDelete()}>
+        <Styled.Button onClick={handleDelete}>
           <BinIcon />
         </Styled.Button>
       </Styled.Container>
