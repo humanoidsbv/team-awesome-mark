@@ -14,19 +14,19 @@ interface TimeEntryFormProps {
 
 export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: TimeEntryFormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntry>({
+    activity: "",
     client: "",
+    endTime: "",
     id: "",
     startTime: "",
-    endTime: "",
-    activity: "",
   });
 
   const resetEntry = {
+    activity: "",
     client: "",
+    endTime: "",
     id: "",
     startTime: "",
-    endTime: "",
-    activity: "",
   };
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
