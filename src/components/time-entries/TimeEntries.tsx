@@ -22,6 +22,11 @@ export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: 
       ...timeEntries.slice(0, deletedEntry),
       ...timeEntries.slice(deletedEntry + 1, timeEntries.length),
     ]);
+    const deleteResponse = await deleteTimeEntry(entry);
+    if (deleteResponse instanceof Error) {
+      alert("Something went wrong :(");
+      return;
+    }
     await deleteTimeEntry(entry);
   };
 

@@ -5,14 +5,14 @@ export async function deleteTimeEntry(entry: Types.TimeEntry) {
     method: "DELETE",
   })
     .then(async (response) => {
-      if (response.status !== 200) {
+      if (!response.ok) {
         throw new Error(await response.json());
       }
 
       return response.json();
     })
     .catch((error) => {
-      return error;
+      return { error };
     });
 
   return response;
