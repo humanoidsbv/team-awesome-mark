@@ -3,10 +3,11 @@ import React, { useState, Dispatch } from "react";
 import { Button } from "../../components/button/Button";
 import * as Styled from "./TimeEntryForm.styled";
 import * as Types from "../../types/types";
+import { postTimeEntry } from "../../../src/services/time-entries/postTimeEntry";
 
 interface TimeEntryFormProps {
-  setTimeEntries: Dispatch<Types.TimeEntryProps[]>;
-  timeEntries: Types.TimeEntryProps[];
+  setTimeEntries: Dispatch<Types.TimeEntry[]>;
+  timeEntries: Types.TimeEntry[];
   isActive?: boolean;
   handleModal: () => void;
 }
@@ -43,6 +44,7 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
         endTime: formatTime(newTimeEntry.date, newTimeEntry.endTime),
       },
     ]);
+    postTimeEntry(newTimeEntry);
     setNewTimeEntry({});
     handleModal();
   };
