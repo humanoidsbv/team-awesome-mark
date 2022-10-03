@@ -1,9 +1,9 @@
 import React, { useState, Dispatch } from "react";
 
 import { Button } from "../../components/button/Button";
+import { postTimeEntry } from "../../../src/services/time-entries/postTimeEntry";
 import * as Styled from "./TimeEntryForm.styled";
 import * as Types from "../../types/types";
-import { postTimeEntry } from "../../../src/services/time-entries/postTimeEntry";
 
 interface TimeEntryFormProps {
   setTimeEntries: Dispatch<Types.TimeEntry[]>;
@@ -12,18 +12,22 @@ interface TimeEntryFormProps {
   handleModal: () => void;
 }
 
-type NewTimeEntry = {
-  newTimeEntry: object;
-};
-
 export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: TimeEntryFormProps) => {
-  const [newTimeEntry, setNewTimeEntry] = useState<NewTimeEntry[{}]>({
-    activity: "",
+  const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntry>({
     client: "",
-    date: "",
-    endTime: "",
+    id: "",
     startTime: "",
+    endTime: "",
+    activity: "",
   });
+
+  const resetEntry = {
+    client: "",
+    id: "",
+    startTime: "",
+    endTime: "",
+    activity: "",
+  };
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({ ...newTimeEntry, [key]: event.target.value });
@@ -34,18 +38,15 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
     return formattedTime;
   };
 
-  const handleSubmit = () => {
-    setTimeEntries([
-      ...timeEntries,
-      {
-        ...newTimeEntry,
-        id: Math.random(),
-        startTime: formatTime(newTimeEntry.date, newTimeEntry.startTime),
-        endTime: formatTime(newTimeEntry.date, newTimeEntry.endTime),
-      },
-    ]);
-    postTimeEntry(newTimeEntry);
-    setNewTimeEntry({});
+  const handleSubmit = async () => {
+    const response = await postTimeEntry(newTimeEntry);
+    const newResponse = {
+      ...response,
+      startTime: formatTime(response.date, response.startTime),
+      endTime: formatTime(response.date, response.endTime),
+    };
+    setTimeEntries([...timeEntries, newResponse]);
+    setNewTimeEntry(resetEntry);
     handleModal();
   };
 

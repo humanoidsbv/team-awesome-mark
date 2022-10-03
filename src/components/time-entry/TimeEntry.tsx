@@ -1,8 +1,14 @@
 import * as Styled from "./TimeEntry.styled";
 import BinIcon from "../../../public/images/bin.svg";
-import * as Types from "../../types/types";
 
-export const TimeEntry = ({ client, endTime, startTime, handleDelete }: Types.TimeEntry) => {
+interface TimeEntryProps {
+  client: string;
+  endTime: string;
+  startTime: string;
+  handleDelete: () => void;
+}
+
+export const TimeEntry = ({ client, endTime, startTime, handleDelete }: TimeEntryProps) => {
   const formattedStartTime = new Date(startTime).toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit",
