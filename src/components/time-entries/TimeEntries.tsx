@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { deleteTimeEntry } from "../../services/time-entries/deleteTimeEntry";
 import { Modal } from "../modal/Modal";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryForm } from "../time-entry-form";
@@ -7,9 +8,9 @@ import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
 
 interface HomepageProps {
+  handleModal: () => void;
   initialTimeEntries: Types.TimeEntry[];
   isModalActive: boolean;
-  handleModal: () => void;
 }
 
 export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: HomepageProps) => {
@@ -21,6 +22,7 @@ export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: 
       ...timeEntries.slice(0, deletedEntry),
       ...timeEntries.slice(deletedEntry + 1, timeEntries.length),
     ]);
+    deleteTimeEntry(entry);
   };
 
   return (
