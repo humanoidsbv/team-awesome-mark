@@ -7,16 +7,16 @@ import { TimeEntryForm } from "../time-entry-form";
 import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
 
-interface HomepageProps {
+interface Homepage {
   handleModal: () => void;
-  initialTimeEntries: Types.TimeEntryApi[];
+  initialTimeEntries: Types.TimeEntry[];
   isModalActive: boolean;
 }
 
-export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: HomepageProps) => {
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntryApi[]>(initialTimeEntries);
+export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: Homepage) => {
+  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(initialTimeEntries);
 
-  const handleDelete = async (entry: Types.TimeEntryApi) => {
+  const handleDelete = async (entry: Types.TimeEntry) => {
     const deletedEntry = timeEntries.indexOf(entry);
     setTimeEntries([
       ...timeEntries.slice(0, deletedEntry),

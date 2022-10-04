@@ -5,32 +5,27 @@ import { postTimeEntry } from "../../../src/services/time-entries/postTimeEntry"
 import * as Styled from "./TimeEntryForm.styled";
 import * as Types from "../../types/types";
 
-interface TimeEntryFormProps {
-  setTimeEntries: Dispatch<Types.TimeEntryApi[]>;
-  timeEntries: Types.TimeEntryApi[];
+interface TimeEntryForm {
+  setTimeEntries: Dispatch<Types.TimeEntry[]>;
+  timeEntries: Types.TimeEntry[];
   isActive?: boolean;
   handleModal: () => void;
 }
 
-export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: TimeEntryFormProps) => {
-  const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntryApi>({
-    activity: "",
-    client: "",
-    endTime: "",
-    id: "",
-    startTime: "",
-  });
+const initialFormValues = {
+  activity: "",
+  client: "",
+  endTime: "",
+  startTime: "",
+  date: "",
+};
+
+export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: TimeEntryForm) => {
+  const [newTimeEntry, setNewTimeEntry] = useState(initialFormValues);
 
   const formRef = useRef<HTMLFormElement>(null);
 
   const [isFormValid, setIsFormValid] = useState(true);
-  const resetEntry = {
-    activity: "",
-    client: "",
-    endTime: "",
-    id: "",
-    startTime: "",
-  };
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({ ...newTimeEntry, [key]: event.target.value });
@@ -49,7 +44,7 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
     };
     const postedEntry = await postTimeEntry(formattedEntry);
     setTimeEntries([...timeEntries, postedEntry]);
-    setNewTimeEntry(resetEntry);
+    setNewTimeEntry(initialFormValues);
     handleModal();
   };
 
