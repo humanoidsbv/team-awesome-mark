@@ -21,11 +21,9 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
     startTime: "",
   });
 
-<<<<<<< HEAD
   const formRef = useRef<HTMLFormElement>(null);
 
   const [isFormValid, setIsFormValid] = useState(true);
-=======
   const resetEntry = {
     activity: "",
     client: "",
@@ -33,36 +31,15 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
     id: "",
     startTime: "",
   };
->>>>>>> 5fafc159d1abe36c171f5d953fff514a436bb9cb
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({ ...newTimeEntry, [key]: event.target.value });
   };
 
-<<<<<<< HEAD
   const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsFormValid(event.target.checkValidity());
   };
 
-  const formatTime = (date: string, time: string) => {
-    const formattedTime = new Date(`${date}T${time}:00.000Z`);
-    return formattedTime;
-  };
-
-  const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsFormValid(event?.target.checkValidity());
-    setTimeEntries([
-      ...timeEntries,
-      {
-        ...newTimeEntry,
-        id: Math.random(),
-        startTime: formatTime(newTimeEntry.date, newTimeEntry.startTime),
-        endTime: formatTime(newTimeEntry.date, newTimeEntry.endTime),
-      },
-    ]);
-    postTimeEntry(newTimeEntry);
-    setNewTimeEntry({});
-=======
   const handleSubmit = async () => {
     const formattedEntry = {
       activity: newTimeEntry.activity,
@@ -73,7 +50,6 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
     const postedEntry = await postTimeEntry(formattedEntry);
     setTimeEntries([...timeEntries, postedEntry]);
     setNewTimeEntry(resetEntry);
->>>>>>> 5fafc159d1abe36c171f5d953fff514a436bb9cb
     handleModal();
   };
 
@@ -147,12 +123,7 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
       </Styled.Form>
       <Styled.ButtonWrapper>
         <Button onClick={handleModal} variant={"secondary"} label={"Cancel"}></Button>
-        <Button
-          disabled
-          onClick={handleSubmit}
-          variant={"primary"}
-          label={"Add time entry"}
-        ></Button>
+        <Button onClick={handleSubmit} variant={"primary"} label={"Add time entry"}></Button>
       </Styled.ButtonWrapper>
     </>
   );
