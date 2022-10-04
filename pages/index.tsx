@@ -20,7 +20,7 @@ export const getServerSideProps = async () => {
 };
 
 interface HomepageProps {
-  initialTimeEntries: Types.TimeEntryProps[];
+  initialTimeEntries: Types.TimeEntry[];
 }
 
 const Homepage = ({ initialTimeEntries }: HomepageProps) => {

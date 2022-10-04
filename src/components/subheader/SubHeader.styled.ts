@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const ButtonWrapper = styled.div`
   width: 100%;
-  
+
   @media (${({ theme }) => theme.tablet}) {
     margin-left: auto;
     width: 198px;
+  }
 `;
 
 export const Container = styled.div`

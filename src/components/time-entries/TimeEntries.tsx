@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { deleteTimeEntry } from "../../services/time-entries/deleteTimeEntry";
 import { Modal } from "../modal/Modal";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryForm } from "../time-entry-form";
@@ -7,13 +8,27 @@ import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
 
 interface HomepageProps {
-  initialTimeEntries: Types.TimeEntryProps[];
-  isModalActive: boolean;
   handleModal: () => void;
+  initialTimeEntries: Types.TimeEntry[];
+  isModalActive: boolean;
 }
 
 export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: HomepageProps) => {
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntryProps[]>(initialTimeEntries);
+  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(initialTimeEntries);
+
+  const handleDelete = async (entry: Types.TimeEntry) => {
+    const deletedEntry = timeEntries.indexOf(entry);
+    setTimeEntries([
+      ...timeEntries.slice(0, deletedEntry),
+      ...timeEntries.slice(deletedEntry + 1, timeEntries.length),
+    ]);
+    const deleteResponse = await deleteTimeEntry(entry);
+    if (deleteResponse instanceof Error) {
+      alert("Something went wrong :(");
+      return;
+    }
+    await deleteTimeEntry(entry);
+  };
 
   return (
     <>
@@ -52,6 +67,7 @@ export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: 
                   client={timeEntry.client}
                   endTime={timeEntry.endTime}
                   startTime={timeEntry.startTime}
+                  handleDelete={async () => await handleDelete(timeEntry)}
                 />
               </div>
             );

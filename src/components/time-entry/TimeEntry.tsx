@@ -1,13 +1,14 @@
 import * as Styled from "./TimeEntry.styled";
 import BinIcon from "../../../public/images/bin.svg";
 
-interface EntryProps {
+interface TimeEntryProps {
   client: string;
-  endTime: Date;
-  startTime: Date;
+  endTime: string;
+  startTime: string;
+  handleDelete: () => void;
 }
 
-export const TimeEntry = ({ client, endTime, startTime }: EntryProps) => {
+export const TimeEntry = ({ client, endTime, startTime, handleDelete }: TimeEntryProps) => {
   const formattedStartTime = new Date(startTime).toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit",
@@ -27,7 +28,7 @@ export const TimeEntry = ({ client, endTime, startTime }: EntryProps) => {
           </Styled.Time>
           <Styled.TotalTime />
         </Styled.TimeContainer>
-        <Styled.Button>
+        <Styled.Button onClick={handleDelete}>
           <BinIcon />
         </Styled.Button>
       </Styled.Container>
