@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 30px;
+
+  @media (${({ theme }) => theme.tablet}) {
+    margin-top: 40px;
+  }
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -7,57 +16,58 @@ export const Form = styled.form`
   margin-top: 20px;
 `;
 
-export const ButtonWrapper = styled.div`
-  display: flex;
-  gap: 30px;
-`;
-
-export const Label = styled.label`
-  color: ${({ theme }) => theme.fontColorLight};
-  margin-bottom: 10px;
-`;
-
 export const Input = styled.input`
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.backgroundGrey3};
-  margin-bottom: 20px;
   padding: 13px 13px 13px 15px;
+
+  ::placeholder {
+    opacity: 0.5;
+  }
 `;
 
 export const InputSmall = styled.input`
   border-radius: 4px;
   border: 1px solid ${({ theme }) => theme.backgroundGrey3};
-  margin-bottom: 20px;
   margin-right: 20px;
   padding: 13px 13px 13px 15px;
-  width: fit-content;
+  width: 100px;
 `;
 
-export const Wrapper = styled.div`
+export const Label = styled.label`
+  color: ${({ theme }) => theme.fontColorLight};
+  margin-bottom: 10px;
+  margin-top: 20px;
+`;
+
+export const Span = styled.span`
+  color: #ffa2ad;
+  font-size: 12px;
+  margin-top: 5px;
+`;
+
+export const StartTimeWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const TimeWrapper = styled.div`
-  display: initial;
-`;
-
-export const LabelSmall = styled.label`
-  color: ${({ theme }) => theme.fontColorLight};
-  margin-right: 10px;
-  width: fit-content;
-`;
-
-export const TotalWrapper = styled.div`
-  color: ${({ theme }) => theme.fontColorLight};
-  display: inline-flex;
+export const StopTimeWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const TotalTime = styled.div`
   color: ${({ theme }) => theme.fontColorLight};
+  font-size: 24px;
+  margin-top: 18px;
 `;
 
-export const TotalTitle = styled.p`
+export const TotalWrapper = styled.div`
   color: ${({ theme }) => theme.fontColorLight};
-  margin-right: 10px;
+  margin-left: auto;
+  margin-top: 20px;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
 `;
