@@ -1,9 +1,9 @@
 import React, { useState, Dispatch, useRef } from "react";
 
 import { Button } from "../../components/button/Button";
+import { postTimeEntry } from "../../../src/services/time-entries/postTimeEntry";
 import * as Styled from "./TimeEntryForm.styled";
 import * as Types from "../../types/types";
-import { postTimeEntry } from "../../../src/services/time-entries/postTimeEntry";
 
 interface TimeEntryFormProps {
   setTimeEntries: Dispatch<Types.TimeEntry[]>;
@@ -12,27 +12,34 @@ interface TimeEntryFormProps {
   handleModal: () => void;
 }
 
-type NewTimeEntry = {
-  newTimeEntry: object;
-};
-
 export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: TimeEntryFormProps) => {
-  const [newTimeEntry, setNewTimeEntry] = useState<NewTimeEntry[{}]>({
+  const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntry>({
     activity: "",
     client: "",
-    date: "",
     endTime: "",
+    id: "",
     startTime: "",
   });
 
+<<<<<<< HEAD
   const formRef = useRef<HTMLFormElement>(null);
 
   const [isFormValid, setIsFormValid] = useState(true);
+=======
+  const resetEntry = {
+    activity: "",
+    client: "",
+    endTime: "",
+    id: "",
+    startTime: "",
+  };
+>>>>>>> 5fafc159d1abe36c171f5d953fff514a436bb9cb
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({ ...newTimeEntry, [key]: event.target.value });
   };
 
+<<<<<<< HEAD
   const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsFormValid(event.target.checkValidity());
   };
@@ -55,6 +62,18 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
     ]);
     postTimeEntry(newTimeEntry);
     setNewTimeEntry({});
+=======
+  const handleSubmit = async () => {
+    const formattedEntry = {
+      activity: newTimeEntry.activity,
+      client: newTimeEntry.client,
+      endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
+      startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
+    };
+    const postedEntry = await postTimeEntry(formattedEntry);
+    setTimeEntries([...timeEntries, postedEntry]);
+    setNewTimeEntry(resetEntry);
+>>>>>>> 5fafc159d1abe36c171f5d953fff514a436bb9cb
     handleModal();
   };
 

@@ -18,9 +18,8 @@ export interface TimeEntry {
   activity?: string;
   client: string;
   date?: string;
-  endTime: Date;
-  handleDelete: () => void;
-  id?: number;
+  endTime: string;
+  id?: string;
   isModalActive?: boolean;
-  startTime: Date;
+  startTime: string;
 }
