@@ -23,12 +23,12 @@ const initialFormValues = {
 
 export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: TimeEntryForm) => {
   const [newTimeEntry, setNewTimeEntry] = useState(initialFormValues);
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [isFormValid, setIsFormValid] = useState<boolean>();
 
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsFormValid(event.target.checkValidity());
+  const handleBlur = () => {
+    setIsFormValid(formRef.current?.checkValidity());
   };
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {

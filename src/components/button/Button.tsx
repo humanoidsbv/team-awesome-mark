@@ -9,7 +9,6 @@ interface Button {
   onClick: MouseEventHandler<HTMLButtonElement>;
   variant?: "primary" | "secondary";
   disabled?: boolean;
-  useRef?: any;
 }
 
 export const Button = ({ hasAddIcon, label, onClick, variant = "primary", disabled }: Button) => (
