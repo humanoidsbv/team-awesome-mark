@@ -8,10 +8,12 @@ interface Button {
   label: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
   variant?: "primary" | "secondary";
+  disabled?: boolean;
+  useRef?: any;
 }
 
-export const Button = ({ hasAddIcon, label, onClick, variant = "primary" }: Button) => (
-  <Styled.Button variant={variant} onClick={onClick}>
+export const Button = ({ hasAddIcon, label, onClick, variant = "primary", disabled }: Button) => (
+  <Styled.Button variant={variant} onClick={onClick} disabled={disabled}>
     {hasAddIcon && <AddIcon />}
     {label}
   </Styled.Button>
