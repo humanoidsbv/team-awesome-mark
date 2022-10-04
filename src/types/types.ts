@@ -14,12 +14,11 @@ export interface SubHeaderProps {
   label: string;
 }
 
-export interface TimeEntry {
+export interface TimeEntryApi {
   activity?: string;
   client: string;
   date?: string;
   endTime: string;
   id?: string;
-  isModalActive?: boolean;
   startTime: string;
 }

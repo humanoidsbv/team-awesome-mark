@@ -6,14 +6,14 @@ import * as Styled from "./TimeEntryForm.styled";
 import * as Types from "../../types/types";
 
 interface TimeEntryFormProps {
-  setTimeEntries: Dispatch<Types.TimeEntry[]>;
-  timeEntries: Types.TimeEntry[];
+  setTimeEntries: Dispatch<Types.TimeEntryApi[]>;
+  timeEntries: Types.TimeEntryApi[];
   isActive?: boolean;
   handleModal: () => void;
 }
 
 export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: TimeEntryFormProps) => {
-  const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntry>({
+  const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntryApi>({
     activity: "",
     client: "",
     endTime: "",

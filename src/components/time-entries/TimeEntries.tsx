@@ -9,14 +9,14 @@ import * as Types from "../../types/types";
 
 interface HomepageProps {
   handleModal: () => void;
-  initialTimeEntries: Types.TimeEntry[];
+  initialTimeEntries: Types.TimeEntryApi[];
   isModalActive: boolean;
 }
 
 export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: HomepageProps) => {
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(initialTimeEntries);
+  const [timeEntries, setTimeEntries] = useState<Types.TimeEntryApi[]>(initialTimeEntries);
 
-  const handleDelete = async (entry: Types.TimeEntry) => {
+  const handleDelete = async (entry: Types.TimeEntryApi) => {
     const deletedEntry = timeEntries.indexOf(entry);
     setTimeEntries([
       ...timeEntries.slice(0, deletedEntry),
