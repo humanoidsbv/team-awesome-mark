@@ -129,7 +129,7 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
       <Styled.ButtonWrapper>
         <Button onClick={handleModal} variant={"secondary"} label={"Cancel"}></Button>
         <Button
-          disabled={!isFormValid}
+          disabled
           onClick={handleSubmit}
           variant={"primary"}
           label={"Add time entry"}
