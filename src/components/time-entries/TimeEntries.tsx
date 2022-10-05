@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { deleteTimeEntry } from "../../services/time-entries/deleteTimeEntry";
 import { Modal } from "../modal/Modal";
-import { StoreContext } from "../../context/StoreContext";
+import { EntriesContext } from "../../context/EntriesProvider";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryForm } from "../time-entry-form";
 import * as Styled from "./TimeEntries.styled";
@@ -14,7 +14,7 @@ interface Homepage {
 }
 
 export const TimeEntries = ({ isModalActive, handleModal }: Homepage) => {
-  const { timeEntries, setTimeEntries } = useContext(StoreContext);
+  const { timeEntries, setTimeEntries } = useContext(EntriesContext);
 
   const handleDelete = async (entry: Types.TimeEntry) => {
     const deletedEntry = timeEntries.indexOf(entry);
@@ -34,12 +34,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: Homepage) => {
     <>
       <Styled.Container>
         <Modal isActive={isModalActive} onClose={handleModal} title={"New Time Entry"}>
-          <TimeEntryForm
-            isActive={isModalActive}
-            setTimeEntries={setTimeEntries}
-            timeEntries={timeEntries}
-            handleModal={handleModal}
-          />
+          <TimeEntryForm isActive={isModalActive} handleModal={handleModal} />
         </Modal>
         {timeEntries
           ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
