@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext } from "react";
 
 import { deleteTimeEntry } from "../../services/time-entries/deleteTimeEntry";
 import { Modal } from "../modal/Modal";
+import { StoreContext } from "../../context/StoreContext";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryForm } from "../time-entry-form";
 import * as Styled from "./TimeEntries.styled";
@@ -9,12 +10,11 @@ import * as Types from "../../types/types";
 
 interface Homepage {
   handleModal: () => void;
-  initialTimeEntries: Types.TimeEntry[];
   isModalActive: boolean;
 }
 
-export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: Homepage) => {
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(initialTimeEntries);
+export const TimeEntries = ({ isModalActive, handleModal }: Homepage) => {
+  const { timeEntries, setTimeEntries } = useContext(StoreContext);
 
   const handleDelete = async (entry: Types.TimeEntry) => {
     const deletedEntry = timeEntries.indexOf(entry);

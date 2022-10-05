@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
 import { Header } from "../src/components/header";
+import { StoreProvider } from "../src/context/StoreContext";
 import { SubHeader } from "../src/components/subheader";
 import { theme } from "../src/styles/theme";
 import { ThemeProvider } from "styled-components";
@@ -32,20 +33,22 @@ const Homepage = ({ initialTimeEntries }: HomepageProps) => {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Header />
-        <SubHeader
-          entries={initialTimeEntries.length}
-          label="Timesheets"
-          handleModal={handleModal}
-        />
-        <TimeEntries
-          isModalActive={isModalActive}
-          initialTimeEntries={initialTimeEntries}
-          handleModal={handleModal}
-        />
-      </ThemeProvider>
+      <StoreProvider initialTimeEntries={initialTimeEntries}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Header />
+          <SubHeader
+            entries={initialTimeEntries.length}
+            label="Timesheets"
+            handleModal={handleModal}
+          />
+          <TimeEntries
+            isModalActive={isModalActive}
+            initialTimeEntries={initialTimeEntries}
+            handleModal={handleModal}
+          />
+        </ThemeProvider>
+      </StoreProvider>
     </>
   );
 };

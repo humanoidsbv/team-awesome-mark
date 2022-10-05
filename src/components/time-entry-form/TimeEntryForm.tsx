@@ -10,7 +10,7 @@ interface TimeEntryForm {
   timeEntries: Types.TimeEntry[];
   isActive?: boolean;
   handleModal: () => void;
-  required: HTMLInputElement;
+  required?: HTMLInputElement;
 }
 
 const initialFormValues = {
