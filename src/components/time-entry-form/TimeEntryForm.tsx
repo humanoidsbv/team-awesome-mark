@@ -1,4 +1,4 @@
-import React, { useState, Dispatch, useRef } from "react";
+import React, { useState, useRef, Dispatch, useContext } from "react";
 
 import { Button } from "../../components/button/Button";
 import { postTimeEntry } from "../../../src/services/time-entries/postTimeEntry";
@@ -6,11 +6,11 @@ import * as Styled from "./TimeEntryForm.styled";
 import * as Types from "../../types/types";
 
 interface TimeEntryForm {
+  handleModal: () => void;
+  isActive?: boolean;
+  required?: HTMLInputElement;
   setTimeEntries: Dispatch<Types.TimeEntry[]>;
   timeEntries: Types.TimeEntry[];
-  isActive?: boolean;
-  handleModal: () => void;
-  required?: HTMLInputElement;
 }
 
 const initialFormValues = {
@@ -21,7 +21,7 @@ const initialFormValues = {
   date: "",
 };
 
-export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: TimeEntryForm) => {
+export const TimeEntryForm = ({ handleModal, timeEntries, setTimeEntries }: TimeEntryForm) => {
   const [newTimeEntry, setNewTimeEntry] = useState(initialFormValues);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
