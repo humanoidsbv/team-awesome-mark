@@ -88,7 +88,7 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
         />
         {!isFormValid && <Styled.Span>This field is required</Styled.Span>}
         <Styled.Wrapper>
-          <Styled.StartTimeWrapper>
+          <Styled.TimeWrapper>
             <Styled.Label>From</Styled.Label>
             <Styled.InputSmall
               name="startTime"
@@ -99,8 +99,8 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
               value={newTimeEntry.startTime ?? ""}
             />
             {!isFormValid && <Styled.Span>This field is required</Styled.Span>}
-          </Styled.StartTimeWrapper>
-          <Styled.StopTimeWrapper>
+          </Styled.TimeWrapper>
+          <Styled.TimeWrapper>
             <Styled.Label>To</Styled.Label>
             <Styled.InputSmall
               name="endTime"
@@ -111,7 +111,7 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
               onChange={(event) => handleChange("endTime", event)}
             />
             {!isFormValid && <Styled.Span>This field is required</Styled.Span>}
-          </Styled.StopTimeWrapper>
+          </Styled.TimeWrapper>
           <Styled.TotalWrapper>
             <Styled.Label>Total</Styled.Label>
             <Styled.TotalTime>8:00</Styled.TotalTime>

@@ -31,7 +31,6 @@ export const InputSmall = styled.input`
   border: 1px solid ${({ theme }) => theme.backgroundGrey3};
   margin-right: 20px;
   padding: 13px 13px 13px 15px;
-  width: 100px;
 `;
 
 export const Label = styled.label`
@@ -46,12 +45,7 @@ export const Span = styled.span`
   margin-top: 5px;
 `;
 
-export const StartTimeWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const StopTimeWrapper = styled.div`
+export const TimeWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -64,8 +58,7 @@ export const TotalTime = styled.div`
 
 export const TotalWrapper = styled.div`
   color: ${({ theme }) => theme.fontColorLight};
-  margin-left: auto;
-  margin-top: 20px;
+  margin: 20px 0 0 auto;
 `;
 
 export const Wrapper = styled.div`

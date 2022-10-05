@@ -28,8 +28,8 @@ export const Button = styled.button<ButtonProps>`
       }
       &:disabled {
         background-color: grey;
-        color: lightgrey;
         border: 1px solid #e6eaee;
+        color: lightgrey;
       }
     `}
 
