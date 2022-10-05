@@ -3,11 +3,7 @@ import { MouseEventHandler } from "react";
 import * as Styled from "./ButtonDelete.styled";
 import BinIcon from "../../../public/images/bin.svg";
 
-interface ButtonDeleteProps {
-  onClick: MouseEventHandler<HTMLButtonElement>;
-}
-
-export const ButtonDelete = ({ onClick }: ButtonDeleteProps) => {
+export const ButtonDelete = (onClick: MouseEventHandler<HTMLButtonElement>) => {
   return (
     <Styled.Button onClick={onClick}>
       <BinIcon />

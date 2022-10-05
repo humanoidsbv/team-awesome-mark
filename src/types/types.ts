@@ -1,6 +1,6 @@
 import React, { ReactEventHandler } from "react";
 
-export interface ModalProps {
+export interface Modal {
   children?: React.ReactElement;
   isActive: boolean;
   onClick?: () => void;
@@ -8,7 +8,7 @@ export interface ModalProps {
   title?: string;
 }
 
-export interface SubHeaderProps {
+export interface SubHeader {
   entries: number;
   handleModal: () => void;
   label: string;
@@ -17,9 +17,7 @@ export interface SubHeaderProps {
 export interface TimeEntry {
   activity?: string;
   client: string;
-  date?: string;
   endTime: string;
   id?: string;
-  isModalActive?: boolean;
   startTime: string;
 }

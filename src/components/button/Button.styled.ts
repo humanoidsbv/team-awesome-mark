@@ -26,6 +26,11 @@ export const Button = styled.button<ButtonProps>`
       &:active {
         background-color: ${({ theme }) => theme.buttonPrimaryActive};
       }
+      &:disabled {
+        background-color: grey;
+        border: 1px solid #e6eaee;
+        color: lightgrey;
+      }
     `}
 
   ${({ variant }) =>

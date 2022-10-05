@@ -3,15 +3,16 @@ import { MouseEventHandler } from "react";
 import * as Styled from "./Button.styled";
 import AddIcon from "../../../public/images/plus.svg";
 
-interface ButtonProps {
+interface Button {
   hasAddIcon?: boolean;
   label: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
   variant?: "primary" | "secondary";
+  disabled?: boolean;
 }
 
-export const Button = ({ hasAddIcon, label, onClick, variant = "primary" }: ButtonProps) => (
-  <Styled.Button variant={variant} onClick={onClick}>
+export const Button = ({ hasAddIcon, label, onClick, variant = "primary", disabled }: Button) => (
+  <Styled.Button variant={variant} onClick={onClick} disabled={disabled}>
     {hasAddIcon && <AddIcon />}
     {label}
   </Styled.Button>

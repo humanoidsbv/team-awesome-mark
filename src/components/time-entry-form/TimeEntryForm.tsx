@@ -1,32 +1,34 @@
-import React, { useState, Dispatch } from "react";
+import React, { useState, Dispatch, useRef } from "react";
 
 import { Button } from "../../components/button/Button";
 import { postTimeEntry } from "../../../src/services/time-entries/postTimeEntry";
 import * as Styled from "./TimeEntryForm.styled";
 import * as Types from "../../types/types";
 
-interface TimeEntryFormProps {
+interface TimeEntryForm {
   setTimeEntries: Dispatch<Types.TimeEntry[]>;
   timeEntries: Types.TimeEntry[];
   isActive?: boolean;
   handleModal: () => void;
+  required: HTMLInputElement;
 }
 
-export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: TimeEntryFormProps) => {
-  const [newTimeEntry, setNewTimeEntry] = useState<Types.TimeEntry>({
-    activity: "",
-    client: "",
-    endTime: "",
-    id: "",
-    startTime: "",
-  });
+const initialFormValues = {
+  activity: "",
+  client: "",
+  endTime: "",
+  startTime: "",
+  date: "",
+};
 
-  const resetEntry = {
-    activity: "",
-    client: "",
-    endTime: "",
-    id: "",
-    startTime: "",
+export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: TimeEntryForm) => {
+  const [newTimeEntry, setNewTimeEntry] = useState(initialFormValues);
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleBlur = () => {
+    setIsFormValid(formRef.current?.checkValidity() || false);
   };
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,60 +44,88 @@ export const TimeEntryForm = ({ setTimeEntries, timeEntries, handleModal }: Time
     };
     const postedEntry = await postTimeEntry(formattedEntry);
     setTimeEntries([...timeEntries, postedEntry]);
-    setNewTimeEntry(resetEntry);
+    setNewTimeEntry(initialFormValues);
     handleModal();
   };
 
   return (
     <>
-      <Styled.Form>
+      <Styled.Form ref={formRef}>
         <Styled.Label>Client</Styled.Label>
         <Styled.Input
+          maxLength={20}
+          minLength={3}
           name="client"
+          onBlur={handleBlur}
+          onChange={(event) => handleChange("client", event)}
+          placeholder="Client name"
+          required={true}
           type="text"
           value={newTimeEntry.client ?? ""}
-          onChange={(event) => handleChange("client", event)}
         />
+        {!isFormValid && <Styled.Span>This field is required</Styled.Span>}
         <Styled.Label>Activity</Styled.Label>
         <Styled.Input
+          maxLength={60}
+          minLength={1}
           name="activity"
+          onBlur={handleBlur}
+          onChange={(event) => handleChange("activity", event)}
+          placeholder="Type of activity"
+          required={true}
           type="text"
           value={newTimeEntry.activity ?? ""}
-          onChange={(event) => handleChange("activity", event)}
         />
+        {!isFormValid && <Styled.Span>This field is required</Styled.Span>}
+        <Styled.Label>Date</Styled.Label>
+        <Styled.Input
+          name="date"
+          onBlur={handleBlur}
+          onChange={(event) => handleChange("date", event)}
+          type="date"
+          value={newTimeEntry.date ?? ""}
+          required={true}
+        />
+        {!isFormValid && <Styled.Span>This field is required</Styled.Span>}
         <Styled.Wrapper>
-          <Styled.Label>Date</Styled.Label>
-          <Styled.Input
-            name="date"
-            type="date"
-            value={newTimeEntry.date ?? ""}
-            onChange={(event) => handleChange("date", event)}
-          />
           <Styled.TimeWrapper>
-            <Styled.LabelSmall>From</Styled.LabelSmall>
+            <Styled.Label>From</Styled.Label>
             <Styled.InputSmall
               name="startTime"
+              onBlur={handleBlur}
+              required={true}
+              onChange={(event) => handleChange("startTime", event)}
               type="time"
               value={newTimeEntry.startTime ?? ""}
-              onChange={(event) => handleChange("startTime", event)}
             />
-            <Styled.LabelSmall>To</Styled.LabelSmall>
+            {!isFormValid && <Styled.Span>This field is required</Styled.Span>}
+          </Styled.TimeWrapper>
+          <Styled.TimeWrapper>
+            <Styled.Label>To</Styled.Label>
             <Styled.InputSmall
               name="endTime"
               type="time"
+              required={true}
               value={newTimeEntry.endTime ?? ""}
+              onBlur={handleBlur}
               onChange={(event) => handleChange("endTime", event)}
             />
-            <Styled.TotalWrapper>
-              <Styled.TotalTitle>Total</Styled.TotalTitle>
-              <Styled.TotalTime>8:00</Styled.TotalTime>
-            </Styled.TotalWrapper>
+            {!isFormValid && <Styled.Span>This field is required</Styled.Span>}
           </Styled.TimeWrapper>
+          <Styled.TotalWrapper>
+            <Styled.Label>Total</Styled.Label>
+            <Styled.TotalTime>8:00</Styled.TotalTime>
+          </Styled.TotalWrapper>
         </Styled.Wrapper>
       </Styled.Form>
       <Styled.ButtonWrapper>
         <Button onClick={handleModal} variant={"secondary"} label={"Cancel"}></Button>
-        <Button onClick={handleSubmit} variant={"primary"} label={"Add time entry"}></Button>
+        <Button
+          disabled={!isFormValid}
+          label={"Add time entry"}
+          onClick={handleSubmit}
+          variant={"primary"}
+        ></Button>
       </Styled.ButtonWrapper>
     </>
   );
