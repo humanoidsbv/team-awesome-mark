@@ -1,8 +1,8 @@
 import { useContext } from "react";
 
 import { deleteTimeEntry } from "../../services/time-entries/deleteTimeEntry";
-import { Modal } from "../modal/Modal";
 import { EntriesContext } from "../../context/EntriesProvider";
+import { Modal } from "../modal/Modal";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryForm } from "../time-entry-form";
 import * as Styled from "./TimeEntries.styled";
@@ -18,16 +18,15 @@ export const TimeEntries = ({ isModalActive, handleModal }: Homepage) => {
 
   const handleDelete = async (entry: Types.TimeEntry) => {
     const deletedEntry = timeEntries.indexOf(entry);
-    setTimeEntries([
-      ...timeEntries.slice(0, deletedEntry),
-      ...timeEntries.slice(deletedEntry + 1, timeEntries.length),
-    ]);
     const deleteResponse = await deleteTimeEntry(entry);
     if (deleteResponse instanceof Error) {
       alert("Something went wrong :(");
       return;
     }
-    await deleteTimeEntry(entry);
+    setTimeEntries([
+      ...timeEntries.slice(0, deletedEntry),
+      ...timeEntries.slice(deletedEntry + 1, timeEntries.length),
+    ]);
   };
 
   return (

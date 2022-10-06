@@ -4,13 +4,12 @@ import { Button } from "../../components/button/Button";
 import { postTimeEntry } from "../../../src/services/time-entries/postTimeEntry";
 import * as Styled from "./TimeEntryForm.styled";
 import * as Types from "../../types/types";
+import { EntriesContext } from "../../context/EntriesProvider";
 
 interface TimeEntryForm {
   handleModal: () => void;
   isActive?: boolean;
   required?: HTMLInputElement;
-  setTimeEntries: Dispatch<Types.TimeEntry[]>;
-  timeEntries: Types.TimeEntry[];
 }
 
 const initialFormValues = {
@@ -21,9 +20,10 @@ const initialFormValues = {
   date: "",
 };
 
-export const TimeEntryForm = ({ handleModal, timeEntries, setTimeEntries }: TimeEntryForm) => {
+export const TimeEntryForm = ({ handleModal }: TimeEntryForm) => {
   const [newTimeEntry, setNewTimeEntry] = useState(initialFormValues);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
+  const { timeEntries, setTimeEntries } = useContext(EntriesContext);
 
   const formRef = useRef<HTMLFormElement>(null);
 

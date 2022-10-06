@@ -10,6 +10,7 @@ interface EntriesProvider {
 interface EntriesContext {
   initialTimeEntries: Types.TimeEntry[];
   setTimeEntries: Dispatch<SetStateAction<Types.TimeEntry[]>>;
+  timeEntries: Types.TimeEntry[];
 }
 
 export const EntriesContext = createContext<EntriesContext>({} as EntriesContext);
