@@ -25,7 +25,7 @@ export const TeamEntries = ({ isModalActive, handleModal }: TeamEntriesProps) =>
             <>
               <Styled.Section>
                 <Styled.Weekday></Styled.Weekday>
-                <Styled.Time>08:00</Styled.Time>
+                <Styled.Time>Koppert</Styled.Time>
               </Styled.Section>
               <TeamEntry
                 client={teamEntry.client}
