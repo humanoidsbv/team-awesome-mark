@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext } from "react";
 
 import { deleteTimeEntry } from "../../services/time-entries/deleteTimeEntry";
+import { EntriesContext } from "../../context/EntriesProvider";
 import { Modal } from "../modal/Modal";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryForm } from "../time-entry-form";
@@ -9,37 +10,30 @@ import * as Types from "../../types/types";
 
 interface Homepage {
   handleModal: () => void;
-  initialTimeEntries: Types.TimeEntry[];
   isModalActive: boolean;
 }
 
-export const TimeEntries = ({ initialTimeEntries, isModalActive, handleModal }: Homepage) => {
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(initialTimeEntries);
+export const TimeEntries = ({ isModalActive, handleModal }: Homepage) => {
+  const { timeEntries, setTimeEntries } = useContext(EntriesContext);
 
   const handleDelete = async (entry: Types.TimeEntry) => {
     const deletedEntry = timeEntries.indexOf(entry);
-    setTimeEntries([
-      ...timeEntries.slice(0, deletedEntry),
-      ...timeEntries.slice(deletedEntry + 1, timeEntries.length),
-    ]);
     const deleteResponse = await deleteTimeEntry(entry);
     if (deleteResponse instanceof Error) {
       alert("Something went wrong :(");
       return;
     }
-    await deleteTimeEntry(entry);
+    setTimeEntries([
+      ...timeEntries.slice(0, deletedEntry),
+      ...timeEntries.slice(deletedEntry + 1, timeEntries.length),
+    ]);
   };
 
   return (
     <>
       <Styled.Container>
         <Modal isActive={isModalActive} onClose={handleModal} title={"New Time Entry"}>
-          <TimeEntryForm
-            isActive={isModalActive}
-            setTimeEntries={setTimeEntries}
-            timeEntries={timeEntries}
-            handleModal={handleModal}
-          />
+          <TimeEntryForm isActive={isModalActive} handleModal={handleModal} />
         </Modal>
         {timeEntries
           ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
