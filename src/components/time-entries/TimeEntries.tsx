@@ -33,7 +33,11 @@ export const TimeEntries = ({ isModalActive, handleModal }: Homepage) => {
     <>
       <Styled.Container>
         <Modal isActive={isModalActive} onClose={handleModal} title={"New Time Entry"}>
-          <TimeEntryForm isActive={isModalActive} handleModal={handleModal} />
+          <TimeEntryForm
+            isActive={isModalActive}
+            handleModal={handleModal}
+            timeEntries={timeEntries}
+          />
         </Modal>
         {timeEntries
           ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
