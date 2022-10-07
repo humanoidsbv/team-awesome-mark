@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import Link from "next/link";
+import React, { useState } from "react";
 
 import * as Styled from "./Header.styled";
 import CloseIcon from "../../../public/images/close.svg";
