@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
-  margin-left: 25px;
-  cursor: pointer;
-
-  svg:hover path {
-    fill: #ffa2ad;
-  }
-`;
-
 export const Client = styled.p`
   font-size: 18px;
 `;
@@ -31,19 +22,4 @@ export const Container = styled.div`
   @media (${({ theme }) => theme.desktop}) {
     min-width: 1080px;
   }
-`;
-
-export const Time = styled.p`
-  font-size: 18px;
-  margin-left: auto;
-`;
-
-export const TimeContainer = styled.div`
-  margin-left: auto;
-  text-align: right;
-`;
-
-export const TotalTime = styled.p`
-  color: ${({ theme }) => theme.fontColorLight};
-  font-size: 14px;
 `;

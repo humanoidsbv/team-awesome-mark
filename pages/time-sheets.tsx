@@ -16,11 +16,11 @@ export const getServerSideProps = async () => {
   };
 };
 
-interface TimeSheetProps {
+interface TimeSheetsProps {
   initialTimeEntries: Types.TimeEntry[];
 }
 
-const TimeSheets = ({ initialTimeEntries }: TimeSheetProps) => {
+const TimeSheets = ({ initialTimeEntries }: TimeSheetsProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
 
   const handleModal = () => {

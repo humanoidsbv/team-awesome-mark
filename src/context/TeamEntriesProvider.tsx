@@ -4,7 +4,7 @@ import * as Types from "../types/types";
 
 interface TeamEntriesProvider {
   children: ReactNode;
-  initialTimeEntries: Types.TeamEntry[];
+  initialTeamEntries: Types.TeamEntry[];
 }
 
 interface TeamEntriesContext {

@@ -8,12 +8,12 @@ import { TimeEntryForm } from "../time-entry-form";
 import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
 
-interface Homepage {
+interface TimeEntriesProps {
   handleModal: () => void;
   isModalActive: boolean;
 }
 
-export const TimeEntries = ({ isModalActive, handleModal }: Homepage) => {
+export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) => {
   const { timeEntries, setTimeEntries } = useContext(TimeEntriesContext);
 
   const handleDelete = async (entry: Types.TimeEntry) => {

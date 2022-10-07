@@ -1,36 +1,18 @@
 import * as Styled from "./TeamEntry.styled";
-import BinIcon from "../../../public/images/bin.svg";
 
-interface TimeEntryProps {
+interface TeamEntryProps {
   client: string;
-  endTime: string;
-  startTime: string;
-  handleDelete: () => void;
+  teamMembers: string;
+  startDate: string;
 }
 
-export const TimeEntry = ({ client, endTime, startTime, handleDelete }: TimeEntryProps) => {
-  const formattedStartTime = new Date(startTime).toLocaleTimeString("en-GB", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  const formattedStopTime = new Date(endTime).toLocaleTimeString("en-GB", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
+export const TeamEntry = ({ client, teamMembers, startDate }: TeamEntryProps) => {
   return (
     <>
       <Styled.Container>
-        <Styled.Client>{client}</Styled.Client>
-        <Styled.TimeContainer>
-          <Styled.Time>
-            {formattedStartTime} - {formattedStopTime}
-          </Styled.Time>
-          <Styled.TotalTime />
-        </Styled.TimeContainer>
-        <Styled.Button onClick={handleDelete}>
-          <BinIcon />
-        </Styled.Button>
+        {client}
+        {teamMembers}
+        {startDate}
       </Styled.Container>
     </>
   );
