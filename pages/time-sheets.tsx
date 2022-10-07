@@ -1,10 +1,10 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 
 import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
 import { SubHeader } from "../src/components/subheader";
 import { TimeEntries } from "../src/components/time-entries";
 import * as Types from "../src/types/types";
-import { EntriesProvider, EntriesContext } from "../src/context/EntriesProvider";
+import { EntriesProvider } from "../src/context/EntriesProvider";
 
 export const getServerSideProps = async () => {
   const initialTimeEntries = await getTimeEntries();
@@ -22,7 +22,6 @@ interface TimeSheetProps {
 
 const TimeSheets = ({ initialTimeEntries }: TimeSheetProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
-  const { timeEntries, setTimeEntries } = useContext(EntriesContext);
 
   const handleModal = () => {
     setIsModalActive(!isModalActive);
@@ -36,11 +35,7 @@ const TimeSheets = ({ initialTimeEntries }: TimeSheetProps) => {
           label="Timesheets"
           handleModal={handleModal}
         />
-        <TimeEntries
-          isModalActive={isModalActive}
-          handleModal={handleModal}
-          initialTimeEntries={initialTimeEntries}
-        />
+        <TimeEntries isModalActive={isModalActive} handleModal={handleModal} />
       </EntriesProvider>
     </>
   );
