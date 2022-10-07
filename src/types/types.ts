@@ -21,3 +21,9 @@ export interface TimeEntry {
   id?: string;
   startTime: string;
 }
+
+export interface TeamEntry {
+  client: string;
+  teamMembers: string;
+  startDate: string;
+}

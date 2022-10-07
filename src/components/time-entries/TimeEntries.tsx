@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import { deleteTimeEntry } from "../../services/time-entries/deleteTimeEntry";
-import { EntriesContext } from "../../context/EntriesProvider";
+import { TimeEntriesContext } from "../../context/TimeEntriesProvider";
 import { Modal } from "../modal/Modal";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryForm } from "../time-entry-form";
@@ -14,7 +14,7 @@ interface Homepage {
 }
 
 export const TimeEntries = ({ isModalActive, handleModal }: Homepage) => {
-  const { timeEntries, setTimeEntries } = useContext(EntriesContext);
+  const { timeEntries, setTimeEntries } = useContext(TimeEntriesContext);
 
   const handleDelete = async (entry: Types.TimeEntry) => {
     const deletedEntry = timeEntries.indexOf(entry);

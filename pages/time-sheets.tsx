@@ -4,7 +4,7 @@ import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
 import { SubHeader } from "../src/components/subheader";
 import { TimeEntries } from "../src/components/time-entries";
 import * as Types from "../src/types/types";
-import { EntriesProvider } from "../src/context/EntriesProvider";
+import { TimeEntriesProvider } from "../src/context/TimeEntriesProvider";
 
 export const getServerSideProps = async () => {
   const initialTimeEntries = await getTimeEntries();
@@ -29,14 +29,14 @@ const TimeSheets = ({ initialTimeEntries }: TimeSheetProps) => {
 
   return (
     <>
-      <EntriesProvider initialTimeEntries={initialTimeEntries}>
+      <TimeEntriesProvider initialTimeEntries={initialTimeEntries}>
         <SubHeader
           entries={initialTimeEntries.length}
           label="Timesheets"
           handleModal={handleModal}
         />
         <TimeEntries isModalActive={isModalActive} handleModal={handleModal} />
-      </EntriesProvider>
+      </TimeEntriesProvider>
     </>
   );
 };

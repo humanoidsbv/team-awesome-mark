@@ -1,8 +1,8 @@
 import * as Types from "../../types/types";
 
-export interface TimeEntryApi extends Types.TimeEntry {}
+export interface TeamEntryApi extends Types.TeamEntry {}
 
-export async function getTeamEntries(): Promise<TimeEntryApi[] | Error> {
+export async function getTeamEntries(): Promise<TeamEntryApi[] | Error> {
   const response = await fetch("http://localhost:3004/clients")
     .then(async (response) => {
       if (response.status !== 200) {
