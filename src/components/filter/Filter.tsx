@@ -1,25 +1,27 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import * as Styled from "./Filter.styled";
 import { TeamEntriesContext } from "../../context/TeamEntriesProvider";
 
-interface Filter {}
-
-export const Filter = ({}: Filter) => {
+export const Filter = ({ setCurrentClient, currentClient }) => {
   const { teamEntries, setTeamEntries } = useContext(TeamEntriesContext);
+
+  const handleFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCurrentClient(event.target.value);
+  };
 
   return (
     <>
       <Styled.Container>
         <Styled.Label for="client-filter">Filter by client:</Styled.Label>
-        <Styled.Select
-          name="clients"
-          id="client-filter"
-          onChange={(event) => handleChange("client", event)}
-        >
+        <Styled.Select name="clients" id="client-filter" onChange={handleFilter}>
           <option value="">Choose a client</option>
-          <option value="Hike One">Hike One</option>
-          <option value="Koppert">Koppert</option>
-          <option value="Heineken">Port of Rotterdam</option>
+          {teamEntries.map((entry) => {
+            return (
+              <option value={entry.client} label={entry.client}>
+                {entry.client}
+              </option>
+            );
+          })}
         </Styled.Select>
       </Styled.Container>
     </>

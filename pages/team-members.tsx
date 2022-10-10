@@ -23,6 +23,7 @@ interface TeamMembersProps {
 
 const TeamMembers = ({ initialTeamEntries }: TeamMembersProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
+  const [currentClient, setCurrentClient] = useState("");
 
   const handleModal = () => {
     setIsModalActive(!isModalActive);
@@ -37,8 +38,12 @@ const TeamMembers = ({ initialTeamEntries }: TeamMembersProps) => {
           handleModal={handleModal}
           entriesLabel={"Humanoids"}
         ></SubHeader>
-        <Filter />
-        <TeamEntries isModalActive={isModalActive} handleModal={handleModal} />
+        <Filter currentClient={currentClient} setCurrentClient={setCurrentClient} />
+        <TeamEntries
+          isModalActive={isModalActive}
+          handleModal={handleModal}
+          currentClient={currentClient}
+        />
       </TeamEntriesProvider>
     </>
   );
