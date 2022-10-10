@@ -3,7 +3,7 @@ import * as Types from "../../types/types";
 export interface TeamEntryApi extends Types.TeamEntry {}
 
 export async function getTeamEntries(): Promise<TeamEntryApi[] | Error> {
-  const response = await fetch("http://localhost:3004/clients")
+  const response = await fetch("http://localhost:3004/team-entries")
     .then(async (response) => {
       if (response.status !== 200) {
         throw new Error(await response.json());

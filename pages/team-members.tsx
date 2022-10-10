@@ -5,6 +5,7 @@ import { SubHeader } from "../src/components/subheader";
 import { TeamEntries } from "../src/components/team-entries";
 import { TeamEntriesProvider } from "../src/context/TeamEntriesProvider";
 import * as Types from "../src/types/types";
+import { Filter } from "../src/components/filter";
 
 export const getServerSideProps = async () => {
   const initialTeamEntries = await getTeamEntries();
@@ -34,8 +35,10 @@ const TeamMembers = ({ initialTeamEntries }: TeamMembersProps) => {
           entries={initialTeamEntries.length}
           label="Team members"
           handleModal={handleModal}
+          entriesLabel={"Humanoids"}
         ></SubHeader>
-        <TeamEntries />
+        <Filter />
+        <TeamEntries isModalActive={isModalActive} handleModal={handleModal} />
       </TeamEntriesProvider>
     </>
   );

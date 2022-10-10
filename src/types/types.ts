@@ -12,6 +12,7 @@ export interface SubHeader {
   entries: number;
   handleModal: () => void;
   label: string;
+  entriesLabel: string;
 }
 
 export interface TimeEntry {
@@ -24,6 +25,9 @@ export interface TimeEntry {
 
 export interface TeamEntry {
   client: string;
-  teamMembers: string;
+  firstName: string;
+  id?: number;
+  lastName: string;
+  role: string;
   startDate: string;
 }

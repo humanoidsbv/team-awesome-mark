@@ -1,7 +1,7 @@
 import * as Types from "../../types/types";
 
 export async function deleteTeamEntry(teamEntry) {
-  const response = await fetch(`http://localhost:3004/clients/${teamEntry.id}`, {
+  const response = await fetch(`http://localhost:3004/team-entries/${teamEntry.id}`, {
     method: "DELETE",
   })
     .then(async (response) => {

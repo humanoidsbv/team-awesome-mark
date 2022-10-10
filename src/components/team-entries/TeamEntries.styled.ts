@@ -13,12 +13,9 @@ export const Section = styled.div`
   margin: 40px 10px 20px 10px;
 `;
 
-export const Time = styled.p`
+export const Client = styled.p`
   color: ${({ theme }) => theme.fontColorLight};
   font-size: 18px;
-`;
-
-export const Weekday = styled.p`
-  color: ${({ theme }) => theme.fontColorLight};
-  font-size: 18px;
+  margin-left: auto;
+  margin-right: 0;
 `;
