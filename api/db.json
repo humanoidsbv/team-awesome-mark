@@ -56,12 +56,20 @@
       "id": 4
     },
     {
-      "client": "Heineken",
+      "client": "Hike One",
       "firstName": "Mark",
       "lastName": "Bolier",
       "role": "Frontend",
       "startDate": "",
       "id": 5
+    },
+    {
+      "client": "Heineken",
+      "firstName": "Jarmo",
+      "lastName": "van der Heul",
+      "role": "Frontend dev",
+      "startDate": "",
+      "id": 6
     }
   ]
 }
