@@ -15,10 +15,10 @@ export const Header = () => {
     <Styled.Container isActive={isActive}>
       <Styled.Logo>team awesome</Styled.Logo>
       <Styled.Menu isActive={!isActive}>
-        <Link href="/time-sheets" passHref>
+        <Link href="/">
           <Styled.MenuItems>Timesheets</Styled.MenuItems>
         </Link>
-        <Link href="/team-members" passHref>
+        <Link href="/team-members">
           <Styled.MenuItems>Team members</Styled.MenuItems>
         </Link>
         <Styled.MenuItems>Projects</Styled.MenuItems>

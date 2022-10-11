@@ -26,7 +26,7 @@ export interface TimeEntry {
 export interface TeamEntry {
   client: string;
   firstName: string;
-  id?: number;
+  id: number;
   lastName: string;
   role: string;
   startDate: string;
