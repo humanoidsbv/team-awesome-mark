@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { deleteTimeEntry } from "../../services/time-entries/deleteTimeEntry";
 import { TimeEntriesContext } from "../../context/TimeEntriesProvider";
@@ -15,6 +15,11 @@ interface TimeEntriesProps {
 
 export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) => {
   const { timeEntries, setTimeEntries } = useContext(TimeEntriesContext);
+  const [toggleSort, setToggleSort] = useState<boolean>(false);
+
+  const handleSort = async () => {
+    setToggleSort(!toggleSort);
+  };
 
   const handleDelete = async (entry: Types.TimeEntry) => {
     const deletedEntry = timeEntries.indexOf(entry);
@@ -35,7 +40,9 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
         <Modal isActive={isModalActive} onClose={handleModal} title={"New Time Entry"}>
           <TimeEntryForm isActive={isModalActive} handleModal={handleModal} />
         </Modal>
-        <Styled.Sort>Sort by date ▲</Styled.Sort>
+        <Styled.Sort onClick={handleSort}>
+          {!toggleSort ? "Sort descending ▲" : "Sort ascending ▼"}
+        </Styled.Sort>
         {timeEntries
           ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
           .map((timeEntry, i, arr) => {
