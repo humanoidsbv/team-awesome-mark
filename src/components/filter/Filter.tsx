@@ -16,7 +16,6 @@ export const Filter = ({ setCurrentClient }: FilterProps) => {
   const onlyClients = teamEntries.map(function (entry) {
     return entry.client;
   });
-
   const formattedClients = [...new Set(onlyClients)];
 
   return (
