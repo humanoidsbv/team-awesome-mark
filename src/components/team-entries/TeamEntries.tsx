@@ -9,7 +9,7 @@ import * as Styled from "./TeamEntries.styled";
 interface TeamEntriesProps {
   handleModal: () => void;
   isModalActive: boolean;
-  currentClient: any;
+  currentClient: React.ComponentState;
 }
 
 export const TeamEntries = ({ isModalActive, handleModal, currentClient }: TeamEntriesProps) => {
@@ -23,7 +23,7 @@ export const TeamEntries = ({ isModalActive, handleModal, currentClient }: TeamE
           <TeamEntryForm isActive={isModalActive} handleModal={handleModal} />
         </Modal>
         {teamEntries
-          .filter((teamEntry) => currentClient === [] || teamEntry.client === currentClient)
+          .filter((teamEntry) => currentClient === "" || teamEntry.client === currentClient)
           .map((teamEntry, i, arr) => {
             const currentClient = teamEntry.client;
             const previousClient = arr[i - 1]?.client;
