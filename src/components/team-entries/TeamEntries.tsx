@@ -14,31 +14,27 @@ interface TeamEntriesProps {
 
 export const TeamEntries = ({ isModalActive, handleModal }: TeamEntriesProps) => {
   const { teamEntries } = useContext(TeamEntriesContext);
-  const [toggleSort, setToggleSort] = useState<boolean>(false);
   const [orderedEntries, setOrderedEntries] = useState(teamEntries);
-  const [sortOrder, setSortOrder] = useState("ascending");
+  const [ascending, setAscending] = useState(true);
   const [currentClient, setCurrentClient] = useState("");
 
-  const order = ["ascending", "descending"];
-
   const handleSort = async () => {
-    orderedEntries.sort((a, b) => {
+    const sortedEntries = teamEntries.sort((a, b) => {
       if (a.firstName < b.firstName) {
-        return order === "ascending" ? 1 : -1;
+        return ascending ? 1 : -1;
       }
       if (a.firstName > b.firstName) {
-        return order === "descending" ? 1 : -1;
+        return ascending ? -1 : 1;
       }
       return 0;
     });
-    setSortOrder(sortOrder);
-    setOrderedEntries(orderedEntries);
-    setToggleSort(!toggleSort);
+
+    setOrderedEntries(sortedEntries);
   };
 
   useEffect(() => {
     handleSort();
-  }, [sortOrder]);
+  }, [ascending]);
 
   return (
     <Styled.Container>
@@ -46,8 +42,8 @@ export const TeamEntries = ({ isModalActive, handleModal }: TeamEntriesProps) =>
         <TeamEntryForm isActive={isModalActive} handleModal={handleModal} />
       </Modal>
       <Styled.Wrapper>
-        <Styled.Sort onClick={handleSort} value={order}>
-          {!toggleSort ? "Sort by first name (A-Z) ▼" : "Sort by first name (Z-A) ▲"}
+        <Styled.Sort onClick={() => setAscending(!ascending)}>
+          {ascending ? "Sort by first name (A-Z) ▼" : "Sort by first name (Z-A) ▲"}
         </Styled.Sort>
         <Filter setCurrentClient={setCurrentClient} />
       </Styled.Wrapper>

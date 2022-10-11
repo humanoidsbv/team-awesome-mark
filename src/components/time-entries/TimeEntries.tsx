@@ -15,32 +15,27 @@ interface TimeEntriesProps {
 
 export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) => {
   const { timeEntries, setTimeEntries } = useContext(TimeEntriesContext);
-  const [toggleSort, setToggleSort] = useState<boolean>(false);
   const [orderedEntries, setOrderedEntries] = useState(timeEntries);
-  const [sortOrder, setSortOrder] = useState("ascending");
-
-  const order = ["ascending", "descending"];
+  const [ascending, setAscending] = useState(false);
 
   const handleSort = async () => {
-    orderedEntries.sort((a, b) => {
+    const sortedEntries = timeEntries.sort((a, b) => {
       const startTimeA = new Date(a.startTime).valueOf();
       const startTimeB = new Date(b.startTime).valueOf();
       if (startTimeA < startTimeB) {
-        return order === "ascending" ? 1 : -1;
+        return ascending ? 1 : -1;
       }
       if (startTimeA > startTimeB) {
-        return order === "descending" ? 1 : -1;
+        return ascending ? -1 : 1;
       }
       return 0;
     });
-    setSortOrder(sortOrder);
-    setOrderedEntries(orderedEntries);
-    setToggleSort(!toggleSort);
+    setOrderedEntries(sortedEntries);
   };
 
   useEffect(() => {
     handleSort();
-  }, [sortOrder]);
+  }, [ascending]);
 
   const handleDelete = async (entry: Types.TimeEntry) => {
     const deletedEntry = timeEntries.indexOf(entry);
@@ -61,9 +56,11 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
         <Modal isActive={isModalActive} onClose={handleModal} title={"New Time Entry"}>
           <TimeEntryForm isActive={isModalActive} handleModal={handleModal} />
         </Modal>
-        <Styled.Sort onClick={handleSort}>
-          {!toggleSort ? "Sort descending ▲" : "Sort ascending ▼"}
-        </Styled.Sort>
+        <Styled.Wrapper>
+          <Styled.Sort onClick={() => setAscending(!ascending)}>
+            {ascending ? "Sort by time (oldest first) ▲" : "Sort by time (newest first) ▼"}
+          </Styled.Sort>
+        </Styled.Wrapper>
         {orderedEntries.map((timeEntry, i, arr) => {
           const currentDate = new Date(timeEntry.startTime).toLocaleDateString("en-GB", {
             weekday: "long",

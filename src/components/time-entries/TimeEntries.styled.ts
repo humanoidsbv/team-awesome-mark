@@ -31,3 +31,8 @@ export const Weekday = styled.p`
   color: ${({ theme }) => theme.fontColorLight};
   font-size: 18px;
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
