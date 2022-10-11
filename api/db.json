@@ -43,25 +43,25 @@
       "client": "Hike One",
       "firstName": "Mark",
       "lastName": "Bolier",
-      "role": "Front-end Developer",
+      "role": "Front-end Dev",
+      "startDate": "",
+      "id": 3
+    },
+    {
+      "client": "Hike One",
+      "firstName": "Mark",
+      "lastName": "Bolier",
+      "role": "Projectmanagement",
       "startDate": "",
       "id": 4
     },
     {
-      "client": "Port of Rotterdam",
+      "client": "Heineken",
       "firstName": "Mark",
       "lastName": "Bolier",
-      "role": "Front-end Developer",
+      "role": "Frontend",
       "startDate": "",
-      "id": 4
-    },
-    {
-      "client": "Port of Rotterdam",
-      "firstName": "Mark",
-      "lastName": "Bolier",
-      "role": "Front-end Developer",
-      "startDate": "",
-      "id": 4
+      "id": 5
     }
   ]
 }

@@ -14,7 +14,6 @@ interface TeamEntriesProps {
 
 export const TeamEntries = ({ isModalActive, handleModal, currentClient }: TeamEntriesProps) => {
   const { teamEntries, setTeamEntries } = useContext(TeamEntriesContext);
-  console.log("currentClient", currentClient);
 
   return (
     <>
@@ -28,7 +27,7 @@ export const TeamEntries = ({ isModalActive, handleModal, currentClient }: TeamE
             const currentClient = teamEntry.client;
             const previousClient = arr[i - 1]?.client;
             return (
-              <div key={teamEntry.id}>
+              <div key={Math.random()}>
                 {previousClient !== currentClient && (
                   <Styled.Section>
                     <Styled.Client>{currentClient}</Styled.Client>
@@ -40,6 +39,7 @@ export const TeamEntries = ({ isModalActive, handleModal, currentClient }: TeamE
                   lastName={teamEntry.lastName}
                   role={teamEntry.role}
                   startDate="February 2022"
+                  key={teamEntry.id}
                 />
               </div>
             );
