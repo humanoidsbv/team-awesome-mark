@@ -8,6 +8,10 @@ export const Avatar = styled.img`
 export const ClientWrapper = styled.div`
   font-size: 18px;
   margin-top: 19px;
+
+  @media (${({ theme }) => theme.tablet}) {
+    margin-top: 0;
+  }
 `;
 
 export const ClientDate = styled.div`
@@ -34,6 +38,7 @@ export const Container = styled.div`
 
   @media (${({ theme }) => theme.tablet}) {
     min-width: 655px;
+    display: flex;
   }
 
   @media (${({ theme }) => theme.desktop}) {
@@ -46,6 +51,10 @@ export const Divider = styled.hr`
   height: 1px;
   border-width: 0;
   margin: 0 -20px;
+
+  @media (${({ theme }) => theme.tablet}) {
+    display: none;
+  }
 `;
 
 export const Label = styled.p`
@@ -56,6 +65,10 @@ export const MemberWrapper = styled.div`
   align-items: center;
   display: flex;
   margin-bottom: 19px;
+
+  @media (${({ theme }) => theme.tablet}) {
+    margin-bottom: 0;
+  }
 `;
 
 export const NameWrapper = styled.div`
