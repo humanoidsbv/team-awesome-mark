@@ -70,6 +70,22 @@
       "role": "Frontend dev",
       "startDate": "",
       "id": 6
+    },
+    {
+      "client": "Albert Hejin",
+      "firstName": "Mark",
+      "lastName": "Bolier",
+      "role": "Dev",
+      "startDate": "",
+      "id": 7
+    },
+    {
+      "client": "Bol.com",
+      "firstName": "Mark",
+      "lastName": "Bolier",
+      "role": "Dev",
+      "startDate": "",
+      "id": 8
     }
   ]
 }
