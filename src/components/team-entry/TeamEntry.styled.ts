@@ -17,12 +17,20 @@ export const ClientWrapper = styled.div`
 export const ClientDate = styled.div`
   display: inline-flex;
   flex-direction: column;
+
+  @media (${({ theme }) => theme.tablet}) {
+    text-align: right;
+  }
 `;
 
 export const ClientName = styled.div`
   display: inline-flex;
   flex-direction: column;
   margin-right: 40px;
+
+  @media (${({ theme }) => theme.tablet}) {
+    text-align: right;
+  }
 `;
 
 export const Container = styled.div`
