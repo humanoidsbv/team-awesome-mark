@@ -90,16 +90,6 @@ export const TeamEntryForm = ({ handleModal }: TeamEntryForm) => {
           value={newTeamEntry.role ?? ""}
         />
         {!isFormValid && <Styled.Span>This field is required</Styled.Span>}
-        {/* <Styled.Label>Starting date</Styled.Label>
-        <Styled.Input
-          name="startDate"
-          onBlur={handleBlur}
-          onChange={(event) => handleChange("startDate", event)}
-          required={true}
-          type="month"
-          value={newTeamEntry.client ?? ""}
-        />
-        {!isFormValid && <Styled.Span>This field is required</Styled.Span>} */}
         <Styled.Label>Current client</Styled.Label>
         <Styled.Input
           name="client"

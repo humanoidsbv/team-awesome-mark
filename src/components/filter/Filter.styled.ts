@@ -6,16 +6,16 @@ export const Container = styled.div`
 `;
 
 export const Label = styled.label`
-  font-size: 14px;
   color: ${({ theme }) => theme.fontColorLight};
+  font-size: 14px;
 `;
 
 export const Select = styled.select`
-  padding: 5px 10px;
-  margin: 10px;
-  border: 1px solid #e6eaee;
   border-radius: 4px;
+  border: 1px solid #e6eaee;
   color: ${({ theme }) => theme.fontColorLight};
+  margin: 10px;
+  padding: 5px 10px;
 
   &:hover {
     border: 1px solid #7f8fa4;

@@ -56,8 +56,8 @@ export const Container = styled.div`
 
 export const Divider = styled.hr`
   background-color: #e6eaee;
-  height: 1px;
   border-width: 0;
+  height: 1px;
   margin: 0 -20px;
 
   @media (${({ theme }) => theme.tablet}) {
