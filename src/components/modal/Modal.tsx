@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 import { createPortal } from "react-dom";
 
 import * as Styled from "./Modal.styled";
