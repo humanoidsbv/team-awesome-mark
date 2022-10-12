@@ -7,7 +7,7 @@
     "dev": "next & npm run json-server",
     "build": "next build",
     "start": "next start",
-    "json-server": "json-server --watch ./api/db.json --port 3004",
+    "json-server": "json-server --watch ./db.json --port 3004",
     "lint": "eslint '*/**/*.{js,ts,tsx}'"
   },
   "repository": {
