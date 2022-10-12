@@ -1,14 +1,12 @@
 import React, { useState, useRef, useContext } from "react";
 
-import { Button } from "../../components/button/Button";
-import { postTeamEntry } from "../../../src/services/team-entries/postTeamEntry";
+import { Button } from "../button/Button";
+import { postTeamEntry } from "../../services/team-entries/postTeamEntry";
 import * as Styled from "./TeamEntryForm.styled";
 import { TeamEntriesContext } from "../../context/TeamEntriesProvider";
 
-interface TeamEntryForm {
+interface TeamEntryFormProps {
   handleModal: () => void;
-  isActive?: boolean;
-  required?: HTMLInputElement;
 }
 
 const initialFormValues = {
@@ -19,7 +17,7 @@ const initialFormValues = {
   startDate: "",
 };
 
-export const TeamEntryForm = ({ handleModal }: TeamEntryForm) => {
+export const TeamEntryForm = ({ handleModal }: TeamEntryFormProps) => {
   const [newTeamEntry, setNewTeamEntry] = useState(initialFormValues);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const { teamEntries, setTeamEntries } = useContext(TeamEntriesContext);
@@ -59,7 +57,7 @@ export const TeamEntryForm = ({ handleModal }: TeamEntryForm) => {
               onBlur={handleBlur}
               onChange={(event) => handleChange("firstName", event)}
               placeholder="First name"
-              required={true}
+              required
               type="text"
               value={newTeamEntry.firstName ?? ""}
             />
@@ -72,7 +70,7 @@ export const TeamEntryForm = ({ handleModal }: TeamEntryForm) => {
               onBlur={handleBlur}
               onChange={(event) => handleChange("lastName", event)}
               placeholder="Last name"
-              required={true}
+              required
               type="text"
               value={newTeamEntry.lastName ?? ""}
             />
@@ -85,7 +83,7 @@ export const TeamEntryForm = ({ handleModal }: TeamEntryForm) => {
           onBlur={handleBlur}
           onChange={(event) => handleChange("role", event)}
           placeholder="Role in organisation"
-          required={true}
+          required
           type="text"
           value={newTeamEntry.role ?? ""}
         />
@@ -96,20 +94,20 @@ export const TeamEntryForm = ({ handleModal }: TeamEntryForm) => {
           onBlur={handleBlur}
           onChange={(event) => handleChange("client", event)}
           placeholder="Name of current client"
-          required={true}
+          required
           type="text"
           value={newTeamEntry.client ?? ""}
         />
         {!isFormValid && <Styled.Span>This field is required</Styled.Span>}
       </Styled.Form>
       <Styled.ButtonWrapper>
-        <Button onClick={handleModal} variant={"secondary"} label={"Cancel"}></Button>
+        <Button onClick={handleModal} variant="secondary" label="Cancel" />
         <Button
           disabled={!isFormValid}
-          label={"Add Humanoid"}
+          label="Add Humanoid"
           onClick={handleSubmit}
-          variant={"primary"}
-        ></Button>
+          variant="primary"
+        />
       </Styled.ButtonWrapper>
     </>
   );

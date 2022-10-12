@@ -3,8 +3,8 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
-    color: ${({ theme }) => theme.fontColor};
-    font-family: ${({ theme }) => theme.fontPrimary};
+    color: #4B5464;
+    font-family: Proxima Nova;
     margin: 0;
     padding: 0;
   }
@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${({ theme }) => theme.backgroundGrey2};
+    background-color: #F5F7F9;
   }
 
   button {

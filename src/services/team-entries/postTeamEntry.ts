@@ -1,6 +1,6 @@
 import * as Types from "../../types/types";
 
-export async function postTeamEntry(newTeamEntry) {
+export async function postTeamEntry(newTeamEntry: Types.TeamEntry) {
   const data = await fetch("http://localhost:3004/team-entries", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

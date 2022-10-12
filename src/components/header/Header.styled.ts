@@ -13,6 +13,15 @@ export const Container = styled.nav<HeaderProps>`
   width: 100vw;
 `;
 
+export const Item = styled.a`
+  color: white;
+  text-decoration: none;
+
+  a:hover {
+    text-decoration: underline;
+  }
+`;
+
 export const Logo = styled.a`
   color: white;
   cursor: pointer;
@@ -53,15 +62,6 @@ export const MenuItems = styled.li`
   font-size: 24px;
   padding: 28px 20px 28px 20px;
   white-space: nowrap;
-
-  a {
-    color: white;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
 
   @media (${({ theme }) => theme.tablet}) {
     font-size: 14px;

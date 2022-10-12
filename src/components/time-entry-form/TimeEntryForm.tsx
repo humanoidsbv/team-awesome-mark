@@ -1,14 +1,12 @@
 import React, { useState, useRef, useContext } from "react";
 
-import { Button } from "../../components/button/Button";
-import { postTimeEntry } from "../../../src/services/time-entries/postTimeEntry";
+import { Button } from "../button/Button";
+import { postTimeEntry } from "../../services/time-entries/postTimeEntry";
 import * as Styled from "./TimeEntryForm.styled";
 import { TimeEntriesContext } from "../../context/TimeEntriesProvider";
 
-interface TimeEntryForm {
+interface TimeEntryFormProps {
   handleModal: () => void;
-  isActive?: boolean;
-  required?: HTMLInputElement;
 }
 
 const initialFormValues = {
@@ -19,7 +17,7 @@ const initialFormValues = {
   date: "",
 };
 
-export const TimeEntryForm = ({ handleModal }: TimeEntryForm) => {
+export const TimeEntryForm = ({ handleModal }: TimeEntryFormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState(initialFormValues);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const { timeEntries, setTimeEntries } = useContext(TimeEntriesContext);
@@ -58,7 +56,7 @@ export const TimeEntryForm = ({ handleModal }: TimeEntryForm) => {
           onBlur={handleBlur}
           onChange={(event) => handleChange("client", event)}
           placeholder="Client name"
-          required={true}
+          required
           type="text"
           value={newTimeEntry.client ?? ""}
         />
@@ -71,7 +69,7 @@ export const TimeEntryForm = ({ handleModal }: TimeEntryForm) => {
           onBlur={handleBlur}
           onChange={(event) => handleChange("activity", event)}
           placeholder="Type of activity"
-          required={true}
+          required
           type="text"
           value={newTimeEntry.activity ?? ""}
         />
@@ -83,7 +81,7 @@ export const TimeEntryForm = ({ handleModal }: TimeEntryForm) => {
           onChange={(event) => handleChange("date", event)}
           type="date"
           value={newTimeEntry.date ?? ""}
-          required={true}
+          required
         />
         {!isFormValid && <Styled.Span>This field is required</Styled.Span>}
         <Styled.Wrapper>
@@ -92,7 +90,7 @@ export const TimeEntryForm = ({ handleModal }: TimeEntryForm) => {
             <Styled.InputSmall
               name="startTime"
               onBlur={handleBlur}
-              required={true}
+              required
               onChange={(event) => handleChange("startTime", event)}
               type="time"
               value={newTimeEntry.startTime ?? ""}
@@ -104,7 +102,7 @@ export const TimeEntryForm = ({ handleModal }: TimeEntryForm) => {
             <Styled.InputSmall
               name="endTime"
               type="time"
-              required={true}
+              required
               value={newTimeEntry.endTime ?? ""}
               onBlur={handleBlur}
               onChange={(event) => handleChange("endTime", event)}
@@ -118,13 +116,13 @@ export const TimeEntryForm = ({ handleModal }: TimeEntryForm) => {
         </Styled.Wrapper>
       </Styled.Form>
       <Styled.ButtonWrapper>
-        <Button onClick={handleModal} variant={"secondary"} label={"Cancel"}></Button>
+        <Button onClick={handleModal} variant="secondary" label="Cancel" />
         <Button
           disabled={!isFormValid}
-          label={"Add time entry"}
+          label="Add time entry"
           onClick={handleSubmit}
-          variant={"primary"}
-        ></Button>
+          variant="primary"
+        />
       </Styled.ButtonWrapper>
     </>
   );
