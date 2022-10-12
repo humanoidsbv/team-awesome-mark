@@ -1,14 +1,10 @@
 import { useState } from "react";
 
 import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
-import { Header } from "../src/components/header";
-import { EntriesProvider } from "../src/context/EntriesProvider";
 import { SubHeader } from "../src/components/subheader";
-import { theme } from "../src/styles/theme";
-import { ThemeProvider } from "styled-components";
 import { TimeEntries } from "../src/components/time-entries";
 import * as Types from "../src/types/types";
-import GlobalStyle from "../src/styles/global";
+import { TimeEntriesProvider } from "../src/context/TimeEntriesProvider";
 
 export const getServerSideProps = async () => {
   const initialTimeEntries = await getTimeEntries();
@@ -20,11 +16,11 @@ export const getServerSideProps = async () => {
   };
 };
 
-interface HomepageProps {
+interface TimeSheetsProps {
   initialTimeEntries: Types.TimeEntry[];
 }
 
-const Homepage = ({ initialTimeEntries }: HomepageProps) => {
+const TimeSheets = ({ initialTimeEntries }: TimeSheetsProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
 
   const handleModal = () => {
@@ -33,20 +29,17 @@ const Homepage = ({ initialTimeEntries }: HomepageProps) => {
 
   return (
     <>
-      <EntriesProvider initialTimeEntries={initialTimeEntries}>
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <Header />
-          <SubHeader
-            entries={initialTimeEntries.length}
-            label="Timesheets"
-            handleModal={handleModal}
-          />
-          <TimeEntries isModalActive={isModalActive} handleModal={handleModal} />
-        </ThemeProvider>
-      </EntriesProvider>
+      <TimeEntriesProvider initialTimeEntries={initialTimeEntries}>
+        <SubHeader
+          entries={initialTimeEntries.length}
+          label="Timesheets"
+          handleModal={handleModal}
+          entriesLabel={"Entries"}
+        />
+        <TimeEntries isModalActive={isModalActive} handleModal={handleModal} />
+      </TimeEntriesProvider>
     </>
   );
 };
 
-export default Homepage;
+export default TimeSheets;

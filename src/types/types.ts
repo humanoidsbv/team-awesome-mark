@@ -1,4 +1,4 @@
-import React, { ReactEventHandler } from "react";
+import React from "react";
 
 export interface Modal {
   children?: React.ReactElement;
@@ -12,6 +12,7 @@ export interface SubHeader {
   entries: number;
   handleModal: () => void;
   label: string;
+  entriesLabel: string;
 }
 
 export interface TimeEntry {
@@ -20,4 +21,13 @@ export interface TimeEntry {
   endTime: string;
   id?: string;
   startTime: string;
+}
+
+export interface TeamEntry {
+  client: string;
+  firstName: string;
+  id: number;
+  lastName: string;
+  role: string;
+  startDate: string;
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 
 import * as Styled from "./Header.styled";
@@ -14,8 +15,12 @@ export const Header = () => {
     <Styled.Container isActive={isActive}>
       <Styled.Logo>team awesome</Styled.Logo>
       <Styled.Menu isActive={!isActive}>
-        <Styled.MenuItems>Timesheets</Styled.MenuItems>
-        <Styled.MenuItems>Team members</Styled.MenuItems>
+        <Link href="/">
+          <Styled.MenuItems>Timesheets</Styled.MenuItems>
+        </Link>
+        <Link href="/team-members">
+          <Styled.MenuItems>Team members</Styled.MenuItems>
+        </Link>
         <Styled.MenuItems>Projects</Styled.MenuItems>
         <Styled.MenuItems>Clients</Styled.MenuItems>
         <Styled.MenuItems>Documents</Styled.MenuItems>

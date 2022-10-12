@@ -21,5 +21,47 @@
       "startTime": "2020-03-12T09:30:00.000Z",
       "activity": "Development"
     }
+  ],
+  "team-entries": [
+    {
+      "client": "Koppert",
+      "firstName": "Amijs",
+      "id": 1,
+      "lastName": "Breunesse",
+      "role": "Front-end Developer",
+      "startDate": "February 2022"
+    },
+    {
+      "client": "Koppert",
+      "firstName": "Mark",
+      "lastName": "Bolier",
+      "role": "Front-end Developer",
+      "startDate": "",
+      "id": 2
+    },
+    {
+      "client": "Hike One",
+      "firstName": "Mark",
+      "lastName": "Bolier",
+      "role": "Front-end Dev",
+      "startDate": "",
+      "id": 3
+    },
+    {
+      "client": "Hike One",
+      "firstName": "Mark",
+      "lastName": "Bolier",
+      "role": "Projectmanagement",
+      "startDate": "",
+      "id": 4
+    },
+    {
+      "client": "Heineken",
+      "firstName": "Mark",
+      "lastName": "Bolier",
+      "role": "Frontend",
+      "startDate": "",
+      "id": 5
+    }
   ]
 }
