@@ -88,7 +88,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
                   client={timeEntry.client}
                   endTime={timeEntry.endTime}
                   startTime={timeEntry.startTime}
-                  handleDelete={async () => handleDelete(timeEntry)}
+                  handleDelete={() => handleDelete(timeEntry)}
                 />
               </div>
             );

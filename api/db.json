@@ -15,11 +15,11 @@
       "activity": "Design"
     },
     {
+      "activity": "Development",
       "client": "Hike One",
-      "endTime": "2020-03-12T17:30:00.000Z",
-      "id": 3,
-      "startTime": "2020-03-12T09:30:00.000Z",
-      "activity": "Development"
+      "endTime": "2022-10-21T18:00:00.000Z",
+      "startTime": "2022-10-21T10:00:00.000Z",
+      "id": 4
     }
   ],
   "team-entries": [
@@ -94,6 +94,14 @@
       "role": "Designer",
       "startDate": "",
       "id": 9
+    },
+    {
+      "client": "Ziggo",
+      "firstName": "Job",
+      "lastName": "Jobse",
+      "role": "DJ",
+      "startDate": "",
+      "id": 10
     }
   ]
 }
