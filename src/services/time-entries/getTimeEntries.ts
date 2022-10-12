@@ -4,7 +4,7 @@ export interface TimeEntryApi extends Types.TimeEntry {}
 
 export async function getTimeEntries(): Promise<TimeEntryApi[] | Error> {
   const data = await fetch(
-    "https://my-json-server.typicode.com/humanoidsbv/team-awesome-mark/time-entries?_sort=startTime&_order=desc",
+    "process.env.NEXT_PUBLIC_DB_HOST/time-entries?_sort=startTime&_order=desc",
   )
     .then(async (response) => {
       if (!response.ok) {

@@ -2,7 +2,7 @@ import * as Types from "../../types/types";
 
 export async function postTimeEntry(newTimeEntry: Types.TimeEntry) {
   const data = await fetch(
-    "https://my-json-server.typicode.com/humanoidsbv/team-awesome-mark/time-entries?_sort=startTime&_order=desc",
+    "process.env.NEXT_PUBLIC_DB_HOST/time-entries?_sort=startTime&_order=desc",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
