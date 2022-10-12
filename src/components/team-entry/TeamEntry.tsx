@@ -4,7 +4,6 @@ import avatar from "../../../public/images/amijs.png";
 interface TeamEntryProps {
   client: string;
   firstName: string;
-  id?: number;
   lastName: string;
   role: string;
   startDate: string;
