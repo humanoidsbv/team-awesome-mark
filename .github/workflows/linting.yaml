@@ -10,5 +10,3 @@ jobs:
 
       - name: 🧹 Run lint
         run: npm run lint
-        with:
-          rules-path: "./.eslintrc.js"
