@@ -56,12 +56,44 @@
       "id": 4
     },
     {
-      "client": "Heineken",
+      "client": "Hike One",
       "firstName": "Mark",
       "lastName": "Bolier",
       "role": "Frontend",
       "startDate": "",
       "id": 5
+    },
+    {
+      "client": "Heineken",
+      "firstName": "Jarmo",
+      "lastName": "van der Heul",
+      "role": "Frontend dev",
+      "startDate": "",
+      "id": 6
+    },
+    {
+      "client": "Albert Hejin",
+      "firstName": "Mark",
+      "lastName": "Bolier",
+      "role": "Dev",
+      "startDate": "",
+      "id": 7
+    },
+    {
+      "client": "Bol.com",
+      "firstName": "Mark",
+      "lastName": "Bolier",
+      "role": "Dev",
+      "startDate": "",
+      "id": 8
+    },
+    {
+      "client": "Nike",
+      "firstName": "Dorien",
+      "lastName": "Schuijt",
+      "role": "Designer",
+      "startDate": "",
+      "id": 9
     }
   ]
 }

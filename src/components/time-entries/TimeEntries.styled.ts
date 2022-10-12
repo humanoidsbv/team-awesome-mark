@@ -13,6 +13,15 @@ export const Section = styled.div`
   margin: 40px 10px 20px 10px;
 `;
 
+export const Sort = styled.button`
+  color: ${({ theme }) => theme.fontColorLight};
+  padding: 20px 10px;
+
+  &:hover {
+    color: ${({ theme }) => theme.fontColor};
+  }
+`;
+
 export const Time = styled.p`
   color: ${({ theme }) => theme.fontColorLight};
   font-size: 18px;
@@ -21,4 +30,9 @@ export const Time = styled.p`
 export const Weekday = styled.p`
   color: ${({ theme }) => theme.fontColorLight};
   font-size: 18px;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;

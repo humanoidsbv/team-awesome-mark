@@ -10,9 +10,9 @@ export interface Modal {
 
 export interface SubHeader {
   entries: number;
+  entriesLabel: string;
   handleModal: () => void;
   label: string;
-  entriesLabel: string;
 }
 
 export interface TimeEntry {

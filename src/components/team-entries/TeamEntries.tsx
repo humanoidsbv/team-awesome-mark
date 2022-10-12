@@ -1,37 +1,57 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { TeamEntriesContext } from "../../context/TeamEntriesProvider";
 import { Modal } from "../modal/Modal";
 import { TeamEntry } from "../team-entry/TeamEntry";
 import { TeamEntryForm } from "../team-entry-form";
 import * as Styled from "./TeamEntries.styled";
+import { Filter } from "../filter/Filter";
 
 interface TeamEntriesProps {
   handleModal: () => void;
   isModalActive: boolean;
-  currentClient: React.ComponentState;
 }
 
-export const TeamEntries = ({ isModalActive, handleModal, currentClient }: TeamEntriesProps) => {
+export const TeamEntries = ({ isModalActive, handleModal }: TeamEntriesProps) => {
   const { teamEntries } = useContext(TeamEntriesContext);
+  const [orderedEntries, setOrderedEntries] = useState(teamEntries);
+  const [ascending, setAscending] = useState(true);
+  const [currentClient, setCurrentClient] = useState("");
+
+  const handleSort = () => {
+    const sortedEntries = teamEntries.sort((a, b) => {
+      if (a.firstName < b.firstName) {
+        return ascending ? 1 : -1;
+      }
+      if (a.firstName > b.firstName) {
+        return ascending ? -1 : 1;
+      }
+      return 0;
+    });
+
+    setOrderedEntries(sortedEntries);
+  };
+
+  useEffect(() => {
+    handleSort();
+  }, [ascending]);
 
   return (
     <Styled.Container>
       <Modal isActive={isModalActive} onClose={handleModal} title={"New Humanoid"}>
         <TeamEntryForm isActive={isModalActive} handleModal={handleModal} />
       </Modal>
-      {teamEntries
+      <Styled.Wrapper>
+        <Styled.Sort onClick={() => setAscending(!ascending)}>
+          {ascending ? "Sort by first name (A-Z) ▼" : "Sort by first name (Z-A) ▲"}
+        </Styled.Sort>
+        <Filter setCurrentClient={setCurrentClient} />
+      </Styled.Wrapper>
+      {orderedEntries
         .filter((teamEntry) => currentClient === "" || teamEntry.client === currentClient)
         .map((teamEntry, i, arr) => {
-          const currentClient = teamEntry.client;
-          const previousClient = arr[i - 1]?.client;
           return (
-            <div key={Math.random()}>
-              {previousClient !== currentClient && (
-                <Styled.Section>
-                  <Styled.Client>{currentClient}</Styled.Client>
-                </Styled.Section>
-              )}
+            <div key={teamEntry.id}>
               <TeamEntry
                 client={teamEntry.client}
                 firstName={teamEntry.firstName}
