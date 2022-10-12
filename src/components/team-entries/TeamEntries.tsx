@@ -5,7 +5,7 @@ import { Modal } from "../modal/Modal";
 import { TeamEntry } from "../team-entry/TeamEntry";
 import { TeamEntryForm } from "../team-entry-form";
 import * as Styled from "./TeamEntries.styled";
-import { Filter } from "../filter/Filter";
+import { FilterTeamMembers } from "../filter-team-members/FilterTeamMembers";
 
 interface TeamEntriesProps {
   handleModal: () => void;
@@ -45,7 +45,7 @@ export const TeamEntries = ({ isModalActive, handleModal }: TeamEntriesProps) =>
         <Styled.Sort onClick={() => setAscending(!ascending)}>
           {ascending ? "Sort by first name (A-Z) ▼" : "Sort by first name (Z-A) ▲"}
         </Styled.Sort>
-        <Filter setCurrentClient={setCurrentClient} />
+        <FilterTeamMembers setCurrentClient={setCurrentClient} />
       </Styled.Wrapper>
       {orderedEntries
         .filter((teamEntry) => currentClient === "" || teamEntry.client === currentClient)

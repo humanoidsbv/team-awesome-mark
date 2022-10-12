@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 
 import { deleteTimeEntry } from "../../services/time-entries/deleteTimeEntry";
+import { FilterTimeEntries } from "../filter-time-entries";
 import { TimeEntriesContext } from "../../context/TimeEntriesProvider";
 import { Modal } from "../modal/Modal";
 import { TimeEntry } from "../time-entry/TimeEntry";
@@ -17,6 +18,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
   const { timeEntries, setTimeEntries } = useContext(TimeEntriesContext);
   const [orderedEntries, setOrderedEntries] = useState(timeEntries);
   const [ascending, setAscending] = useState(false);
+  const [currentClient, setCurrentClient] = useState("");
 
   const handleSort = async () => {
     const sortedEntries = timeEntries.sort((a, b) => {
@@ -58,36 +60,39 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
           <Styled.Sort onClick={() => setAscending(!ascending)}>
             {ascending ? "Sort by time (oldest first) ▲" : "Sort by time (newest first) ▼"}
           </Styled.Sort>
+          <FilterTimeEntries setCurrentClient={setCurrentClient} />
         </Styled.Wrapper>
-        {orderedEntries.map((timeEntry, i, arr) => {
-          const currentDate = new Date(timeEntry.startTime).toLocaleDateString("en-GB", {
-            weekday: "long",
-            month: "numeric",
-            day: "numeric",
-          });
-          const previousDate = new Date(arr[i - 1]?.startTime).toLocaleDateString("en-GB", {
-            weekday: "long",
-            month: "numeric",
-            day: "numeric",
-          });
+        {orderedEntries
+          .filter((teamEntry) => currentClient === "" || teamEntry.client === currentClient)
+          .map((timeEntry, i, arr) => {
+            const currentDate = new Date(timeEntry.startTime).toLocaleDateString("en-GB", {
+              weekday: "long",
+              month: "numeric",
+              day: "numeric",
+            });
+            const previousDate = new Date(arr[i - 1]?.startTime).toLocaleDateString("en-GB", {
+              weekday: "long",
+              month: "numeric",
+              day: "numeric",
+            });
 
-          return (
-            <div key={timeEntry.id}>
-              {previousDate !== currentDate && (
-                <Styled.Section>
-                  <Styled.Weekday>{currentDate}</Styled.Weekday>
-                  <Styled.Time>08:00</Styled.Time>
-                </Styled.Section>
-              )}
-              <TimeEntry
-                client={timeEntry.client}
-                endTime={timeEntry.endTime}
-                startTime={timeEntry.startTime}
-                handleDelete={async () => await handleDelete(timeEntry)}
-              />
-            </div>
-          );
-        })}
+            return (
+              <div key={timeEntry.id}>
+                {previousDate !== currentDate && (
+                  <Styled.Section>
+                    <Styled.Weekday>{currentDate}</Styled.Weekday>
+                    <Styled.Time>08:00</Styled.Time>
+                  </Styled.Section>
+                )}
+                <TimeEntry
+                  client={timeEntry.client}
+                  endTime={timeEntry.endTime}
+                  startTime={timeEntry.startTime}
+                  handleDelete={async () => await handleDelete(timeEntry)}
+                />
+              </div>
+            );
+          })}
       </Styled.Container>
     </>
   );

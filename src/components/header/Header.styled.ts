@@ -53,7 +53,13 @@ export const MenuItems = styled.li`
   font-size: 24px;
   padding: 28px 20px 28px 20px;
   white-space: nowrap;
-  &:hover {
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  a:hover {
     text-decoration: underline;
   }
 
