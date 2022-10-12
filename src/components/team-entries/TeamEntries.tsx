@@ -39,7 +39,7 @@ export const TeamEntries = ({ isModalActive, handleModal }: TeamEntriesProps) =>
   return (
     <Styled.Container>
       <Modal isActive={isModalActive} onClose={handleModal} title="New Humanoid">
-        <TeamEntryForm isActive={isModalActive} handleModal={handleModal} />
+        <TeamEntryForm handleModal={handleModal} />
       </Modal>
       <Styled.Wrapper>
         <Styled.Sort onClick={() => setAscending(!ascending)}>
