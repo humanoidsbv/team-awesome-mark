@@ -15,15 +15,31 @@ export const Header = () => {
     <Styled.Container isActive={isActive}>
       <Styled.Logo>team awesome</Styled.Logo>
       <Styled.Menu isActive={!isActive}>
-        <Link href="/">
-          <Styled.MenuItems>Timesheets</Styled.MenuItems>
-        </Link>
-        <Link href="/team-members">
-          <Styled.MenuItems>Team members</Styled.MenuItems>
-        </Link>
-        <Styled.MenuItems>Projects</Styled.MenuItems>
-        <Styled.MenuItems>Clients</Styled.MenuItems>
-        <Styled.MenuItems>Documents</Styled.MenuItems>
+        <Styled.MenuItems>
+          <Link href="/" passHref>
+            <a>Timesheets</a>
+          </Link>
+        </Styled.MenuItems>
+        <Styled.MenuItems>
+          <Link href="/team-members" passHref>
+            <a>Team members</a>
+          </Link>
+        </Styled.MenuItems>
+        <Styled.MenuItems>
+          <Link href="/" passHref>
+            <a>Projects</a>
+          </Link>
+        </Styled.MenuItems>
+        <Styled.MenuItems>
+          <Link href="/" passHref>
+            <a>Clients</a>
+          </Link>
+        </Styled.MenuItems>
+        <Styled.MenuItems>
+          <Link href="/" passHref>
+            <a>Documents</a>
+          </Link>
+        </Styled.MenuItems>
       </Styled.Menu>
       <Styled.Toggle onClick={handleClick}>
         {!isActive ? <MenuIcon /> : <CloseIcon />}
