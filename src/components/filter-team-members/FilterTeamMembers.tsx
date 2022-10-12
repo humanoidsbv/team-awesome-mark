@@ -1,12 +1,12 @@
 import { useContext, SetStateAction } from "react";
-import * as Styled from "./Filter.styled";
+import * as Styled from "./FilterTeamMembers.styled";
 import { TeamEntriesContext } from "../../context/TeamEntriesProvider";
 
-interface FilterProps {
+interface FilterTeamMemberProps {
   setCurrentClient: React.Dispatch<SetStateAction<string>>;
 }
 
-export const Filter = ({ setCurrentClient }: FilterProps) => {
+export const FilterTeamMembers = ({ setCurrentClient }: FilterTeamMemberProps) => {
   const { teamEntries } = useContext(TeamEntriesContext);
 
   const handleFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
