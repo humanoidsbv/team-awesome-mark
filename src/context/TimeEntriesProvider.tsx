@@ -2,20 +2,25 @@ import React, { createContext, useState, Dispatch, SetStateAction, FC, ReactNode
 
 import * as Types from "../types/types";
 
-interface TimeEntriesProvider {
+interface TimeEntriesProviderProps {
   children: ReactNode;
   initialTimeEntries: Types.TimeEntry[];
 }
 
-interface TimeEntriesContext {
+interface TimeEntriesContextProps {
   initialTimeEntries?: Types.TimeEntry[];
   setTimeEntries: Dispatch<SetStateAction<Types.TimeEntry[]>>;
   timeEntries: Types.TimeEntry[];
 }
 
-export const TimeEntriesContext = createContext<TimeEntriesContext>({} as TimeEntriesContext);
+export const TimeEntriesContext = createContext<TimeEntriesContextProps>(
+  {} as TimeEntriesContextProps,
+);
 
-export const TimeEntriesProvider: FC<TimeEntriesProvider> = ({ children, initialTimeEntries }) => {
+export const TimeEntriesProvider: FC<TimeEntriesProviderProps> = ({
+  children,
+  initialTimeEntries,
+}) => {
   const [timeEntries, setTimeEntries] = useState(initialTimeEntries);
   const entries = {
     timeEntries,

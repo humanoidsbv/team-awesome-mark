@@ -34,8 +34,8 @@ const TeamMembers = ({ initialTeamEntries }: TeamMembersProps) => {
           entries={initialTeamEntries.length}
           label="Team members"
           handleModal={handleModal}
-          entriesLabel={"Humanoids"}
-        ></SubHeader>
+          entriesLabel="Humanoids"
+        />
         <TeamEntries isModalActive={isModalActive} handleModal={handleModal} />
       </TeamEntriesProvider>
     </>

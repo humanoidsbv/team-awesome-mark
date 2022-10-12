@@ -17,27 +17,27 @@ export const Header = () => {
       <Styled.Menu isActive={!isActive}>
         <Styled.MenuItems>
           <Link href="/" passHref>
-            <a>Timesheets</a>
+            <Styled.Item>Timesheets</Styled.Item>
           </Link>
         </Styled.MenuItems>
         <Styled.MenuItems>
           <Link href="/team-members" passHref>
-            <a>Team members</a>
+            <Styled.Item>Team members</Styled.Item>
           </Link>
         </Styled.MenuItems>
         <Styled.MenuItems>
           <Link href="/" passHref>
-            <a>Projects</a>
+            <Styled.Item>Projects</Styled.Item>
           </Link>
         </Styled.MenuItems>
         <Styled.MenuItems>
           <Link href="/" passHref>
-            <a>Clients</a>
+            <Styled.Item>Clients</Styled.Item>
           </Link>
         </Styled.MenuItems>
         <Styled.MenuItems>
           <Link href="/" passHref>
-            <a>Documents</a>
+            <Styled.Item>Documents</Styled.Item>
           </Link>
         </Styled.MenuItems>
       </Styled.Menu>

@@ -1,4 +1,4 @@
-import { useContext, SetStateAction } from "react";
+import React, { useContext, SetStateAction } from "react";
 import * as Styled from "./FilterTeamMembers.styled";
 import { TeamEntriesContext } from "../../context/TeamEntriesProvider";
 

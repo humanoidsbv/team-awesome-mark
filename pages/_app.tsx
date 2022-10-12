@@ -12,7 +12,7 @@ function TeamAwesome({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
-        <Component {...pageProps}></Component>
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   );

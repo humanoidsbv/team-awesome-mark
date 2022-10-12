@@ -4,7 +4,7 @@ export interface Modal {
   children?: React.ReactElement;
   isActive: boolean;
   onClick?: () => void;
-  onClose?: any;
+  onClose?: () => void;
   title?: string;
 }
 

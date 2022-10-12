@@ -41,7 +41,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
     const deletedEntry = timeEntries.indexOf(entry);
     const deleteResponse = await deleteTimeEntry(entry);
     if (deleteResponse instanceof Error) {
-      alert("Something went wrong :(");
+      alert("Oops, something went wrong");
       return;
     }
     setTimeEntries([
@@ -53,8 +53,8 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
   return (
     <>
       <Styled.Container>
-        <Modal isActive={isModalActive} onClose={handleModal} title={"New Time Entry"}>
-          <TimeEntryForm isActive={isModalActive} handleModal={handleModal} />
+        <Modal isActive={isModalActive} onClose={handleModal} title="New Time Entry">
+          <TimeEntryForm handleModal={handleModal} />
         </Modal>
         <Styled.Wrapper>
           <Styled.Sort onClick={() => setAscending(!ascending)}>
@@ -88,7 +88,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
                   client={timeEntry.client}
                   endTime={timeEntry.endTime}
                   startTime={timeEntry.startTime}
-                  handleDelete={async () => await handleDelete(timeEntry)}
+                  handleDelete={async () => handleDelete(timeEntry)}
                 />
               </div>
             );
