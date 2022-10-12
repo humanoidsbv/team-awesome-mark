@@ -86,6 +86,14 @@
       "role": "Dev",
       "startDate": "",
       "id": 8
+    },
+    {
+      "client": "Nike",
+      "firstName": "Dorien",
+      "lastName": "Schuijt",
+      "role": "Designer",
+      "startDate": "",
+      "id": 9
     }
   ]
 }

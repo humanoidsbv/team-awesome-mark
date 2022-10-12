@@ -18,7 +18,7 @@ export const TeamEntries = ({ isModalActive, handleModal }: TeamEntriesProps) =>
   const [ascending, setAscending] = useState(true);
   const [currentClient, setCurrentClient] = useState("");
 
-  const handleSort = async () => {
+  const handleSort = () => {
     const sortedEntries = teamEntries.sort((a, b) => {
       if (a.firstName < b.firstName) {
         return ascending ? 1 : -1;
@@ -51,7 +51,7 @@ export const TeamEntries = ({ isModalActive, handleModal }: TeamEntriesProps) =>
         .filter((teamEntry) => currentClient === "" || teamEntry.client === currentClient)
         .map((teamEntry, i, arr) => {
           return (
-            <div key={Math.random()}>
+            <div key={teamEntry.id}>
               <TeamEntry
                 client={teamEntry.client}
                 firstName={teamEntry.firstName}

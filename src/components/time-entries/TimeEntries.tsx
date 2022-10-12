@@ -20,12 +20,10 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
 
   const handleSort = async () => {
     const sortedEntries = timeEntries.sort((a, b) => {
-      const startTimeA = new Date(a.startTime).valueOf();
-      const startTimeB = new Date(b.startTime).valueOf();
-      if (startTimeA < startTimeB) {
+      if (a.startTime < b.startTime) {
         return ascending ? 1 : -1;
       }
-      if (startTimeA > startTimeB) {
+      if (a.startTime > b.startTime) {
         return ascending ? -1 : 1;
       }
       return 0;
