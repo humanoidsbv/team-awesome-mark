@@ -4,9 +4,9 @@
   "description": "Team Awesome is a Software as a Service (SaaS) solution that can be used by organizations and their employees for planning projects, tacking time and much more!",
   "main": "main.js",
   "scripts": {
-    "dev": "next & npm run json-server",
+    "dev": "NODE_ENV=development next & npm run json-server",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production next start",
     "json-server": "json-server --watch ./db.json --port 3004",
     "lint": "eslint '*/**/*.{js,ts,tsx}'"
   },

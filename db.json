@@ -15,11 +15,11 @@
       "activity": "Design"
     },
     {
-      "activity": "Development",
       "client": "Hike One",
-      "endTime": "2022-10-21T18:00:00.000Z",
-      "startTime": "2022-10-21T10:00:00.000Z",
-      "id": 4
+      "endTime": "2020-03-12T17:30:00.000Z",
+      "id": 3,
+      "startTime": "2020-03-12T09:30:00.000Z",
+      "activity": "Development"
     }
   ],
   "team-entries": [
@@ -32,7 +32,7 @@
       "startDate": "February 2022"
     },
     {
-      "client": "Koppert",
+      "client": "Humanoids",
       "firstName": "Mark",
       "lastName": "Bolier",
       "role": "Front-end Developer",
@@ -40,68 +40,12 @@
       "id": 2
     },
     {
-      "client": "Hike One",
-      "firstName": "Mark",
-      "lastName": "Bolier",
-      "role": "Front-end Dev",
-      "startDate": "",
-      "id": 3
-    },
-    {
-      "client": "Hike One",
-      "firstName": "Mark",
-      "lastName": "Bolier",
-      "role": "Projectmanagement",
-      "startDate": "",
-      "id": 4
-    },
-    {
-      "client": "Hike One",
-      "firstName": "Mark",
-      "lastName": "Bolier",
-      "role": "Frontend",
-      "startDate": "",
-      "id": 5
-    },
-    {
-      "client": "Heineken",
+      "client": "Humanoids",
       "firstName": "Jarmo",
       "lastName": "van der Heul",
-      "role": "Frontend dev",
+      "role": "Front-end Developer",
       "startDate": "",
-      "id": 6
-    },
-    {
-      "client": "Albert Hejin",
-      "firstName": "Mark",
-      "lastName": "Bolier",
-      "role": "Dev",
-      "startDate": "",
-      "id": 7
-    },
-    {
-      "client": "Bol.com",
-      "firstName": "Mark",
-      "lastName": "Bolier",
-      "role": "Dev",
-      "startDate": "",
-      "id": 8
-    },
-    {
-      "client": "Nike",
-      "firstName": "Dorien",
-      "lastName": "Schuijt",
-      "role": "Designer",
-      "startDate": "",
-      "id": 9
-    },
-    {
-      "client": "Ziggo",
-      "firstName": "Job",
-      "lastName": "Jobse",
-      "role": "DJ",
-      "startDate": "",
-      "id": 10
+      "id": 3
     }
   ]
 }
