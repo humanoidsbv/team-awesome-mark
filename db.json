@@ -1,5 +1,5 @@
 {
-  "time-entries": [
+  "timeEntries": [
     {
       "client": "Heineken",
       "endTime": "2020-03-10T16:30:00.000Z",
@@ -15,22 +15,14 @@
       "activity": "Design"
     },
     {
-<<<<<<< HEAD
-      "activity": "Development",
-      "client": "Hike One",
-      "endTime": "2022-10-21T18:00:00.000Z",
-      "startTime": "2022-10-21T10:00:00.000Z",
-      "id": 4
-=======
       "client": "Hike One",
       "endTime": "2020-03-12T17:30:00.000Z",
       "id": 3,
       "startTime": "2020-03-12T09:30:00.000Z",
       "activity": "Development"
->>>>>>> cd1b8934cb4448037abae30c566884d865a0c4a1
     }
   ],
-  "team-entries": [
+  "teamEntries": [
     {
       "client": "Koppert",
       "firstName": "Amijs",
@@ -40,11 +32,7 @@
       "startDate": "February 2022"
     },
     {
-<<<<<<< HEAD
       "client": "Koppert",
-=======
-      "client": "Humanoids",
->>>>>>> cd1b8934cb4448037abae30c566884d865a0c4a1
       "firstName": "Mark",
       "lastName": "Bolier",
       "role": "Front-end Developer",
@@ -52,7 +40,6 @@
       "id": 2
     },
     {
-<<<<<<< HEAD
       "client": "Hike One",
       "firstName": "Mark",
       "lastName": "Bolier",
@@ -118,14 +105,3 @@
     }
   ]
 }
-=======
-      "client": "Humanoids",
-      "firstName": "Jarmo",
-      "lastName": "van der Heul",
-      "role": "Front-end Developer",
-      "startDate": "",
-      "id": 3
-    }
-  ]
-}
->>>>>>> cd1b8934cb4448037abae30c566884d865a0c4a1

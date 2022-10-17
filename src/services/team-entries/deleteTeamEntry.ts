@@ -1,7 +1,7 @@
 import * as Types from "../../types/types";
 
 export async function deleteTeamEntry(teamEntry: Types.TeamEntry) {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/team-entries/${teamEntry.id}`, {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/teamEntries/${teamEntry.id}`, {
     method: "DELETE",
   })
     .then(async (response) => {
