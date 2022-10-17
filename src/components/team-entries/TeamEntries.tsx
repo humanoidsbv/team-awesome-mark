@@ -34,7 +34,7 @@ export const TeamEntries = ({ isModalActive, handleModal }: TeamEntriesProps) =>
 
   useEffect(() => {
     handleSort();
-  }, [ascending]);
+  }, [ascending, teamEntries]);
 
   return (
     <Styled.Container>
