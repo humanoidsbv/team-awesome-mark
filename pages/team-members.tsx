@@ -1,17 +1,20 @@
 import { useState } from "react";
 
-import { getTeamEntries } from "../src/services/team-entries";
 import { SubHeader } from "../src/components/subheader";
 import { TeamEntries } from "../src/components/team-entries";
 import { TeamEntriesProvider } from "../src/context/TeamEntriesProvider";
 import * as Types from "../src/types/types";
+import { GET_TEAM_ENTRIES } from "../src/graphql/team-entries/queries";
+import { client } from "../src/services/apollo-client/apollo-client";
 
 export const getServerSideProps = async () => {
-  const initialTeamEntries = await getTeamEntries();
+  const { data } = await client.query({
+    query: GET_TEAM_ENTRIES,
+  });
 
   return {
     props: {
-      initialTeamEntries,
+      initialTeamEntries: data.allTeamEntries,
     },
   };
 };
