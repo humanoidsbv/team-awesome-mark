@@ -5,5 +5,5 @@ export const client = new ApolloClient({
   link: createHttpLink({
     uri: "http://localhost:3333",
   }),
-  ssrMode: typeof window === "undefined",
+  ssrMode: true,
 });

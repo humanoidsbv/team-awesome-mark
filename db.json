@@ -102,6 +102,14 @@
       "role": "DJ",
       "startDate": "",
       "id": 10
+    },
+    {
+      "client": "asdasda",
+      "firstName": "asdasdsad",
+      "lastName": "asdasdas",
+      "role": "asdadasd",
+      "startDate": "",
+      "id": 11
     }
   ]
 }
