@@ -41,8 +41,10 @@ export const TeamEntryForm = ({ handleModal }: TeamEntryFormProps) => {
       startDate: newTeamEntry.startDate,
     };
     const postedEntry = await postTeamEntry(formattedEntry);
-    setTeamEntries([...teamEntries, postedEntry]);
-    setNewTeamEntry(initialFormValues);
+    if (postedEntry) {
+      setTeamEntries([...teamEntries, postedEntry]);
+      setNewTeamEntry(initialFormValues);
+    }
     handleModal();
   };
 

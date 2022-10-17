@@ -40,8 +40,10 @@ export const TimeEntryForm = ({ handleModal }: TimeEntryFormProps) => {
       startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
     };
     const postedEntry = await postTimeEntry(formattedEntry);
-    setTimeEntries([...timeEntries, postedEntry]);
-    setNewTimeEntry(initialFormValues);
+    if (postedEntry) {
+      setTimeEntries([...timeEntries, postedEntry]);
+      setNewTimeEntry(initialFormValues);
+    }
     handleModal();
   };
 

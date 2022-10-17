@@ -35,7 +35,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
 
   useEffect(() => {
     handleSort();
-  }, [ascending]);
+  }, [ascending, timeEntries]);
 
   const handleDelete = async (entry: Types.TimeEntry) => {
     const deletedEntry = timeEntries.indexOf(entry);
