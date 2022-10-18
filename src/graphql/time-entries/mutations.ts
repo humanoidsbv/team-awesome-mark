@@ -4,8 +4,8 @@ export const ADD_TIME_ENTRY = gql`
   mutation createTimeEntry(
     $activity: String!
     $client: String!
-    $startTime: Date!
-    $endTime: Date!
+    $startTime: String!
+    $endTime: String!
   ) {
     createTimeEntry(
       activity: $activity
