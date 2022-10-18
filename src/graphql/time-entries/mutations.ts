@@ -23,7 +23,7 @@ export const ADD_TIME_ENTRY = gql`
 `;
 
 export const DELETE_TIME_ENTRY = gql`
-  mutation removeTimeEntry($id: ID!) {
+  mutation RemoveTimeEntry($id: ID!) {
     removeTimeEntry(id: $id) {
       id
     }
