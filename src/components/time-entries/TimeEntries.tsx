@@ -3,13 +3,13 @@ import { useMutation } from "@apollo/client";
 
 import { DELETE_TIME_ENTRY } from "../../graphql/time-entries/mutations";
 import { FilterTimeEntries } from "../filter-time-entries";
-import { GET_TIME_ENTRIES } from "../../graphql/time-entries/queries";
 import { Modal } from "../modal/Modal";
 import { TimeEntriesContext } from "../../context/TimeEntriesProvider";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryForm } from "../time-entry-form";
 import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
+import { GET_TIME_ENTRIES } from "../../graphql/time-entries/queries";
 
 interface TimeEntriesProps {
   handleModal: () => void;
@@ -17,11 +17,15 @@ interface TimeEntriesProps {
 }
 
 export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) => {
-  const { timeEntries } = useContext(TimeEntriesContext);
+  const { timeEntries, setTimeEntries } = useContext(TimeEntriesContext);
   const [orderedEntries, setOrderedEntries] = useState(timeEntries);
   const [ascending, setAscending] = useState(false);
   const [currentClient, setCurrentClient] = useState("");
-  const [removeTimeEntry] = useMutation(DELETE_TIME_ENTRY, {
+  const [deleteTimeEntry] = useMutation(DELETE_TIME_ENTRY, {
+    onCompleted: async ({ removeTimeEntry }) => {
+      const filteredEntries = timeEntries.filter((entry) => entry.id !== removeTimeEntry.id);
+      setTimeEntries(filteredEntries);
+    },
     refetchQueries: [{ query: GET_TIME_ENTRIES }],
   });
 
@@ -45,7 +49,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
   const handleDelete = async (entry: Types.TimeEntry) => {
     const { id } = entry;
 
-    await removeTimeEntry({
+    await deleteTimeEntry({
       variables: {
         id,
       },

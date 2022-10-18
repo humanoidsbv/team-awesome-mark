@@ -5,7 +5,7 @@ import { ADD_TIME_ENTRY } from "../../graphql/time-entries/mutations";
 import { Button } from "../button/Button";
 import { GET_TIME_ENTRIES } from "../../graphql/time-entries/queries";
 import * as Styled from "./TimeEntryForm.styled";
-// import { TimeEntriesContext } from "../../context/TimeEntriesProvider";
+import { TimeEntriesContext } from "../../context/TimeEntriesProvider";
 
 interface TimeEntryFormProps {
   handleModal: () => void;
@@ -22,12 +22,12 @@ const initialFormValues = {
 export const TimeEntryForm = ({ handleModal }: TimeEntryFormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState(initialFormValues);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
-  // const { timeEntries, setTimeEntries } = useContext(TimeEntriesContext);
+  const { timeEntries, setTimeEntries } = useContext(TimeEntriesContext);
 
-  const [createTimeEntry] = useMutation(ADD_TIME_ENTRY, {
-    // onCompleted: async ({ createdTimeEntry }) => {
-    //   setTimeEntries([...timeEntries, createdTimeEntry]);
-    // },
+  const [addTimeEntry] = useMutation(ADD_TIME_ENTRY, {
+    onCompleted: async ({ createTimeEntry }) => {
+      setTimeEntries([...timeEntries, createTimeEntry]);
+    },
     refetchQueries: [{ query: GET_TIME_ENTRIES }],
   });
 
@@ -46,7 +46,7 @@ export const TimeEntryForm = ({ handleModal }: TimeEntryFormProps) => {
     const endTime = `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`;
     const startTime = `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`;
 
-    await createTimeEntry({
+    await addTimeEntry({
       variables: {
         activity,
         client,
