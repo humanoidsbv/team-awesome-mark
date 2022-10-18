@@ -1,9 +1,11 @@
 import { useContext, useState, useEffect } from "react";
+import { useMutation } from "@apollo/client";
 
-import { deleteTimeEntry } from "../../services/time-entries/deleteTimeEntry";
+import { DELETE_TIME_ENTRY } from "../../graphql/time-entries/mutations";
 import { FilterTimeEntries } from "../filter-time-entries";
-import { TimeEntriesContext } from "../../context/TimeEntriesProvider";
+import { GET_TIME_ENTRIES } from "../../graphql/time-entries/queries";
 import { Modal } from "../modal/Modal";
+import { TimeEntriesContext } from "../../context/TimeEntriesProvider";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import { TimeEntryForm } from "../time-entry-form";
 import * as Styled from "./TimeEntries.styled";
@@ -15,10 +17,13 @@ interface TimeEntriesProps {
 }
 
 export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) => {
-  const { timeEntries, setTimeEntries } = useContext(TimeEntriesContext);
+  const { timeEntries } = useContext(TimeEntriesContext);
   const [orderedEntries, setOrderedEntries] = useState(timeEntries);
   const [ascending, setAscending] = useState(false);
   const [currentClient, setCurrentClient] = useState("");
+  const [removeTimeEntry] = useMutation(DELETE_TIME_ENTRY, {
+    refetchQueries: [{ query: GET_TIME_ENTRIES }],
+  });
 
   const handleSort = async () => {
     const sortedEntries = timeEntries.sort((a, b) => {
@@ -38,17 +43,13 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
   }, [ascending, timeEntries]);
 
   const handleDelete = async (entry: Types.TimeEntry) => {
-    const deletedEntry = timeEntries.indexOf(entry);
-    const deleteResponse = await deleteTimeEntry(entry);
-    if (deleteResponse instanceof Error) {
-      // eslint-disable-next-line no-alert
-      alert("Oops, something went wrong");
-      return;
-    }
-    setTimeEntries([
-      ...timeEntries.slice(0, deletedEntry),
-      ...timeEntries.slice(deletedEntry + 1, timeEntries.length),
-    ]);
+    const { id } = entry;
+
+    await removeTimeEntry({
+      variables: {
+        id,
+      },
+    });
   };
 
   return (

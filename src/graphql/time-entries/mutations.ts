@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const ADD_TIME_ENTRY = gql`
-  mutation createTimeEntry(
+  mutation CreateTimeEntry(
     $activity: String!
     $client: String!
     $startTime: String!
@@ -18,6 +18,14 @@ export const ADD_TIME_ENTRY = gql`
       client
       startTime
       endTime
+    }
+  }
+`;
+
+export const DELETE_TIME_ENTRY = gql`
+  mutation removeTimeEntry($id: ID!) {
+    removeTimeEntry(id: $id) {
+      id
     }
   }
 `;

@@ -1,11 +1,10 @@
-import React, { useState, useRef, useContext } from "react";
 import { useMutation } from "@apollo/client";
+import React, { useState, useRef } from "react";
 
-import { Button } from "../button/Button";
-import { postTimeEntry } from "../../services/time-entries/postTimeEntry";
-import * as Styled from "./TimeEntryForm.styled";
-import { TimeEntriesContext } from "../../context/TimeEntriesProvider";
 import { ADD_TIME_ENTRY } from "../../graphql/time-entries/mutations";
+import { Button } from "../button/Button";
+import { GET_TIME_ENTRIES } from "../../graphql/time-entries/queries";
+import * as Styled from "./TimeEntryForm.styled";
 
 interface TimeEntryFormProps {
   handleModal: () => void;
@@ -22,9 +21,9 @@ const initialFormValues = {
 export const TimeEntryForm = ({ handleModal }: TimeEntryFormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState(initialFormValues);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
-  const { timeEntries, setTimeEntries } = useContext(TimeEntriesContext);
-
-  const [createTimeEntry] = useMutation(ADD_TIME_ENTRY);
+  const [createTimeEntry] = useMutation(ADD_TIME_ENTRY, {
+    refetchQueries: [{ query: GET_TIME_ENTRIES }],
+  });
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -37,21 +36,9 @@ export const TimeEntryForm = ({ handleModal }: TimeEntryFormProps) => {
   };
 
   const handleSubmit = async () => {
-    // const formattedEntry = {
-    //   activity: newTimeEntry.activity,
-    //   client: newTimeEntry.client,
-    //   endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
-    //   startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
-    // };
-    // const postedEntry = await postTimeEntry(formattedEntry);
-    // if (postedEntry) {
-    //   setTimeEntries([...timeEntries, postedEntry]);
-    //   setNewTimeEntry(initialFormValues);
-    // }
-    const { activity } = newTimeEntry;
-    const { client } = newTimeEntry;
-    const endTime = new Date(`${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`);
-    const startTime = new Date(`${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`);
+    const { activity, client } = newTimeEntry;
+    const endTime = `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`;
+    const startTime = `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`;
 
     await createTimeEntry({
       variables: {
