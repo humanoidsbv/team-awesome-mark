@@ -1,9 +1,11 @@
+import { useMutation } from "@apollo/client";
 import React, { useState, useRef, useContext } from "react";
 
+import { ADD_TEAM_ENTRY } from "../../graphql/team-entries/mutations";
 import { Button } from "../button/Button";
-import { postTeamEntry } from "../../services/team-entries/postTeamEntry";
-import * as Styled from "./TeamEntryForm.styled";
+import { GET_TEAM_ENTRIES } from "../../graphql/team-entries/queries";
 import { TeamEntriesContext } from "../../context/TeamEntriesProvider";
+import * as Styled from "./TeamEntryForm.styled";
 
 interface TeamEntryFormProps {
   handleModal: () => void;
@@ -22,6 +24,13 @@ export const TeamEntryForm = ({ handleModal }: TeamEntryFormProps) => {
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const { teamEntries, setTeamEntries } = useContext(TeamEntriesContext);
 
+  const [addTeamEntry] = useMutation(ADD_TEAM_ENTRY, {
+    onCompleted: async ({ createTeamEntry }) => {
+      setTeamEntries([...teamEntries, createTeamEntry]);
+    },
+    refetchQueries: [{ query: GET_TEAM_ENTRIES }],
+  });
+
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleBlur = () => {
@@ -33,18 +42,16 @@ export const TeamEntryForm = ({ handleModal }: TeamEntryFormProps) => {
   };
 
   const handleSubmit = async () => {
-    const formattedEntry = {
-      client: newTeamEntry.client,
-      firstName: newTeamEntry.firstName,
-      lastName: newTeamEntry.lastName,
-      role: newTeamEntry.role,
-      startDate: newTeamEntry.startDate,
-    };
-    const postedEntry = await postTeamEntry(formattedEntry);
-    if (postedEntry) {
-      setTeamEntries([...teamEntries, postedEntry]);
-      setNewTeamEntry(initialFormValues);
-    }
+    const { client, firstName, lastName, role, startDate } = newTeamEntry;
+    await addTeamEntry({
+      variables: {
+        client,
+        firstName,
+        lastName,
+        role,
+        startDate,
+      },
+    });
     handleModal();
   };
 

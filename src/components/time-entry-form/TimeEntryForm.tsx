@@ -4,8 +4,8 @@ import React, { useState, useRef, useContext } from "react";
 import { ADD_TIME_ENTRY } from "../../graphql/time-entries/mutations";
 import { Button } from "../button/Button";
 import { GET_TIME_ENTRIES } from "../../graphql/time-entries/queries";
-import * as Styled from "./TimeEntryForm.styled";
 import { TimeEntriesContext } from "../../context/TimeEntriesProvider";
+import * as Styled from "./TimeEntryForm.styled";
 
 interface TimeEntryFormProps {
   handleModal: () => void;
@@ -45,7 +45,6 @@ export const TimeEntryForm = ({ handleModal }: TimeEntryFormProps) => {
     const { activity, client } = newTimeEntry;
     const endTime = `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`;
     const startTime = `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`;
-
     await addTimeEntry({
       variables: {
         activity,
