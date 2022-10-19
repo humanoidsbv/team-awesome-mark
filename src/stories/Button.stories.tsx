@@ -1,41 +1,45 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { action } from "@storybook/addon-actions";
+import { withDesign } from "storybook-addon-designs";
+import { Meta, Story } from "@storybook/react";
 
-import { Button } from './Button';
+import { Button } from "../components/shared/button";
+import * as Types from "../types/types";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: "Button",
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof Button>;
+  decorators: [withDesign],
+} as Meta;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: Story<Types.ButtonProps> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  primary: true,
-  label: 'Button',
+  label: "Primary button",
+  disabled: false,
+  hasAddIcon: true,
+  variant: "primary",
+  onClick: action("clicked"),
+};
+
+Primary.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/lvXiiymHbNqLdfqyqNc5s5/team_awesome_dashboard?node-id=0%3A1",
+  },
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Button',
+  label: "Secondary button",
+  variant: "secondary",
+  onClick: action("clicked"),
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
+Secondary.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/lvXiiymHbNqLdfqyqNc5s5/team_awesome_dashboard?node-id=0%3A1",
+  },
 };
