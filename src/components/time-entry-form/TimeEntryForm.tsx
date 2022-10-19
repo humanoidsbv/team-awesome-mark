@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext } from "react";
 
-import { Button } from "../button/Button";
+import { Button } from "../shared/button/Button";
 import { postTimeEntry } from "../../services/time-entries/postTimeEntry";
 import * as Styled from "./TimeEntryForm.styled";
 import { TimeEntriesContext } from "../../context/TimeEntriesProvider";
