@@ -4,14 +4,16 @@ import * as Styled from "./Button.styled";
 import AddIcon from "../../../public/images/plus.svg";
 
 interface ButtonProps {
+  buttonText?: string;
   hasAddIcon?: boolean;
-  label: string;
+  label?: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
   variant?: "primary" | "secondary";
   disabled?: boolean;
 }
 
 export const Button = ({
+  buttonText,
   hasAddIcon,
   label,
   onClick,
@@ -20,6 +22,6 @@ export const Button = ({
 }: ButtonProps) => (
   <Styled.Button variant={variant} onClick={onClick} disabled={disabled}>
     {hasAddIcon && <AddIcon />}
-    {label}
+    {label} {buttonText}
   </Styled.Button>
 );

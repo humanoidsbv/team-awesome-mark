@@ -9,6 +9,7 @@ export interface Modal {
 }
 
 export interface SubHeader {
+  buttonText: string;
   entries: number;
   entriesLabel: string;
   handleModal: () => void;
