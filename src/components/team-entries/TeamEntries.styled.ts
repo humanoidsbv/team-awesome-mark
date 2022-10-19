@@ -4,6 +4,7 @@ export const Container = styled.div`
   @media (${({ theme }) => theme.tablet}) {
     display: grid;
     justify-content: center;
+    margin-bottom: 20px;
   }
 `;
 
