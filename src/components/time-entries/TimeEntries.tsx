@@ -41,6 +41,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
     const deletedEntry = timeEntries.indexOf(entry);
     const deleteResponse = await deleteTimeEntry(entry);
     if (deleteResponse instanceof Error) {
+      // eslint-disable-next-line no-alert
       alert("Oops, something went wrong");
       return;
     }
