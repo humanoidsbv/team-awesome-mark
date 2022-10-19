@@ -29,6 +29,7 @@ export const Logo = styled.a`
   font-size: 26px;
   font-weight: light;
   padding: 0 30px;
+  text-decoration: none;
   white-space: nowrap;
 `;
 
