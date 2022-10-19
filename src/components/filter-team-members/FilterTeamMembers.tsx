@@ -18,9 +18,8 @@ export const FilterTeamMembers = ({ setCurrentClient }: FilterTeamMemberProps) =
   return (
     <>
       <Styled.Container>
-        <Styled.Label>Filter by client:</Styled.Label>
         <Styled.Select name="clients" id="client-filter" onChange={handleFilter}>
-          <option value="">Choose a client</option>
+          <option value="">--Filter by client--</option>
           {clients.map((entry) => {
             return (
               <option value={entry} label={entry} key={entry}>
