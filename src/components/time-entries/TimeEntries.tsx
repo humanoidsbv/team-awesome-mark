@@ -20,6 +20,8 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
   const [ascending, setAscending] = useState(false);
   const [currentClient, setCurrentClient] = useState("");
 
+  console.log(orderedEntries);
+
   const handleSort = async () => {
     const sortedEntries = timeEntries.sort((a, b) => {
       if (a.startTime < b.startTime) {
@@ -82,7 +84,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
                 {previousDate !== currentDate && (
                   <Styled.Section>
                     <Styled.Weekday>{currentDate}</Styled.Weekday>
-                    <Styled.Time>08:00</Styled.Time>
+                    <Styled.Time>8:00</Styled.Time>
                   </Styled.Section>
                 )}
                 <TimeEntry
