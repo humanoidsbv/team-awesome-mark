@@ -44,7 +44,7 @@ export const Header = () => {
         </Styled.MenuItems>
       </Styled.Menu>
       <Styled.Toggle onClick={handleClick}>
-        {!isActive ? <MenuIcon /> : <CloseIcon />}
+        {!isActive ? <MenuIcon data-testid="hamburger" /> : <CloseIcon data-testid="close" />}
       </Styled.Toggle>
     </Styled.Container>
   );

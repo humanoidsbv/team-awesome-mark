@@ -9,7 +9,7 @@ export const Modal = ({ children, title, isActive, onClose }: Types.Modal) =>
   isActive
     ? createPortal(
         <Styled.ModalBackdrop onClick={onClose}>
-          <Styled.Modal onClick={(e) => e.stopPropagation()}>
+          <Styled.Modal data-testid="modal" onClick={(e) => e.stopPropagation()}>
             <Styled.IconWrapper>
               <CloseIcon onClick={onClose} />
             </Styled.IconWrapper>
