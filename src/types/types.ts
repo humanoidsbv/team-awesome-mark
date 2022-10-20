@@ -1,4 +1,12 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
+
+export interface ButtonProps {
+  hasAddIcon?: boolean;
+  label: string;
+  onClick: MouseEventHandler<HTMLButtonElement>;
+  variant?: "primary" | "secondary";
+  disabled?: boolean;
+}
 
 export interface Modal {
   children?: React.ReactElement;

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext } from "react";
 
-import { Button } from "../button/Button";
+import { Button } from "../shared/button/Button";
 import { postTeamEntry } from "../../services/team-entries/postTeamEntry";
 import * as Styled from "./TeamEntryForm.styled";
 import { TeamEntriesContext } from "../../context/TeamEntriesProvider";

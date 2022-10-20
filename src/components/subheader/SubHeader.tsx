@@ -1,4 +1,4 @@
-import { Button } from "../button";
+import { Button } from "../shared/button";
 import * as Styled from "./SubHeader.styled";
 import * as Types from "../../types/types";
 

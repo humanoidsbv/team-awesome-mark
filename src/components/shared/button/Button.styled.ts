@@ -14,6 +14,7 @@ export const Button = styled.button<ButtonProps>`
   justify-content: center;
   margin-top: 20px;
   width: 100%;
+  border: none;
 
   ${({ variant }) =>
     variant === "primary" &&
