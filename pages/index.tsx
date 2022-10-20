@@ -35,6 +35,7 @@ const TimeSheets = ({ initialTimeEntries }: TimeSheetsProps) => {
           label="Timesheets"
           handleModal={handleModal}
           entriesLabel="Entries"
+          buttonText="New time entry"
         />
         <TimeEntries isModalActive={isModalActive} handleModal={handleModal} />
       </TimeEntriesProvider>

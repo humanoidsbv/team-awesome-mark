@@ -41,6 +41,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
     const deletedEntry = timeEntries.indexOf(entry);
     const deleteResponse = await deleteTimeEntry(entry);
     if (deleteResponse instanceof Error) {
+      // eslint-disable-next-line no-alert
       alert("Oops, something went wrong");
       return;
     }
@@ -81,7 +82,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: TimeEntriesProps) =>
                 {previousDate !== currentDate && (
                   <Styled.Section>
                     <Styled.Weekday>{currentDate}</Styled.Weekday>
-                    <Styled.Time>08:00</Styled.Time>
+                    <Styled.Time>8:00</Styled.Time>
                   </Styled.Section>
                 )}
                 <TimeEntry

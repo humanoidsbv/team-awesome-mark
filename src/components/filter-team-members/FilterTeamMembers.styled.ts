@@ -4,11 +4,6 @@ export const Container = styled.div`
   padding: 10px;
 `;
 
-export const Label = styled.label`
-  color: ${({ theme }) => theme.fontColorLight};
-  font-size: 14px;
-`;
-
 export const Select = styled.select`
   border-radius: 4px;
   border: 1px solid #e6eaee;

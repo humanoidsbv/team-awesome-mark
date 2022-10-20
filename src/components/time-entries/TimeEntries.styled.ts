@@ -4,6 +4,7 @@ export const Container = styled.div`
   @media (${({ theme }) => theme.tablet}) {
     display: grid;
     justify-content: center;
+    margin-bottom: 20px;
   }
 `;
 
@@ -15,7 +16,7 @@ export const Section = styled.div`
 
 export const Sort = styled.button`
   color: ${({ theme }) => theme.fontColorLight};
-  padding: 20px 10px;
+  padding: 20px;
 
   &:hover {
     color: ${({ theme }) => theme.fontColor};

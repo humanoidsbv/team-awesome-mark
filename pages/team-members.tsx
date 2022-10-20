@@ -35,6 +35,7 @@ const TeamMembers = ({ initialTeamEntries }: TeamMembersProps) => {
           label="Team members"
           handleModal={handleModal}
           entriesLabel="Humanoids"
+          buttonText="New Humanoid"
         />
         <TeamEntries isModalActive={isModalActive} handleModal={handleModal} />
       </TeamEntriesProvider>

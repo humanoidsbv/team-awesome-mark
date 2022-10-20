@@ -20,10 +20,10 @@ export const TeamEntries = ({ isModalActive, handleModal }: TeamEntriesProps) =>
 
   const handleSort = () => {
     const sortedEntries = teamEntries.sort((a, b) => {
-      if (a.firstName < b.firstName) {
+      if (a.firstName.toLowerCase() < b.firstName.toLowerCase()) {
         return ascending ? 1 : -1;
       }
-      if (a.firstName > b.firstName) {
+      if (a.firstName.toLowerCase() > b.firstName.toLowerCase()) {
         return ascending ? -1 : 1;
       }
       return 0;

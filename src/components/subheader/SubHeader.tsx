@@ -2,7 +2,13 @@ import { Button } from "../shared/button";
 import * as Styled from "./SubHeader.styled";
 import * as Types from "../../types/types";
 
-export const SubHeader = ({ label, entries, entriesLabel, handleModal }: Types.SubHeader) => {
+export const SubHeader = ({
+  buttonText,
+  label,
+  entries,
+  entriesLabel,
+  handleModal,
+}: Types.SubHeader) => {
   return (
     <Styled.Container>
       <Styled.Title>{label}</Styled.Title>
@@ -11,7 +17,7 @@ export const SubHeader = ({ label, entries, entriesLabel, handleModal }: Types.S
         {entries} {entriesLabel}
       </Styled.Counter>
       <Styled.ButtonWrapper>
-        <Button label="Add new entry" onClick={handleModal} hasAddIcon variant="primary" />
+        <Button buttonText={buttonText} onClick={handleModal} hasAddIcon variant="primary" />
       </Styled.ButtonWrapper>
     </Styled.Container>
   );

@@ -1,16 +1,10 @@
 import styled from "styled-components";
 
-export const Client = styled.p`
-  color: ${({ theme }) => theme.fontColorLight};
-  font-size: 18px;
-  margin-left: auto;
-  margin-right: 0;
-`;
-
 export const Container = styled.div`
   @media (${({ theme }) => theme.tablet}) {
     display: grid;
     justify-content: center;
+    margin-bottom: 20px;
   }
 `;
 

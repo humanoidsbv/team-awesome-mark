@@ -1,11 +1,12 @@
 import React, { MouseEventHandler } from "react";
 
 export interface ButtonProps {
+  buttonText?: string;
+  disabled?: boolean;
   hasAddIcon?: boolean;
-  label: string;
+  label?: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
   variant?: "primary" | "secondary";
-  disabled?: boolean;
 }
 
 export interface Modal {
@@ -17,6 +18,7 @@ export interface Modal {
 }
 
 export interface SubHeader {
+  buttonText: string;
   entries: number;
   entriesLabel: string;
   handleModal: () => void;

@@ -13,31 +13,33 @@ export const Header = () => {
 
   return (
     <Styled.Container isActive={isActive}>
-      <Styled.Logo>team awesome</Styled.Logo>
+      <Link href="/" passHref>
+        <Styled.Logo>team awesome</Styled.Logo>
+      </Link>
       <Styled.Menu isActive={!isActive}>
         <Styled.MenuItems>
           <Link href="/" passHref>
-            <Styled.Item>Timesheets</Styled.Item>
+            <Styled.Item onClick={handleClick}>Timesheets</Styled.Item>
           </Link>
         </Styled.MenuItems>
         <Styled.MenuItems>
           <Link href="/team-members" passHref>
-            <Styled.Item>Team members</Styled.Item>
+            <Styled.Item onClick={handleClick}>Team members</Styled.Item>
           </Link>
         </Styled.MenuItems>
         <Styled.MenuItems>
           <Link href="/" passHref>
-            <Styled.Item>Projects</Styled.Item>
+            <Styled.Item onClick={handleClick}>Projects</Styled.Item>
           </Link>
         </Styled.MenuItems>
         <Styled.MenuItems>
           <Link href="/" passHref>
-            <Styled.Item>Clients</Styled.Item>
+            <Styled.Item onClick={handleClick}>Clients</Styled.Item>
           </Link>
         </Styled.MenuItems>
         <Styled.MenuItems>
           <Link href="/" passHref>
-            <Styled.Item>Documents</Styled.Item>
+            <Styled.Item onClick={handleClick}>Documents</Styled.Item>
           </Link>
         </Styled.MenuItems>
       </Styled.Menu>
