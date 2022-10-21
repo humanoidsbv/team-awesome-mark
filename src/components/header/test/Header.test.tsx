@@ -4,7 +4,7 @@ import "@testing-library/jest-dom/extend-expect";
 
 import { Header } from "../Header";
 
-test("if hamburger button is clicked", async () => {
+test("if hamburger button changes into close button", () => {
   const header = render(<Header />);
   const button = header.getByRole("button");
   const hamburger = header.getByTestId("hamburger");
