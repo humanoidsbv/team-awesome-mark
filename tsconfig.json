@@ -104,5 +104,5 @@
     "src/components/header/Header.tsx",
     "src/components/header/test/Header.test.jsx"
   ],
-  "exclude": ["node_modules", "cypress"]
+  "exclude": ["node_modules"]
 }
