@@ -49,6 +49,7 @@
     "@humanoids/eslint-config": "^0.0.14",
     "@humanoids/prettier-config": "^0.0.4",
     "@testing-library/jest-dom": "^5.16.5",
+    "@types/babel__core": "^7.1.19",
     "@types/jest": "^29.2.0",
     "@types/node": "^18.7.18",
     "@types/react": "^18.0.20",
