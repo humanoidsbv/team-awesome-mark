@@ -17,5 +17,5 @@ jobs:
       - name: 🧰  Install
         run: npm ci --production-only
 
-      - name: 📦  build
+      - name: 📦  Run build
         run: npm run build
