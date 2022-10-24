@@ -2,7 +2,7 @@ on: push
 
 jobs:
   build:
-    name: Build application
+    name: Jest testing
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -11,11 +11,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "17"
+          node-version: "16.18.0"
           cache: npm
 
       - name: 🧰  Install
         run: npm ci --production-only
 
-      - name: 📦  Run build
-        run: npm run build
+      - name: 🧪  Run test
+        run: npm run test

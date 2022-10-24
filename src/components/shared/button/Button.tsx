@@ -8,9 +8,10 @@ export const Button = ({
   onClick,
   variant = "primary",
   disabled,
+  buttonText,
 }: Types.ButtonProps) => (
   <Styled.Button variant={variant} onClick={onClick} disabled={disabled}>
     {hasAddIcon && <AddIcon />}
-    {label}
+    {label} {buttonText}
   </Styled.Button>
 );
