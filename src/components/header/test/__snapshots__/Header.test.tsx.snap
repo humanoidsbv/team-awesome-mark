@@ -87,7 +87,7 @@ exports[`renders correctly 1`] = `
     onClick={[Function]}
   >
     <svg
-      data-testid="hamburger"
+      data-testid="hamburger-icon"
       fill="none"
       height="12"
       width="18"
