@@ -2,7 +2,7 @@ on: push
 
 jobs:
   build:
-    name: Jest test
+    name: Jest testing
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository

@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { render, fireEvent } from "@testing-library/react";
+import renderer from "react-test-renderer";
 import "@testing-library/jest-dom/extend-expect";
 
 import { Header } from "../Header";
@@ -15,4 +16,9 @@ test("if hamburger button changes into close button", () => {
 
   const close = header.getByTestId("close");
   expect(close).toBeInTheDocument();
+});
+
+test("renders correctly", () => {
+  const component = renderer.create(<Header />);
+  expect(component.toJSON()).toMatchSnapshot();
 });
