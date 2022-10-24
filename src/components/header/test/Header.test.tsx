@@ -8,13 +8,13 @@ import { Header } from "../Header";
 test("if hamburger button changes into close button", () => {
   const header = render(<Header />);
   const button = header.getByRole("button");
-  const hamburger = header.getByTestId("hamburger");
+  const hamburger = header.getByTestId("hamburger-icon");
 
   expect(hamburger).toBeInTheDocument();
 
   fireEvent.click(button);
 
-  const close = header.getByTestId("close");
+  const close = header.getByTestId("close-icon");
   expect(close).toBeInTheDocument();
 });
 
