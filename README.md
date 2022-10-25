@@ -17,7 +17,7 @@ Using the [latest stable Node version (LTS)](https://nodejs.org/en/) & the [late
 git clone [this/repo]
 ```
 
-2. Install the dependencies needed to run the app.
+2. Install the dependencies needed to run the app
 ```
 npm i
 ```
