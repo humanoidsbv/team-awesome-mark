@@ -18,8 +18,8 @@
     "type": "git",
     "url": "git+https://github.com/humanoidsbv/team-awesome-mark.git"
   },
-  "author": "Mark",
-  "license": "ISC",
+  "author": "Mark Bolier",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/humanoidsbv/team-awesome-mark/issues"
   },

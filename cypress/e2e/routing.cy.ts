@@ -5,5 +5,6 @@ describe("Routing", () => {
     cy.viewport("iphone-6");
     cy.get("[data-cy=hamburger-icon]").click();
     cy.get("[data-cy=team-members-link]").click();
+    cy.url().should("include", "/team-members");
   });
 });
