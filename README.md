@@ -44,8 +44,11 @@ This will start Storybook locally and output the address. Depending on your syst
 - **Vercel** to deploy the app 🚀
 - **Storybook** for documenting, testing and creating reusable components 📚
 
+## Contributions
+Want to help me out? You can contribute to this project by creating a pull request.
+
 ## Credits
-A special thanks to all the lovely people at Humanoids for their guidance and help! 💙
+A special thanks to all the excellent teachers and trainees at Humanoids for their guidance, patience and help! 💙 To get to work on this project every day among these lovely people was amazing.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
