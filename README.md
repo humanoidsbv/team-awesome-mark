@@ -45,7 +45,7 @@ This will start Storybook locally and output the address. Depending on your syst
 - **Storybook** for documenting, testing and creating reusable components 📚
 
 ## Contributions
-Want to help me out? You can contribute to this project by creating a pull request.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Credits
 A special thanks to all the excellent teachers and trainees at Humanoids for their guidance, patience and help! 💙 To get to work on this project every day among these lovely people was amazing.
