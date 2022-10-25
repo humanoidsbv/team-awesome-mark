@@ -101,7 +101,8 @@
     "**/*.tsx",
     "pages/_document.tsx",
     "pages/index.jsx",
-    "src/components/header/Header.tsx"
+    "src/components/header/Header.tsx",
+    "src/components/header/test/Header.test.jsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "cypress", "cypress.config.ts"]
 }

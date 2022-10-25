@@ -24,7 +24,9 @@ export const Header = () => {
         </Styled.MenuItems>
         <Styled.MenuItems>
           <Link href="/team-members" passHref>
-            <Styled.Item onClick={handleClick}>Team members</Styled.Item>
+            <Styled.Item data-cy="team-members-link" onClick={handleClick}>
+              Team members
+            </Styled.Item>
           </Link>
         </Styled.MenuItems>
         <Styled.MenuItems>
@@ -45,7 +47,7 @@ export const Header = () => {
       </Styled.Menu>
       <Styled.Toggle onClick={handleClick}>
         {!isActive ? (
-          <MenuIcon data-testid="hamburger-icon" />
+          <MenuIcon data-testid="hamburger-icon" data-cy="hamburger-icon" />
         ) : (
           <CloseIcon data-testid="close-icon" />
         )}

@@ -2,10 +2,10 @@
 
 exports[`renders correctly 1`] = `
 <nav
-  className="Headerstyled__Container-sc-9t0655-0 kIdbZd"
+  className="Headerstyled__Container-sc-9t0655-0 gMEqcK"
 >
   <a
-    className="Headerstyled__Logo-sc-9t0655-2 kxMlGl"
+    className="Headerstyled__Logo-sc-9t0655-2 kJdOvu"
     href="/"
     onClick={[Function]}
     onMouseEnter={[Function]}
@@ -14,13 +14,13 @@ exports[`renders correctly 1`] = `
     team awesome
   </a>
   <ul
-    className="Headerstyled__Menu-sc-9t0655-3 ifexwa"
+    className="Headerstyled__Menu-sc-9t0655-3 fhrFOB"
   >
     <li
-      className="Headerstyled__MenuItems-sc-9t0655-4 bYivZt"
+      className="Headerstyled__MenuItems-sc-9t0655-4 iEawjO"
     >
       <a
-        className="Headerstyled__Item-sc-9t0655-1 heXyau"
+        className="Headerstyled__Item-sc-9t0655-1 cEhQft"
         href="/"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -30,10 +30,11 @@ exports[`renders correctly 1`] = `
       </a>
     </li>
     <li
-      className="Headerstyled__MenuItems-sc-9t0655-4 bYivZt"
+      className="Headerstyled__MenuItems-sc-9t0655-4 iEawjO"
     >
       <a
-        className="Headerstyled__Item-sc-9t0655-1 heXyau"
+        className="Headerstyled__Item-sc-9t0655-1 cEhQft"
+        data-cy="team-members-link"
         href="/team-members"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -43,10 +44,10 @@ exports[`renders correctly 1`] = `
       </a>
     </li>
     <li
-      className="Headerstyled__MenuItems-sc-9t0655-4 bYivZt"
+      className="Headerstyled__MenuItems-sc-9t0655-4 iEawjO"
     >
       <a
-        className="Headerstyled__Item-sc-9t0655-1 heXyau"
+        className="Headerstyled__Item-sc-9t0655-1 cEhQft"
         href="/"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -56,10 +57,10 @@ exports[`renders correctly 1`] = `
       </a>
     </li>
     <li
-      className="Headerstyled__MenuItems-sc-9t0655-4 bYivZt"
+      className="Headerstyled__MenuItems-sc-9t0655-4 iEawjO"
     >
       <a
-        className="Headerstyled__Item-sc-9t0655-1 heXyau"
+        className="Headerstyled__Item-sc-9t0655-1 cEhQft"
         href="/"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -69,10 +70,10 @@ exports[`renders correctly 1`] = `
       </a>
     </li>
     <li
-      className="Headerstyled__MenuItems-sc-9t0655-4 bYivZt"
+      className="Headerstyled__MenuItems-sc-9t0655-4 iEawjO"
     >
       <a
-        className="Headerstyled__Item-sc-9t0655-1 heXyau"
+        className="Headerstyled__Item-sc-9t0655-1 cEhQft"
         href="/"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -83,10 +84,11 @@ exports[`renders correctly 1`] = `
     </li>
   </ul>
   <button
-    className="Headerstyled__Toggle-sc-9t0655-5 fSBCiX"
+    className="Headerstyled__Toggle-sc-9t0655-5 Mmodw"
     onClick={[Function]}
   >
     <svg
+      data-cy="hamburger-icon"
       data-testid="hamburger-icon"
       fill="none"
       height="12"
