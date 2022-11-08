@@ -13,9 +13,7 @@ export const Header = () => {
 
   return (
     <Styled.Container isActive={isActive}>
-      <Link href="/" passHref>
-        team awesome
-      </Link>
+      <Styled.Logo href="/">team awesome</Styled.Logo>
       <Styled.Menu isActive={!isActive}>
         <Styled.MenuItems>
           <Link href="/" onClick={handleClick} passHref>
